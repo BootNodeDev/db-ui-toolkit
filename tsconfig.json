@@ -12,5 +12,5 @@
     "moduleResolution": "node"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "src/devIndex.tsx"]
+  "exclude": ["node_modules", "dist", "src/DevPreview/index.tsx", "src/home.tsx"]
 }

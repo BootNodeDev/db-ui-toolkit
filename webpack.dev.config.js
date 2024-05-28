@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  entry: './src/devIndex.tsx',
+  entry: './src/home.tsx',
   mode: 'development',
   module: {
     rules: [

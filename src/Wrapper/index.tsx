@@ -1,17 +1,13 @@
-import React, { CSSProperties } from 'react'
+import React, { HTMLAttributes, PropsWithChildren } from 'react'
 import styles from './styles.module.scss'
 
-interface WrapperProps {
-  style?: CSSProperties
-  className?: string
-  children?: React.ReactNode
-}
+interface Props extends HTMLAttributes<HTMLDivElement>, PropsWithChildren {}
 
-const Wrapper: React.FC<WrapperProps> = ({ children, style, className, ...restProps }) => {
+const Wrapper: React.FC<Props> = ({ children, style, className, ...restProps }) => {
   return (
     <div
       style={style}
-      className={`${styles.wrapper} ${styles.wrapperDark} ${className}`}
+      className={`dbuitkWrapper ${styles.wrapper} ${className ? className : ''}`.trim()}
       {...restProps}
     >
       {children}

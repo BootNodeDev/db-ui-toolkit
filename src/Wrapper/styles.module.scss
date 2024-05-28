@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 20px;
+  background-color: #f0f0f0;
+
+  &.wrapperDark {
+    background-color: #333;
+    color: #fff;
+  }
+}

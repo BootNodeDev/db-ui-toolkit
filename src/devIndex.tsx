@@ -1,11 +1,13 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Wrapper, InnerContainer, Header, Main, Footer } from './index'
+import { Wrapper, InnerContainer, Header, Main, Footer, LogoMini, Logo } from './index'
 
 const App = () => (
   <Wrapper>
     <Header>
-      <InnerContainer>Header contents</InnerContainer>
+      <InnerContainer>
+        <Logo />
+      </InnerContainer>
     </Header>
     <Main>
       <InnerContainer>
@@ -13,7 +15,9 @@ const App = () => (
       </InnerContainer>
     </Main>
     <Footer>
-      <InnerContainer>Footer contents here</InnerContainer>
+      <InnerContainer>
+        <LogoMini />
+      </InnerContainer>
     </Footer>
   </Wrapper>
 )

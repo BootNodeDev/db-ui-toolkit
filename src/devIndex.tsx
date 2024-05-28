@@ -1,12 +1,20 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Wrapper, InnerContainer } from './index'
+import { Wrapper, InnerContainer, Header, Main, Footer } from './index'
 
 const App = () => (
   <Wrapper>
-    <InnerContainer>
-      <p>Hola mundo</p>
-    </InnerContainer>
+    <Header>
+      <InnerContainer>Header contents</InnerContainer>
+    </Header>
+    <Main>
+      <InnerContainer>
+        <p>Main contents here</p>
+      </InnerContainer>
+    </Main>
+    <Footer>
+      <InnerContainer>Footer contents here</InnerContainer>
+    </Footer>
   </Wrapper>
 )
 

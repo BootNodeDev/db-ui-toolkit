@@ -9,8 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "outDir": "./dist",
-    "moduleResolution": "node",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

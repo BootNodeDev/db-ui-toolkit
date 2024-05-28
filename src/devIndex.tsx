@@ -4,7 +4,7 @@ import { Wrapper, InnerContainer } from './index'
 
 const App = () => (
   <Wrapper>
-    <InnerContainer style={{ border: '2px solid red' }} className="custom-inner">
+    <InnerContainer>
       <p>Hola mundo</p>
     </InnerContainer>
   </Wrapper>

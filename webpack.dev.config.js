@@ -7,7 +7,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'babel-loader',
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
@@ -65,6 +65,6 @@ module.exports = {
       directory: path.resolve(__dirname, 'public'),
     },
     compress: true,
-    port: 9000,
+    port: 1208,
   },
 }

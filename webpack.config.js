@@ -6,10 +6,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    library: 'BnUiToolkit',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-    globalObject: 'this',
+    library: {
+      type: 'module',
+    },
+    module: true,
+  },
+  experiments: {
+    outputModule: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -18,7 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'babel-loader',
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
@@ -65,17 +68,7 @@ module.exports = {
     ],
   },
   externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react',
-      root: 'React',
-    },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'react-dom',
-      root: 'ReactDOM',
-    },
+    react: 'react',
+    'react-dom': 'react-dom',
   },
 }

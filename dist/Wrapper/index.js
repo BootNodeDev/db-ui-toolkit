@@ -13,6 +13,6 @@ import React from 'react';
 import styles from './styles.module.scss';
 const Wrapper = (_a) => {
     var { children, style, className } = _a, restProps = __rest(_a, ["children", "style", "className"]);
-    return (React.createElement("div", Object.assign({ style: style, className: `${styles.wrapper} ${styles.wrapperDark} ${className}` }, restProps), children));
+    return (React.createElement("div", Object.assign({ style: style, className: `dbuitkWrapper ${styles.wrapper} ${className ? className : ''}`.trim() }, restProps), children));
 };
 export default Wrapper;

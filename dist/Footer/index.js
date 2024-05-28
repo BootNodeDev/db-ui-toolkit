@@ -11,8 +11,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import React from 'react';
 import styles from './styles.module.scss';
-const InnerContainer = (_a) => {
+const Footer = (_a) => {
     var { children, style, className } = _a, restProps = __rest(_a, ["children", "style", "className"]);
-    return (React.createElement("div", Object.assign({ style: style, className: `dbuitkInnerContainer ${styles.wrapper} ${className ? className : ''}`.trim() }, restProps), children));
+    return (React.createElement("footer", Object.assign({ style: style, className: `dbuitkFooter ${styles.wrapper} ${className ? className : ''}`.trim() }, restProps), children));
 };
-export default InnerContainer;
+export default Footer;

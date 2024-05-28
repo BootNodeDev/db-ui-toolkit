@@ -1,8 +1,5 @@
-import React, { CSSProperties } from 'react';
-interface WrapperProps {
-    style?: CSSProperties;
-    className?: string;
-    children?: React.ReactNode;
+import React, { HTMLAttributes, PropsWithChildren } from 'react';
+interface Props extends HTMLAttributes<HTMLDivElement>, PropsWithChildren {
 }
-declare const Wrapper: React.FC<WrapperProps>;
+declare const Wrapper: React.FC<Props>;
 export default Wrapper;

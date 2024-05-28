@@ -1,20 +1,15 @@
-import React, { CSSProperties } from 'react'
+import React, { HTMLAttributes, PropsWithChildren } from 'react'
 import styles from './styles.module.scss'
 
-interface InnerContainerProps {
-  style?: CSSProperties
-  className?: string
-  children?: React.ReactNode
-}
+interface Props extends HTMLAttributes<HTMLDivElement>, PropsWithChildren {}
 
-const InnerContainer: React.FC<InnerContainerProps> = ({
-  children,
-  style,
-  className,
-  ...restProps
-}) => {
+const InnerContainer: React.FC<Props> = ({ children, style, className, ...restProps }) => {
   return (
-    <div style={style} className={`${styles.innerContainer} ${className}`} {...restProps}>
+    <div
+      style={style}
+      className={`dbuitkInnerContainer ${styles.wrapper} ${className ? className : ''}`.trim()}
+      {...restProps}
+    >
       {children}
     </div>
   )

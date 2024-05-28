@@ -10,7 +10,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import React from 'react';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 const InnerContainer = (_a) => {
     var { children, style, className } = _a, restProps = __rest(_a, ["children", "style", "className"]);
     return (React.createElement("div", Object.assign({ style: style, className: `${styles.innerContainer} ${className}` }, restProps), children));

@@ -5,14 +5,15 @@ import { styled } from 'styled-components'
 import { GlobalStyles } from './GlobalStyles'
 
 import {
-  Wrapper,
-  InnerContainer,
-  Header as BaseHeader,
-  Main,
-  Footer as BaseFooter,
-  LogoMini,
-  Logo,
   ContainerPadding,
+  Footer as BaseFooter,
+  Header as BaseHeader,
+  InnerContainer,
+  Logo,
+  LogoMini,
+  Main,
+  SwitchThemeButton,
+  Wrapper,
 } from '../index'
 
 const Header = styled(BaseHeader)`
@@ -22,6 +23,10 @@ const Header = styled(BaseHeader)`
 
 const Inner = styled(InnerContainer)`
   ${ContainerPadding}
+`
+
+const InnerHeader = styled(Inner)`
+  justify-content: space-between;
 `
 
 const Footer = styled(BaseFooter)`
@@ -39,9 +44,10 @@ const App = () => (
     <GlobalStyles />
     <Wrapper>
       <Header>
-        <Inner>
+        <InnerHeader>
           <Logo />
-        </Inner>
+          <SwitchThemeButton onClick={() => console.log('Theme switched')} theme="light" />
+        </InnerHeader>
       </Header>
       <Main>
         <Inner>

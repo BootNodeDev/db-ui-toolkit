@@ -5,7 +5,7 @@ import { breakpointMediaQuery } from './breakpoints'
 /**
  * Responsive container padding for all breakpoints
  */
-export const ContainerPadding = css`
+const ContainerPadding = css`
   padding-left: var(--base-padding-mobile, 4px);
   padding-right: var(--base-padding-mobile, 4px);
 
@@ -41,3 +41,5 @@ export const ContainerPadding = css`
     `,
   )}
 `
+
+export default ContainerPadding

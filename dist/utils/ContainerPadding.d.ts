@@ -1,4 +1,5 @@
 /**
  * Responsive container padding for all breakpoints
  */
-export declare const ContainerPadding: import("styled-components").RuleSet<object>;
+declare const ContainerPadding: import("styled-components").RuleSet<object>;
+export default ContainerPadding;

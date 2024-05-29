@@ -10,6 +10,9 @@ const ComponentWrapper = styled.div`
 
 interface Props extends HTMLAttributes<HTMLDivElement>, PropsWithChildren {}
 
+/**
+ * Main wrapper component
+ */
 const Wrapper: React.FC<Props> = ({ children, style, className, ...restProps }) => {
   return (
     <ComponentWrapper

@@ -15,7 +15,9 @@ const Wrapper = styled.svg`
     }
   }
 `
-
+/**
+ * Default Logo component
+ */
 const Logo: React.FC<HTMLAttributes<SVGElement>> = ({ style, className, ...restProps }) => (
   <Wrapper
     className={`dbuitkLogo ${className ? className : ''}`.trim()}

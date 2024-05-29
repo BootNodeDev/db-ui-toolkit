@@ -8,6 +8,9 @@ const Wrapper = styled.main`
 
 interface Props extends HTMLAttributes<HTMLElement>, PropsWithChildren {}
 
+/**
+ * Main content container component
+ */
 const Main: React.FC<Props> = ({ children, style, className, ...restProps }) => {
   return (
     <Wrapper

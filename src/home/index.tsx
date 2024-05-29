@@ -31,7 +31,9 @@ const Footer = styled(BaseFooter)`
 const InnerFooter = styled(Inner)`
   justify-content: center;
 `
-
+/**
+ * Demo preview of the components
+ */
 const App = () => (
   <>
     <GlobalStyles />

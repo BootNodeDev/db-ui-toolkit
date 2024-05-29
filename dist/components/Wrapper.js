@@ -17,6 +17,9 @@ const ComponentWrapper = styled.div `
   min-height: 100vh;
   width: 100%;
 `;
+/**
+ * Main wrapper component
+ */
 const Wrapper = (_a) => {
     var { children, style, className } = _a, restProps = __rest(_a, ["children", "style", "className"]);
     return (React.createElement(ComponentWrapper, Object.assign({ style: style, className: `dbuitkWrapper ${className ? className : ''}`.trim() }, restProps), children));

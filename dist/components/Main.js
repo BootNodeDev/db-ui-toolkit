@@ -15,6 +15,9 @@ const Wrapper = styled.main `
   display: flex;
   flex-grow: 1;
 `;
+/**
+ * Main content container component
+ */
 const Main = (_a) => {
     var { children, style, className } = _a, restProps = __rest(_a, ["children", "style", "className"]);
     return (React.createElement(Wrapper, Object.assign({ style: style, className: `dbuitkMain ${className ? className : ''}`.trim() }, restProps), children));

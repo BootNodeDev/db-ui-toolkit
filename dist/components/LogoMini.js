@@ -25,6 +25,9 @@ const Wrapper = styled.svg `
     }
   }
 `;
+/**
+ * Default mini logo component
+ */
 const LogoMini = (_a) => {
     var { style, className } = _a, restProps = __rest(_a, ["style", "className"]);
     return (React.createElement(Wrapper, Object.assign({ className: `dbuitkLogoMini ${className ? className : ''}`.trim(), fill: "none", height: "16", style: style, viewBox: "0 0 76 16", width: "76", xmlns: "http://www.w3.org/2000/svg" }, restProps),

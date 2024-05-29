@@ -25,6 +25,9 @@ const Wrapper = styled.svg `
     }
   }
 `;
+/**
+ * Default Logo component
+ */
 const Logo = (_a) => {
     var { style, className } = _a, restProps = __rest(_a, ["style", "className"]);
     return (React.createElement(Wrapper, Object.assign({ className: `dbuitkLogo ${className ? className : ''}`.trim(), fill: "none", height: "44", style: style, viewBox: "0 0 172 44", width: "172", xmlns: "http://www.w3.org/2000/svg" }, restProps),

@@ -21,7 +21,7 @@ Remove `db-ui-toolkit` from `dAppBooster+dbUIToolkit` if it's already installed:
 
 Add your local copy of `db-ui-toolkit` to `dAppBooster+dbUIToolkit`
 
-- `pnpm add -D <path_to_where_the_library_is>` (for example: `pnpm add -D /users/yourusername/db-ui-toolkit`)
+- `pnpm add <path_to_where_the_library_is>` (for example: `pnpm add /users/yourusername/db-ui-toolkit`)
 
 Now you can run dAppBooster locally using `pnpm dev` and it'll use your local build of `bn-ui-toolkit`
 
@@ -36,4 +36,4 @@ Don't forget to `pnpm build` the toolkit when you want to see your changes refle
 - Push your changes to `main`
 - Tag a new version so you don't break everything for everyone.
 
-Note: This package is not published to npm, so you'll have to use it by doing `pnp add -D BootNodeDev/db-ui-toolkit#tagname` in your dAppBooster project.
+Note: This package is not published to npm, so you'll have to use it by doing `pnpm add BootNodeDev/db-ui-toolkit#tag` in your dAppBooster project.

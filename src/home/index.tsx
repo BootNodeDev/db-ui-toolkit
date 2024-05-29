@@ -13,6 +13,8 @@ import {
   LogoMini,
   Main,
   SwitchThemeButton,
+  Text,
+  Title,
   Wrapper,
 } from '../index'
 
@@ -27,6 +29,12 @@ const Inner = styled(InnerContainer)`
 
 const InnerHeader = styled(Inner)`
   justify-content: space-between;
+`
+
+const InnerMain = styled(Inner)`
+  flex-direction: column;
+  padding-bottom: 24px;
+  padding-top: 24px;
 `
 
 const Footer = styled(BaseFooter)`
@@ -50,9 +58,10 @@ const App = () => (
         </InnerHeader>
       </Header>
       <Main>
-        <Inner>
-          <p>Main contents here</p>
-        </Inner>
+        <InnerMain>
+          <Title>Title text</Title>
+          <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam</Text>
+        </InnerMain>
       </Main>
       <Footer>
         <InnerFooter>

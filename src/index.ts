@@ -2,6 +2,7 @@
  * Exported components
  */
 export { default as Button, DisabledButtonCSS, ActiveButtonCSS } from './components/Button'
+export { default as ThemedButton, ButtonVariantCSS } from './components/ThemedButton'
 export { default as Footer } from './components/Footer'
 export { default as Header } from './components/Header'
 export { default as InnerContainer } from './components/InnerContainer'

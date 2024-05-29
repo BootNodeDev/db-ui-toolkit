@@ -4,7 +4,7 @@ export const DisabledButtonCSS = css`
   &[disabled],
   &[disabled]:hover {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: 0.6;
   }
 `
 
@@ -16,22 +16,25 @@ export const ActiveButtonCSS = css`
 
 export const ButtonCSS = css`
   align-items: center;
-  border-radius: var(--base-border-radius-sm, 4px);
+  border-radius: var(--base-button-border-radius, 4px);
   border-style: solid;
   border-width: 1px;
-  column-gap: var(--base-gap, 8px);
+  column-gap: var(--base-button-gap, 8px);
   cursor: pointer;
   display: flex;
   font-family: var(--base-font-family, sans-serif);
-  font-size: var(--base-button-size, 15px);
+  font-size: var(--base-button-font-size, 15px);
   font-weight: 400;
   height: var(--base-button-height, 38px);
   justify-content: center;
   line-height: 1;
   outline: none;
-  padding: 0 calc(var(--base-gap, 8px) * 2);
+  padding: 0 var(--base-button-padding, 16px);
   text-decoration: none;
-  transition: all 0.15s ease-out;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s;
   user-select: none;
   white-space: nowrap;
 

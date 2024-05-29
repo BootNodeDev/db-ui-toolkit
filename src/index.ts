@@ -1,5 +1,5 @@
 /**
- * Add here everything you want to be exported after running `pnpm build`
+ * Exported components
  */
 export { default as Wrapper } from './components/Wrapper'
 export { default as InnerContainer } from './components/InnerContainer'
@@ -8,5 +8,10 @@ export { default as Footer } from './components/Footer'
 export { default as Header } from './components/Header'
 export { default as LogoMini } from './components/LogoMini'
 export { default as Logo } from './components/Logo'
-export { ContainerPadding } from './utils/ContainerPadding'
+export { default as SwitchThemeButton } from './components/SwitchThemeButton'
+
+/**
+ * Exported utils
+ */
+export { default as ContainerPadding } from './utils/ContainerPadding'
 export { breakpointMediaQuery, breakpoints, Breakpoint } from './utils/breakpoints'

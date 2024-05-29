@@ -22,6 +22,6 @@ const Wrapper = styled.header `
  */
 const Header = (_a) => {
     var { children, style, className } = _a, restProps = __rest(_a, ["children", "style", "className"]);
-    return (React.createElement(Wrapper, Object.assign({ style: style, className: `dbuitkHeader  ${className ? className : ''}`.trim() }, restProps), children));
+    return (React.createElement(Wrapper, Object.assign({ style: style, className: `dbuitkHeader ${className ? className : ''}`.trim() }, restProps), children));
 };
 export default Header;

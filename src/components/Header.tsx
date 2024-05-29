@@ -17,7 +17,7 @@ const Header: React.FC<Props> = ({ children, style, className, ...restProps }) =
   return (
     <Wrapper
       style={style}
-      className={`dbuitkHeader  ${className ? className : ''}`.trim()}
+      className={`dbuitkHeader ${className ? className : ''}`.trim()}
       {...restProps}
     >
       {children}

@@ -5,6 +5,7 @@ import { styled } from 'styled-components'
 import { GlobalStyles } from './GlobalStyles'
 
 import {
+  Button,
   ContainerPadding,
   Footer as BaseFooter,
   Header as BaseHeader,
@@ -61,6 +62,9 @@ const App = () => (
         <InnerMain>
           <Title>Title text</Title>
           <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam</Text>
+          <Text>
+            <Button>Base button</Button>
+          </Text>
         </InnerMain>
       </Main>
       <Footer>

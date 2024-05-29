@@ -11,14 +11,17 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import React from 'react';
 import { styled } from 'styled-components';
-const ComponentWrapper = styled.div `
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
+const Wrapper = styled.header `
+  background-color: var(--theme-header-background-color, transparent);
+  color: var(--theme-header-text-color, #000);
+  flex-grow: 0;
+  flex-shrink: 0;
 `;
-const Wrapper = (_a) => {
+/**
+ * Barebones header component
+ */
+const Header = (_a) => {
     var { children, style, className } = _a, restProps = __rest(_a, ["children", "style", "className"]);
-    return (React.createElement(ComponentWrapper, Object.assign({ style: style, className: `dbuitkWrapper ${className ? className : ''}`.trim() }, restProps), children));
+    return (React.createElement(Wrapper, Object.assign({ style: style, className: `dbuitkHeader  ${className ? className : ''}`.trim() }, restProps), children));
 };
-export default Wrapper;
+export default Header;

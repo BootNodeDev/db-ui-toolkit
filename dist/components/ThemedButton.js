@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components';
-import { ButtonCSS } from './Button';
+import { ButtonCSS, DisabledButtonCSS, ActiveButtonCSS } from './Button';
 /**
  * Themed button CSS generator
  *
@@ -52,6 +52,8 @@ const ThemedButton = styled.button `
    * You can use a combination of these to make any component look like a button
    */
   ${ButtonCSS}
+  ${ActiveButtonCSS}
+  ${DisabledButtonCSS}
   ${ButtonVariantCSS}
 `;
 ThemedButton.defaultProps = {

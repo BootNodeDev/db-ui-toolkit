@@ -63,6 +63,8 @@ import*as e from"react";var t={945:e=>{e.exports=function(e,t,r,n){var o=r?r.cal
    * You can use a combination of these to make any component look like a button
    */
   ${qt}
+  ${Wt}
+  ${Yt}
   ${Jt}
 `;Kt.defaultProps={type:"button"};const Xt=Kt;const er=Gt.footer`
   align-items: center;

@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components'
-import { ButtonCSS } from './Button'
+import { ButtonCSS, DisabledButtonCSS, ActiveButtonCSS } from './Button'
 
 interface Props {
   $cssVarRoot?: string
@@ -58,6 +58,8 @@ const ThemedButton = styled.button<Props>`
    * You can use a combination of these to make any component look like a button
    */
   ${ButtonCSS}
+  ${ActiveButtonCSS}
+  ${DisabledButtonCSS}
   ${ButtonVariantCSS}
 `
 

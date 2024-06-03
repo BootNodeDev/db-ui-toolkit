@@ -37,13 +37,12 @@ export const ButtonCSS = css`
     color 0.15s;
   user-select: none;
   white-space: nowrap;
-
-  ${ActiveButtonCSS}
-  ${DisabledButtonCSS}
 `
 
 const Button = styled.button`
   ${ButtonCSS}
+  ${ActiveButtonCSS}
+  ${DisabledButtonCSS}
 `
 
 Button.defaultProps = {

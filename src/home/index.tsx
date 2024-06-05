@@ -7,6 +7,9 @@ import { GlobalStyles } from './GlobalStyles'
 import {
   Button,
   ContainerPadding,
+  Dropdown,
+  Item as BaseItem,
+  ItemState,
   Footer as BaseFooter,
   Header as BaseHeader,
   InnerContainer,
@@ -93,6 +96,10 @@ const ComponentGrid = styled.div`
   margin-bottom: 16px;
 `
 
+const Item = styled(BaseItem)`
+  width: 160px;
+`
+
 /**
  * Demo preview of the components
  */
@@ -123,6 +130,22 @@ const App = () => (
             <PrimaryButton disabled>Themed button</PrimaryButton>
             <SecondaryButton disabled>Themed button</SecondaryButton>
           </ComponentGrid>
+          <Text>
+            <b>Dropdown</b>
+          </Text>
+          <Dropdown
+            button={<PrimaryButton>Dropdown</PrimaryButton>}
+            items={[
+              <Item key="1">Profile</Item>,
+              <Item key="2">Activity</Item>,
+              <Item key="3" disabled>
+                Settings
+              </Item>,
+              <ItemState key="4" $state="danger">
+                Remove
+              </ItemState>,
+            ]}
+          />
         </InnerMain>
       </Main>
       <Footer>

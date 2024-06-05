@@ -42,6 +42,13 @@ const Item = styled.div<Props>`
     color: var(--theme-dropdown-item-color-hover, #2e3048);
   }
 
+  &.dropdownItemActive,
+  &.dropdownItemActive:hover {
+    background-color: var(--theme-dropdown-item-background-color-active, rgba(0, 0, 0, 0.1));
+    border-color: var(--theme-dropdown-item-border-color-active, #f0f0f0);
+    color: var(--theme-dropdown-item-color-active, #000);
+  }
+
   &:disabled,
   &[disabled] {
     &,

@@ -104,28 +104,43 @@ const Item = styled(BaseItem)`
  * Demo preview of the components
  */
 const App = () => {
-  const dropdownItems = [
+  const profileDropdownItems = [
     {
       text: 'Profile',
     },
     {
       text: 'Activity',
+    },
+    {
+      text: 'Settings',
       extraProps: {
         $closeOnClick: false,
       },
     },
     {
-      text: 'Settings',
+      text: 'Log Out',
+      extraProps: {
+        $state: 'danger' as ActionStates,
+        onClick: () => alert('Settings modal, dropdown stays open'),
+      },
+    },
+  ]
+
+  const filterDropdownItems = [
+    {
+      text: 'All',
+    },
+    {
+      text: 'Important',
+    },
+    {
+      text: 'Hidden',
       extraProps: {
         disabled: true,
       },
     },
     {
-      text: 'Remove',
-      extraProps: {
-        $state: 'danger' as ActionStates,
-        onClick: () => console.log('Test remove action'),
-      },
+      text: 'Deleted',
     },
   ]
 
@@ -159,17 +174,39 @@ const App = () => {
             <Text>
               <b>Dropdown</b>
             </Text>
-            <Dropdown
-              activeItemHighlight={1}
-              button={<PrimaryButton>Dropdown</PrimaryButton>}
-              items={dropdownItems.map(({ text, extraProps }, index) => {
-                return (
-                  <Item key={index} {...extraProps}>
-                    {text}
-                  </Item>
-                )
-              })}
-            />
+            <ComponentGrid>
+              <Dropdown
+                button={
+                  <PrimaryButton>
+                    <span>Profile</span>
+                    <span>▾</span>
+                  </PrimaryButton>
+                }
+                items={profileDropdownItems.map(({ text, extraProps }, index) => {
+                  return (
+                    <Item key={index} {...extraProps}>
+                      {text}
+                    </Item>
+                  )
+                })}
+              />
+              <Dropdown
+                button={
+                  <SecondaryButton>
+                    <span>Filter</span>
+                    <span>▾</span>
+                  </SecondaryButton>
+                }
+                highlightItem
+                items={filterDropdownItems.map(({ text, extraProps }, index) => {
+                  return (
+                    <Item key={index} {...extraProps}>
+                      {text}
+                    </Item>
+                  )
+                })}
+              />
+            </ComponentGrid>
           </InnerMain>
         </Main>
         <Footer>

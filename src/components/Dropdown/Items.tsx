@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components'
-import { Direction, Position } from './types'
+import { Direction, Position } from './index'
 
 interface ItemsProps {
   $direction?: Direction

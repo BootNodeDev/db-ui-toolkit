@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
 export interface Props {
-  closeOnClick?: boolean
+  $closeOnClick?: boolean
   disabled?: boolean
 }
 
@@ -60,7 +60,7 @@ const Item = styled.div<Props>`
 
 Item.defaultProps = {
   className: 'dropdownItem',
-  closeOnClick: true,
+  $closeOnClick: true,
   disabled: false,
 }
 

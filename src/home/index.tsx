@@ -9,7 +9,6 @@ import {
   ContainerPadding,
   Dropdown,
   Item as BaseItem,
-  ItemState,
   Footer as BaseFooter,
   Header as BaseHeader,
   InnerContainer,
@@ -21,6 +20,7 @@ import {
   ThemedButton,
   Title,
   Wrapper as BaseWrapper,
+  ActionStates,
 } from '../index'
 
 const Wrapper = styled(BaseWrapper)`
@@ -103,59 +103,83 @@ const Item = styled(BaseItem)`
 /**
  * Demo preview of the components
  */
-const App = () => (
-  <>
-    <GlobalStyles />
-    <Wrapper>
-      <Header>
-        <InnerHeader>
-          <Logo />
-          <SwitchThemeButton onClick={() => console.log('Theme switched')} theme="light" />
-        </InnerHeader>
-      </Header>
-      <Main>
-        <InnerMain>
-          <Title>Title text</Title>
-          <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam</Text>
-          <Text>
-            <b>Buttons</b>
-          </Text>
-          <ComponentGrid>
-            <Button>Base button</Button>
-            <PrimaryButton>Themed button</PrimaryButton>
-            <SecondaryButton>Themed button</SecondaryButton>
-          </ComponentGrid>
-          <ComponentGrid>
-            <Button disabled>Base button</Button>
-            <PrimaryButton disabled>Themed button</PrimaryButton>
-            <SecondaryButton disabled>Themed button</SecondaryButton>
-          </ComponentGrid>
-          <Text>
-            <b>Dropdown</b>
-          </Text>
-          <Dropdown
-            button={<PrimaryButton>Dropdown</PrimaryButton>}
-            items={[
-              <Item key="1">Profile</Item>,
-              <Item key="2">Activity</Item>,
-              <Item key="3" disabled>
-                Settings
-              </Item>,
-              <ItemState key="4" $state="danger">
-                Remove
-              </ItemState>,
-            ]}
-          />
-        </InnerMain>
-      </Main>
-      <Footer>
-        <InnerFooter>
-          <LogoMini />
-        </InnerFooter>
-      </Footer>
-    </Wrapper>
-  </>
-)
+const App = () => {
+  const dropdownItems = [
+    {
+      text: 'Profile',
+    },
+    {
+      text: 'Activity',
+      extraProps: {
+        $closeOnClick: false,
+      },
+    },
+    {
+      text: 'Settings',
+      extraProps: {
+        disabled: true,
+      },
+    },
+    {
+      text: 'Remove',
+      extraProps: {
+        $state: 'danger' as ActionStates,
+        onClick: () => console.log('Test remove action'),
+      },
+    },
+  ]
+
+  return (
+    <>
+      <GlobalStyles />
+      <Wrapper>
+        <Header>
+          <InnerHeader>
+            <Logo />
+            <SwitchThemeButton onClick={() => console.log('Theme switched')} theme="light" />
+          </InnerHeader>
+        </Header>
+        <Main>
+          <InnerMain>
+            <Title>Title text</Title>
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam</Text>
+            <Text>
+              <b>Buttons</b>
+            </Text>
+            <ComponentGrid>
+              <Button>Base button</Button>
+              <PrimaryButton>Themed button</PrimaryButton>
+              <SecondaryButton>Themed button</SecondaryButton>
+            </ComponentGrid>
+            <ComponentGrid>
+              <Button disabled>Base button</Button>
+              <PrimaryButton disabled>Themed button</PrimaryButton>
+              <SecondaryButton disabled>Themed button</SecondaryButton>
+            </ComponentGrid>
+            <Text>
+              <b>Dropdown</b>
+            </Text>
+            <Dropdown
+              button={<PrimaryButton>Dropdown</PrimaryButton>}
+              items={dropdownItems.map(({ text, extraProps }, index) => {
+                return (
+                  <Item key={index} {...extraProps}>
+                    {text}
+                  </Item>
+                )
+              })}
+            />
+          </InnerMain>
+        </Main>
+        <Footer>
+          <InnerFooter>
+            <LogoMini />
+          </InnerFooter>
+        </Footer>
+      </Wrapper>
+    </>
+  )
+}
 
 const container = document.getElementById('root')
 const root = createRoot(container!)

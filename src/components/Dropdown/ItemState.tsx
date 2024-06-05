@@ -1,9 +1,8 @@
 import { styled, css } from 'styled-components'
-import DropdownItem, { Props as ItemProps } from './Item'
+import DropdownItem from './Item'
+import { ActionStates } from './index'
 
-type ActionStates = 'ok' | 'danger' | 'warning' | undefined
-
-interface Props extends ItemProps {
+interface Props {
   $state?: ActionStates
 }
 
@@ -19,7 +18,8 @@ const ItemState = styled(DropdownItem)<Props>`
           ? css`
               color: var(--theme-color-ok, #080);
             `
-          : css`
+          : $state === 'warning' &&
+            css`
               color: var(--theme-color-warning, #cc0);
             `};
   }

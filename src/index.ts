@@ -9,7 +9,7 @@ export {
 } from './components/Button'
 export { default as ThemedButton, ButtonVariantCSS } from './components/ThemedButton'
 export { default as Footer } from './components/Footer'
-export { default as Dropdown, Item, ItemState } from './components/Dropdown'
+export { Dropdown, Item, Direction, Position, ActionStates } from './components/Dropdown'
 export { default as Header } from './components/Header'
 export { default as InnerContainer } from './components/InnerContainer'
 export { default as Logo } from './components/Logo'

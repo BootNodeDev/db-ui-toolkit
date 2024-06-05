@@ -97,7 +97,7 @@ const ComponentGrid = styled.div`
 `
 
 const Item = styled(BaseItem)`
-  width: 160px;
+  min-width: 160px;
 `
 
 /**
@@ -160,6 +160,7 @@ const App = () => {
               <b>Dropdown</b>
             </Text>
             <Dropdown
+              activeItemHighlight={1}
               button={<PrimaryButton>Dropdown</PrimaryButton>}
               items={dropdownItems.map(({ text, extraProps }, index) => {
                 return (

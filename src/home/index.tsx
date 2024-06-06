@@ -115,13 +115,13 @@ const App = () => {
       text: 'Settings',
       extraProps: {
         $closeOnClick: false,
+        onClick: () => alert('Settings modal, dropdown stays open'),
       },
     },
     {
       text: 'Log Out',
       extraProps: {
         $state: 'danger' as ActionStates,
-        onClick: () => alert('Settings modal, dropdown stays open'),
       },
     },
   ]
@@ -197,7 +197,7 @@ const App = () => {
                     <span>▾</span>
                   </SecondaryButton>
                 }
-                highlightItem
+                highlightItem={0}
                 items={filterDropdownItems.map(({ text, extraProps }, index) => {
                   return (
                     <Item key={index} {...extraProps}>

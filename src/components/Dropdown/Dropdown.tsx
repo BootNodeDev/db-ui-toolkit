@@ -57,13 +57,13 @@ ButtonWrapper.defaultProps = {
   className: 'dropdownButton',
 }
 
-type HighlightItemState = number | true | undefined
+type HighlightItem = number | true | undefined
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   button: ReactElement<HTMLButtonElement>
   direction?: Direction
   disabled?: boolean
-  highlightItem?: HighlightItemState
+  highlightItem?: HighlightItem
   items: Array<ReactElement> | ReactElement
   position?: Position
 }
@@ -75,7 +75,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
  * @param {Array<ReactElement> | ReactElement} items - The items of the dropdown, can be an array or a single element.
  * @param {Direction} [direction='downwards'] - The direction of the dropdown (upwards or downwards). Default is downwards.
  * @param {Position} [position='left'] - The position of the dropdown (left, right or center). Default is left.
- * @param {number | undefined} [highlightItem=undefined] - Adds a `dropdownItemActive` class to the selected item.
+ * @param {HighlightItem} [highlightItem=undefined] - Adds a `dropdownItemActive` class to the selected item.
  * `true` if you want items to be highlighted when clicked, but don't want a highlighted item by default.
  * A number from `0` to `items.length` if you want a single item highlighted by default.
  * `undefined` disables the functionality, no item is highlighted when clicked.
@@ -86,14 +86,30 @@ const Dropdown: FC<Props> = ({
   button,
   className,
   direction = 'downwards',
-  disabled,
+  disabled = false,
   highlightItem,
   items,
-  position,
+  position = 'left',
   ...restProps
 }) => {
+  /**
+   * Sanitizes the highlightItem prop to minimize errors
+   */
+  const sanitizedHighlightItem = React.useMemo((): HighlightItem => {
+    const isHighlightItemNumber = typeof highlightItem === 'number'
+    const isHighlightNumberLessThanZero = isHighlightItemNumber && highlightItem < 0
+    const isHighlightNumberGreaterThanItemsLength =
+      Array.isArray(items) && isHighlightItemNumber && highlightItem > items.length - 1
+
+    if (isHighlightNumberLessThanZero || isHighlightNumberGreaterThanItemsLength) {
+      return undefined
+    }
+
+    return highlightItem
+  }, [highlightItem, items])
+
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [activeItem, setActiveItem] = useState<HighlightItemState>(highlightItem)
+  const [activeItem, setActiveItem] = useState<HighlightItem>(sanitizedHighlightItem)
   const node = createRef<HTMLDivElement>()
 
   /**
@@ -147,15 +163,14 @@ const Dropdown: FC<Props> = ({
      * Checks if the dropdown item is active
      */
     const isItemActive = (): boolean => {
-      if (highlightItem === undefined) {
+      /**
+       * If sanitizedHighlightItem is undefined highlighting is disabled
+       */
+      if (sanitizedHighlightItem === undefined) {
         return false
       }
 
-      return (
-        index === activeItem &&
-        ((typeof highlightItem === 'number' && highlightItem >= 0) ||
-          (typeof highlightItem === 'boolean' && highlightItem))
-      )
+      return index === activeItem
     }
 
     return cloneElement(element, {

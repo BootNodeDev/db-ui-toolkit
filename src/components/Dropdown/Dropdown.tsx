@@ -174,7 +174,8 @@ const Dropdown: FC<Props> = ({
     }
 
     return cloneElement(element, {
-      className: `${className} ${isItemActive() ? 'dropdownItemActive' : ''}`.trim(),
+      className:
+        `${className ? className : ''} ${isItemActive() ? 'dropdownItemActive' : ''}`.trim(),
       onClick: (event: MouseEvent): void => {
         event.stopPropagation()
 
@@ -213,6 +214,3 @@ const Dropdown: FC<Props> = ({
 }
 
 export default Dropdown
-export { default as Item } from './Item'
-export { default as ItemState } from './ItemState'
-export { Direction, Position, ActionStates } from './types'

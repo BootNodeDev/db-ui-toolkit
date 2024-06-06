@@ -5,13 +5,15 @@ import { styled } from 'styled-components'
 import { GlobalStyles } from './GlobalStyles'
 
 import {
+  ActionStates,
   Button,
+  Card,
   ContainerPadding,
   Dropdown,
-  Item as BaseItem,
   Footer as BaseFooter,
   Header as BaseHeader,
   InnerContainer,
+  Item as BaseItem,
   Logo,
   LogoMini,
   Main,
@@ -20,7 +22,6 @@ import {
   ThemedButton,
   Title,
   Wrapper as BaseWrapper,
-  ActionStates,
 } from '../index'
 
 const Wrapper = styled(BaseWrapper)`
@@ -100,6 +101,18 @@ const Item = styled(BaseItem)`
   min-width: 160px;
 `
 
+const CustomDropdownItems = styled(Card)`
+  --custom-dropdown-color: #fff;
+  --custom-dropdown-background-color: #8b46a4;
+  --theme-color-text: var(--custom-dropdown-color);
+
+  background-color: var(--custom-dropdown-background-color);
+  color: var(--custom-dropdown-color);
+  font-size: 14px;
+  line-height: 1.4;
+  width: 200px;
+`
+
 /**
  * Demo preview of the components
  */
@@ -175,6 +188,26 @@ const App = () => {
               <b>Dropdown</b>
             </Text>
             <ComponentGrid>
+              <Dropdown
+                clearDropdownStyle
+                button={
+                  <Button>
+                    <span>Info</span>
+                    <span>▾</span>
+                  </Button>
+                }
+                items={
+                  <CustomDropdownItems>
+                    <Text>
+                      <b>Title </b>
+                    </Text>
+                    <span>
+                      This dropdown uses a single item. Also the item&apos;s container is a custom
+                      one.
+                    </span>
+                  </CustomDropdownItems>
+                }
+              />
               <Dropdown
                 button={
                   <PrimaryButton>

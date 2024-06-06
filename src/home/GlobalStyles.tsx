@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     background: #fff;
     color: #000;
+    font-size: var(--base-text-font-size, 16px);
   }
 
   code {

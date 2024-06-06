@@ -5,11 +5,15 @@ import { styled } from 'styled-components'
 import { GlobalStyles } from './GlobalStyles'
 
 import {
+  ActionStates,
   Button,
+  Card,
   ContainerPadding,
+  Dropdown,
   Footer as BaseFooter,
   Header as BaseHeader,
   InnerContainer,
+  Item as BaseItem,
   Logo,
   LogoMini,
   Main,
@@ -93,46 +97,160 @@ const ComponentGrid = styled.div`
   margin-bottom: 16px;
 `
 
+const Item = styled(BaseItem)`
+  min-width: 160px;
+`
+
+const CustomDropdownItems = styled(Card)`
+  --custom-dropdown-color: #fff;
+  --custom-dropdown-background-color: #8b46a4;
+  --theme-color-text: var(--custom-dropdown-color);
+
+  background-color: var(--custom-dropdown-background-color);
+  color: var(--custom-dropdown-color);
+  font-size: 14px;
+  line-height: 1.4;
+  width: 200px;
+`
+
 /**
  * Demo preview of the components
  */
-const App = () => (
-  <>
-    <GlobalStyles />
-    <Wrapper>
-      <Header>
-        <InnerHeader>
-          <Logo />
-          <SwitchThemeButton onClick={() => console.log('Theme switched')} theme="light" />
-        </InnerHeader>
-      </Header>
-      <Main>
-        <InnerMain>
-          <Title>Title text</Title>
-          <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam</Text>
-          <Text>
-            <b>Buttons</b>
-          </Text>
-          <ComponentGrid>
-            <Button>Base button</Button>
-            <PrimaryButton>Themed button</PrimaryButton>
-            <SecondaryButton>Themed button</SecondaryButton>
-          </ComponentGrid>
-          <ComponentGrid>
-            <Button disabled>Base button</Button>
-            <PrimaryButton disabled>Themed button</PrimaryButton>
-            <SecondaryButton disabled>Themed button</SecondaryButton>
-          </ComponentGrid>
-        </InnerMain>
-      </Main>
-      <Footer>
-        <InnerFooter>
-          <LogoMini />
-        </InnerFooter>
-      </Footer>
-    </Wrapper>
-  </>
-)
+const App = () => {
+  const profileDropdownItems = [
+    {
+      text: 'Profile',
+    },
+    {
+      text: 'Activity',
+    },
+    {
+      text: 'Settings',
+      extraProps: {
+        $closeOnClick: false,
+        onClick: () => alert('Settings modal, dropdown stays open'),
+      },
+    },
+    {
+      text: 'Log Out',
+      extraProps: {
+        $state: 'danger' as ActionStates,
+      },
+    },
+  ]
+
+  const filterDropdownItems = [
+    {
+      text: 'All',
+    },
+    {
+      text: 'Important',
+    },
+    {
+      text: 'Hidden',
+      extraProps: {
+        disabled: true,
+      },
+    },
+    {
+      text: 'Deleted',
+    },
+  ]
+
+  return (
+    <>
+      <GlobalStyles />
+      <Wrapper>
+        <Header>
+          <InnerHeader>
+            <Logo />
+            <SwitchThemeButton onClick={() => console.log('Theme switched')} theme="light" />
+          </InnerHeader>
+        </Header>
+        <Main>
+          <InnerMain>
+            <Title>Title text</Title>
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam</Text>
+            <Text>
+              <b>Buttons</b>
+            </Text>
+            <ComponentGrid>
+              <Button>Base button</Button>
+              <PrimaryButton>Themed button</PrimaryButton>
+              <SecondaryButton>Themed button</SecondaryButton>
+            </ComponentGrid>
+            <ComponentGrid>
+              <Button disabled>Base button</Button>
+              <PrimaryButton disabled>Themed button</PrimaryButton>
+              <SecondaryButton disabled>Themed button</SecondaryButton>
+            </ComponentGrid>
+            <Text>
+              <b>Dropdown</b>
+            </Text>
+            <ComponentGrid>
+              <Dropdown
+                clearDropdownStyle
+                button={
+                  <Button>
+                    <span>Info</span>
+                    <span>▾</span>
+                  </Button>
+                }
+                items={
+                  <CustomDropdownItems>
+                    <Text>
+                      <b>Title </b>
+                    </Text>
+                    <span>
+                      This dropdown uses a single item. Also the item&apos;s container is a custom
+                      one.
+                    </span>
+                  </CustomDropdownItems>
+                }
+              />
+              <Dropdown
+                button={
+                  <PrimaryButton>
+                    <span>Profile</span>
+                    <span>▾</span>
+                  </PrimaryButton>
+                }
+                items={profileDropdownItems.map(({ text, extraProps }, index) => {
+                  return (
+                    <Item key={index} {...extraProps}>
+                      {text}
+                    </Item>
+                  )
+                })}
+              />
+              <Dropdown
+                button={
+                  <SecondaryButton>
+                    <span>Filter</span>
+                    <span>▾</span>
+                  </SecondaryButton>
+                }
+                highlightItem={0}
+                items={filterDropdownItems.map(({ text, extraProps }, index) => {
+                  return (
+                    <Item key={index} {...extraProps}>
+                      {text}
+                    </Item>
+                  )
+                })}
+              />
+            </ComponentGrid>
+          </InnerMain>
+        </Main>
+        <Footer>
+          <InnerFooter>
+            <LogoMini />
+          </InnerFooter>
+        </Footer>
+      </Wrapper>
+    </>
+  )
+}
 
 const container = document.getElementById('root')
 const root = createRoot(container!)

@@ -11,6 +11,7 @@ import {
   ContainerPadding,
   CopyButton,
   Dropdown,
+  ExternalLink,
   Footer as BaseFooter,
   Header as BaseHeader,
   InnerContainer,
@@ -92,6 +93,7 @@ const InnerFooter = styled(Inner)`
 `
 
 const ComponentGrid = styled.div`
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -117,6 +119,11 @@ const CustomDropdownItems = styled(Card)`
 const CopyButtonText = styled(CopyButton)`
   --copy-button-color: #8b46a4;
   --copy-button-color-hover: #2e3048;
+`
+
+const ExternalLinkText = styled(ExternalLink)`
+  --external-link-button-color: #8b46a4;
+  --external-link-button-color-hover: #2e3048;
 `
 
 /**
@@ -257,6 +264,15 @@ const App = () => {
               >
                 Click me to copy
               </CopyButtonText>
+            </ComponentGrid>
+            <Text>
+              <b>External Link</b>
+            </Text>
+            <ComponentGrid>
+              <ExternalLink href="https://www.bootnode.dev/" />
+              <ExternalLinkText href="https://github.com/BootNodeDev/dAppBooster">
+                Open external link
+              </ExternalLinkText>
             </ComponentGrid>
           </InnerMain>
         </Main>

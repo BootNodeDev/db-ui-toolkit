@@ -9,6 +9,7 @@ import {
   Button,
   Card,
   ContainerPadding,
+  CopyButton,
   Dropdown,
   Footer as BaseFooter,
   Header as BaseHeader,
@@ -111,6 +112,11 @@ const CustomDropdownItems = styled(Card)`
   font-size: 14px;
   line-height: 1.4;
   width: 200px;
+`
+
+const CopyButtonText = styled(CopyButton)`
+  --copy-button-color: #8b46a4;
+  --copy-button-color-hover: #2e3048;
 `
 
 /**
@@ -239,6 +245,18 @@ const App = () => {
                   )
                 })}
               />
+            </ComponentGrid>
+            <Text>
+              <b>Copy button</b>
+            </Text>
+            <ComponentGrid>
+              <CopyButton value="Value to copy" onClick={() => console.log('Text copied!')} />
+              <CopyButtonText
+                value="Another value to be copied"
+                onClick={() => console.log('Text copied!')}
+              >
+                Click me to copy
+              </CopyButtonText>
             </ComponentGrid>
           </InnerMain>
         </Main>

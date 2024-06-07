@@ -9,6 +9,7 @@ export {
 } from './components/Button'
 export { Dropdown, Item, Direction, Position, ActionStates } from './components/Dropdown'
 export { default as Card } from './components/Card'
+export { default as CopyButton } from './components/CopyButton'
 export { default as Footer } from './components/Footer'
 export { default as Header } from './components/Header'
 export { default as InnerContainer } from './components/InnerContainer'

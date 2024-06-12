@@ -14,17 +14,17 @@ import { styled, css } from 'styled-components';
 import { Dark } from './assets/Dark';
 import { Light } from './assets/Light';
 export const Wrapper = styled.button `
-  --animation-delay: 0.25s;
+  --base-switch-theme-button-animation-delay: 0.25s;
+  --theme-switch-theme-button-background-color: #fff;
+
+  [data-theme='dark'] & {
+    --theme-switch-theme-button-background-color: #24263d;
+  }
 
   align-items: center;
-  background: #fff;
+  background-color: var(--theme-switch-theme-button-background-color);
   border-radius: 40px;
   border: none;
-  box-shadow:
-    0 2.1px 4.625px 0 rgb(0 0 0 / 5%),
-    0 9.6px 13px 0 rgb(0 0 0 / 8%),
-    0 24.3px 34.875px 0 rgb(0 0 0 / 10%),
-    0 48px 80px 0 rgb(0 0 0 / 15%);
   cursor: pointer;
   display: flex;
   gap: 4px;
@@ -32,25 +32,35 @@ export const Wrapper = styled.button `
   justify-content: space-between;
   padding: 4px 12px;
   position: relative;
+  transition: background-color var(--base-switch-theme-button-animation-delay) ease-in-out;
   width: 84px;
 
   &:active {
     opacity: 0.8;
   }
 `;
-const Background = styled.div `
-  --size: 36px;
+Wrapper.defaultProps = {
+    className: 'dbuitkSwitchThemeButton',
+    type: 'button',
+};
+const IconBackground = styled.div `
+  --base-icon-background-size: 36px;
+  --base-icon-background-left: 44px;
 
-  background-color: #692581;
+  [data-theme='dark'] & {
+    --base-icon-background-left: 4px;
+  }
+
+  background-color: #8b46a4;
   border-radius: 50%;
   display: flex;
-  height: var(--size);
+  height: var(--base-icon-background-size);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: ${({ theme }) => (theme === 'light' ? '44px' : '4px')};
-  transition: left var(--animation-delay) ease-in-out;
-  width: var(--size);
+  left: var(--base-icon-background-left);
+  transition: left var(--base-switch-theme-button-animation-delay) ease-in-out;
+  width: var(--base-icon-background-size);
   z-index: 1;
 `;
 const IconCSS = css `
@@ -58,7 +68,7 @@ const IconCSS = css `
   z-index: 5;
 
   * {
-    transition: fill var(--animation-delay) ease-in-out;
+    transition: fill var(--base-switch-theme-button-animation-delay) ease-in-out;
   }
 `;
 const LightIcon = styled(Light) `
@@ -71,13 +81,12 @@ const DarkIcon = styled(Dark) `
  * SwitchThemeButton component
  *
  * @param theme: string | undefined
- * @param onClick: () => void
  */
 const SwitchThemeButton = (_a) => {
-    var { theme, onClick } = _a, restProps = __rest(_a, ["theme", "onClick"]);
+    var { onClick } = _a, restProps = __rest(_a, ["onClick"]);
     return (React.createElement(Wrapper, Object.assign({ onClick: onClick }, restProps),
         React.createElement(DarkIcon, null),
         React.createElement(LightIcon, null),
-        React.createElement(Background, { theme: theme })));
+        React.createElement(IconBackground, null)));
 };
 export default SwitchThemeButton;

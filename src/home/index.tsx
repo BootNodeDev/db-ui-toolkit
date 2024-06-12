@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { styled } from 'styled-components'
 
@@ -49,6 +49,8 @@ const Wrapper = styled(BaseWrapper)`
   --button-secondary-background-color-disabled: #2e3048;
   --button-secondary-border-color-disabled: #2e3048;
   --button-secondary-color-disabled: #fff;
+
+  row-gap: 32px;
 `
 
 const PrimaryButton = styled(ThemedButton)``
@@ -130,6 +132,7 @@ const ExternalLinkText = styled(ExternalLink)`
  * Demo preview of the components
  */
 const App = () => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const profileDropdownItems = [
     {
       text: 'Profile',
@@ -173,11 +176,11 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      <Wrapper>
+      <Wrapper data-theme={theme}>
         <Header>
           <InnerHeader>
             <Logo />
-            <SwitchThemeButton onClick={() => console.log('Theme switched')} theme="light" />
+            <SwitchThemeButton onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
           </InnerHeader>
         </Header>
         <Main>

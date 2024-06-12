@@ -75,13 +75,13 @@ const DarkIcon = styled(Dark)`
 `
 
 interface Props extends PropsWithChildren {
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 /**
  * SwitchThemeButton component
  *
- * @param theme: string | undefined
+ * @param {MouseEventHandler<HTMLButtonElement>} [onClick] - Optional function to call when the button is clicked.
  */
 const SwitchThemeButton: React.FC<Props> = ({ onClick, ...restProps }) => {
   return (

@@ -14,9 +14,9 @@ const Wrapper = styled.img`
     --base-logo: url(${LogoDark});
   }
 
+  content: var(--base-logo);
   display: block;
   flex-shrink: 0;
-  content: var(--base-logo);
 `
 
 Wrapper.defaultProps = {

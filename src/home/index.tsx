@@ -183,7 +183,7 @@ const App = () => {
         <Main>
           <InnerMain>
             <Title>Title text</Title>
-            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam</Text>
+            <Text>Lorem ipsum dolors sit ameat, adipiscing elit. Nullam</Text>
             <Text>
               <b>Buttons</b>
             </Text>

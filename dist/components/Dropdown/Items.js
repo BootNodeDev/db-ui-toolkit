@@ -1,4 +1,11 @@
 import { styled, css } from 'styled-components';
+/**
+ * BaseItems component - A container for dropdown items.
+ *
+ * @param {boolean} [$isOpen=false] - Whether the dropdown is open. Defaults to false.
+ * @param {Position} [$position='left'] - The position of the dropdown. Defaults to 'left'.
+ * @param {Direction} [$direction='downwards'] - The direction of the dropdown. Defaults to 'downwards'.
+ */
 export const BaseItems = styled.div `
   display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
   flex-direction: column;
@@ -36,7 +43,7 @@ BaseItems.defaultProps = {
     $direction: 'downwards',
     $isOpen: false,
     $position: 'left',
-    className: 'dropdownItems',
+    className: 'dbuitkDropdownItems',
 };
 const Items = styled(BaseItems) `
   background-color: var(--theme-dropdown-background-color, #fff);

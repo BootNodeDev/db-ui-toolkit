@@ -1,4 +1,10 @@
 import { styled } from 'styled-components';
+/**
+ * Dropdown item component
+ *
+ * @param {boolean} [$closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
+ * @param {boolean} [disabled=false] - Disable the dropdown item. Default is false.
+ */
 const Item = styled.div `
   align-items: center;
   background-color: var(--theme-dropdown-item-background-color, transparent);
@@ -59,7 +65,7 @@ const Item = styled.div `
   }
 `;
 Item.defaultProps = {
-    className: 'dropdownItem',
+    className: 'dbuitkDropdownItem',
     $closeOnClick: true,
     disabled: false,
 };

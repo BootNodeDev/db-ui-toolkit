@@ -34,9 +34,9 @@ const Wrapper = styled.button `
   padding: 0;
   text-decoration: none;
   transition:
-    background-color 0.15s,
-    border-color 0.15s,
-    color 0.15s;
+    background-color var(--base-animation-time-xs, 0.2s),
+    border-color var(--base-animation-time-xs, 0.2s),
+    color var(--base-animation-time-xs, 0.2s);
   user-select: none;
   white-space: nowrap;
   width: fit-content;
@@ -49,6 +49,10 @@ const Wrapper = styled.button `
     opacity: 0.8;
   }
 `;
+Wrapper.defaultProps = {
+    className: 'dbuitkCopyButton',
+    type: 'button',
+};
 /**
  * CopyButton component, a button that copies a value to the clipboard
  *
@@ -57,11 +61,11 @@ const Wrapper = styled.button `
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the Copy icon.
  */
 const CopyButton = (_a) => {
-    var { children, onClick, value } = _a, restProps = __rest(_a, ["children", "onClick", "value"]);
+    var { children = React.createElement(Copy, null), onClick, value } = _a, restProps = __rest(_a, ["children", "onClick", "value"]);
     const onCopy = (e) => {
         navigator.clipboard.writeText(value);
         onClick && onClick(e);
     };
-    return (React.createElement(Wrapper, Object.assign({ onClick: onCopy }, restProps), children ? children : React.createElement(Copy, null)));
+    return (React.createElement(Wrapper, Object.assign({ onClick: onCopy }, restProps), children));
 };
 export default CopyButton;

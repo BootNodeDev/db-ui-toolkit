@@ -57,6 +57,7 @@ const ThemedButton = styled.button `
   ${ButtonVariantCSS}
 `;
 ThemedButton.defaultProps = {
+    className: 'dbuitkThemedButton',
     type: 'button',
 };
 export default ThemedButton;

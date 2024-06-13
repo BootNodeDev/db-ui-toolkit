@@ -30,12 +30,13 @@ const Wrapper = styled.img `
 `;
 Wrapper.defaultProps = {
     alt: 'Logo',
+    className: 'dbuitkLogo',
 };
 /**
  * Default Logo component
  */
 const Logo = (_a) => {
-    var { style, className } = _a, restProps = __rest(_a, ["style", "className"]);
-    return (React.createElement(Wrapper, Object.assign({ className: `dbuitkLogo ${className ? className : ''}`.trim(), style: style }, restProps)));
+    var restProps = __rest(_a, []);
+    return (React.createElement(Wrapper, Object.assign({}, restProps)));
 };
 export default Logo;

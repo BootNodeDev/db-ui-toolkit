@@ -11,4 +11,7 @@ const Text = styled.p `
     margin-bottom: 0;
   }
 `;
+Text.defaultProps = {
+    className: 'dbuitkText',
+};
 export default Text;

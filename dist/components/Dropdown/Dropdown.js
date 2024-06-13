@@ -33,7 +33,7 @@ const Wrapper = styled.div `
   }
 `;
 Wrapper.defaultProps = {
-    className: 'dropdown',
+    className: 'dbuitkDropdown',
     disabled: false,
 };
 const ButtonWrapper = styled.div `
@@ -46,7 +46,7 @@ const ButtonWrapper = styled.div `
   width: 100%;
 `;
 ButtonWrapper.defaultProps = {
-    className: 'dropdownButton',
+    className: 'dbuitkDropdownButton',
 };
 /**
  * Dropdown component

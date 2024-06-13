@@ -1,8 +1,6 @@
-import React, { HTMLAttributes, PropsWithChildren } from 'react';
-interface Props extends HTMLAttributes<HTMLDivElement>, PropsWithChildren {
-}
+/// <reference types="react" />
 /**
  * Main wrapper component
  */
-declare const Wrapper: React.FC<Props>;
+declare const Wrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
 export default Wrapper;

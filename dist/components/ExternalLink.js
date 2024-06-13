@@ -30,9 +30,9 @@ const Wrapper = styled.a `
   outline: none;
   padding: 0;
   transition:
-    background-color 0.15s,
-    border-color 0.15s,
-    color 0.15s;
+    background-color var(--base-animation-time-xs, 0.2s),
+    border-color var(--base-animation-time-xs, 0.2s),
+    color var(--base-animation-time-xs, 0.2s);
   white-space: nowrap;
   width: fit-content;
 
@@ -45,6 +45,10 @@ const Wrapper = styled.a `
     opacity: 0.8;
   }
 `;
+Wrapper.defaultProps = {
+    className: 'dbuitkExternalLink',
+    type: 'button',
+};
 /**
  * ExternalLink component, a button that opens a link in a new tab.
  *
@@ -52,7 +56,7 @@ const Wrapper = styled.a `
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the ExternalLink icon.
  */
 const ExternalLink = (_a) => {
-    var { children, target = '_blank' } = _a, restProps = __rest(_a, ["children", "target"]);
-    return (React.createElement(Wrapper, Object.assign({ target: target }, restProps), children ? children : React.createElement(Link, null)));
+    var { children = React.createElement(Link, null), target = '_blank' } = _a, restProps = __rest(_a, ["children", "target"]);
+    return (React.createElement(Wrapper, Object.assign({ target: target }, restProps), children));
 };
 export default ExternalLink;

@@ -9,8 +9,8 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "outDir": "./dist",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
   },
-  "include": ["src/**/*", "custom.d.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "src/home/index.tsx", "src/home/GlobalStyles.tsx"]
 }

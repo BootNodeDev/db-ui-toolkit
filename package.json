@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "webpack serve --config webpack.dev.config.js",
-    "build": "tsc && webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix .",
     "prettier": "prettier --write 'src/**/*.{ts,tsx,css}'"

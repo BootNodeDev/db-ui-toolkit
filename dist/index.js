@@ -402,7 +402,7 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,M,u){var r=M?M.cal
   ${Fe}
   ${QM}
 `;UM.defaultProps={className:"dbuitkThemedButton",type:"button"};const PM=UM,ZM=Be.h1`
-  color: var(--theme-color-text, #000);
+  color: var(--theme-color-text-primary, #000);
   font-size: var(--base-title-font-size, 24px);
   font-weight: 700;
   line-height: 1.2;

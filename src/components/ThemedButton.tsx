@@ -64,6 +64,7 @@ const ThemedButton = styled.button<Props>`
 `
 
 ThemedButton.defaultProps = {
+  className: 'dbuitkThemedButton',
   type: 'button',
 }
 

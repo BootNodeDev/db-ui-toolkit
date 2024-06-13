@@ -4,8 +4,8 @@ import { styled, css } from 'styled-components'
 import { Dark } from './assets/Dark'
 import { Light } from './assets/Light'
 
-export const Wrapper = styled.button`
-  --base-switch-theme-button-animation-delay: 0.25s;
+const Wrapper = styled.button`
+  --base-switch-theme-button-animation-delay: var(--base-animation-time-sm, 0.2s);
   --theme-switch-theme-button-background-color: #fff;
 
   [data-theme='dark'] & {
@@ -75,13 +75,13 @@ const DarkIcon = styled(Dark)`
 `
 
 interface Props extends PropsWithChildren {
-  onClick?: MouseEventHandler<HTMLButtonElement>
+  onClick: MouseEventHandler<HTMLButtonElement>
 }
 
 /**
- * SwitchThemeButton component
+ * SwitchThemeButton component - A button that switches between light and dark themes.
  *
- * @param {MouseEventHandler<HTMLButtonElement>} [onClick] - Optional function to call when the button is clicked.
+ * @param {MouseEventHandler<HTMLButtonElement>} onClick - Function that switches the theme.
  */
 const SwitchThemeButton: React.FC<Props> = ({ onClick, ...restProps }) => {
   return (

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { ImgHTMLAttributes } from 'react'
 import { styled } from 'styled-components'
 import LogoDark from './assets/logo-dark.svg'
 import LogoLight from './assets/logo-light.svg'
@@ -21,17 +21,14 @@ const Wrapper = styled.img`
 
 Wrapper.defaultProps = {
   alt: 'Logo',
+  className: 'dbuitkLogo',
 }
 
 /**
  * Default Logo component
  */
-const Logo: React.FC<HTMLAttributes<HTMLElement>> = ({ style, className, ...restProps }) => (
-  <Wrapper
-    className={`dbuitkLogo ${className ? className : ''}`.trim()}
-    style={style}
-    {...restProps}
-  />
+const Logo: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ ...restProps }) => (
+  <Wrapper {...restProps} />
 )
 
 export default Logo

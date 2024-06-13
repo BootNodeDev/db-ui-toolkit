@@ -8,4 +8,8 @@ const Title = styled.h1`
   margin: 0 0 calc(var(--base-gap, 8px) * 3);
 `
 
+Title.defaultProps = {
+  className: 'dbuitkTitle',
+}
+
 export default Title

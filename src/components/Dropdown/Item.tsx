@@ -5,6 +5,12 @@ export interface Props {
   disabled?: boolean
 }
 
+/**
+ * Dropdown item component
+ *
+ * @param {boolean} [$closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
+ * @param {boolean} [disabled=false] - Disable the dropdown item. Default is false.
+ */
 const Item = styled.div<Props>`
   align-items: center;
   background-color: var(--theme-dropdown-item-background-color, transparent);
@@ -66,7 +72,7 @@ const Item = styled.div<Props>`
 `
 
 Item.defaultProps = {
-  className: 'dropdownItem',
+  className: 'dbuitkDropdownItem',
   $closeOnClick: true,
   disabled: false,
 }

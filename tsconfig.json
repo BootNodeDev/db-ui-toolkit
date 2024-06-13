@@ -12,5 +12,5 @@
     "moduleResolution": "node"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "src/home/**/*"]
+  "exclude": ["node_modules", "dist", "src/home"]
 }

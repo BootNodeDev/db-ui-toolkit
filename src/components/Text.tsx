@@ -13,4 +13,8 @@ const Text = styled.p`
   }
 `
 
+Text.defaultProps = {
+  className: 'dbuitkText',
+}
+
 export default Text

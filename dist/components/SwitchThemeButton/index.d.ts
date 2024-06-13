@@ -1,14 +1,11 @@
-import React, { PropsWithChildren } from 'react';
-export declare const Wrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, never>> & string;
+import React, { PropsWithChildren, MouseEventHandler } from 'react';
 interface Props extends PropsWithChildren {
-    onClick: () => void;
-    theme: string | undefined;
+    onClick: MouseEventHandler<HTMLButtonElement>;
 }
 /**
- * SwitchThemeButton component
+ * SwitchThemeButton component - A button that switches between light and dark themes.
  *
- * @param theme: string | undefined
- * @param onClick: () => void
+ * @param {MouseEventHandler<HTMLButtonElement>} onClick - Function that switches the theme.
  */
 declare const SwitchThemeButton: React.FC<Props>;
 export default SwitchThemeButton;

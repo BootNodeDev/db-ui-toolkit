@@ -1,5 +1,8 @@
 import { styled } from 'styled-components'
 
+/**
+ * Card component
+ */
 const Card = styled.div`
   background-color: var(--theme-card-background-color, #fff);
   border-radius: var(--base-border-radius, 8px);
@@ -10,5 +13,9 @@ const Card = styled.div`
   padding: var(--base-common-padding, 8px);
   white-space: normal;
 `
+
+Card.defaultProps = {
+  className: 'dbuitkCard',
+}
 
 export default Card

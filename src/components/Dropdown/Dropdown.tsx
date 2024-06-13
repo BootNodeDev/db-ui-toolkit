@@ -39,7 +39,7 @@ const Wrapper = styled.div<WrapperProps>`
 `
 
 Wrapper.defaultProps = {
-  className: 'dropdown',
+  className: 'dbuitkDropdown',
   disabled: false,
 }
 
@@ -54,7 +54,7 @@ const ButtonWrapper = styled.div`
 `
 
 ButtonWrapper.defaultProps = {
-  className: 'dropdownButton',
+  className: 'dbuitkDropdownButton',
 }
 
 type HighlightItem = number | true | undefined

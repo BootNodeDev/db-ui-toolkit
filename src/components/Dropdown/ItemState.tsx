@@ -6,6 +6,11 @@ interface Props {
   $state?: ActionStates
 }
 
+/**
+ * ItemState component - A dropdown item with a state.
+ *
+ * @param {ActionStates} [$state=undefined] - The state of the item. Defaults to undefined.
+ */
 const ItemState = styled(DropdownItem)<Props>`
   &,
   &:hover {

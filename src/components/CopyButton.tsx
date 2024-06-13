@@ -37,9 +37,9 @@ const Wrapper = styled.button`
   padding: 0;
   text-decoration: none;
   transition:
-    background-color 0.15s,
-    border-color 0.15s,
-    color 0.15s;
+    background-color var(--base-animation-time-xs, 0.2s),
+    border-color var(--base-animation-time-xs, 0.2s),
+    color var(--base-animation-time-xs, 0.2s);
   user-select: none;
   white-space: nowrap;
   width: fit-content;
@@ -53,6 +53,11 @@ const Wrapper = styled.button`
   }
 `
 
+Wrapper.defaultProps = {
+  className: 'dbuitkCopyButton',
+  type: 'button',
+}
+
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   value: string
 }
@@ -64,7 +69,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  * @param {MouseEventHandler<HTMLButtonElement>} [onClick=undefined] - The function to call when the button is clicked. Default is undefined.
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the Copy icon.
  */
-const CopyButton: React.FC<Props> = ({ children, onClick, value, ...restProps }) => {
+const CopyButton: React.FC<Props> = ({ children = <Copy />, onClick, value, ...restProps }) => {
   const onCopy: MouseEventHandler<HTMLButtonElement> = (e) => {
     navigator.clipboard.writeText(value)
     onClick && onClick(e)
@@ -72,7 +77,7 @@ const CopyButton: React.FC<Props> = ({ children, onClick, value, ...restProps })
 
   return (
     <Wrapper onClick={onCopy} {...restProps}>
-      {children ? children : <Copy />}
+      {children}
     </Wrapper>
   )
 }

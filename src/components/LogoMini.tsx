@@ -16,15 +16,17 @@ const Wrapper = styled.svg`
   }
 `
 
+Wrapper.defaultProps = {
+  className: 'dbuitkLogoMini',
+}
+
 /**
  * Default mini logo component
  */
-const LogoMini: React.FC<HTMLAttributes<SVGElement>> = ({ style, className, ...restProps }) => (
+const LogoMini: React.FC<HTMLAttributes<SVGElement>> = ({ ...restProps }) => (
   <Wrapper
-    className={`dbuitkLogoMini ${className ? className : ''}`.trim()}
     fill="none"
     height="16"
-    style={style}
     viewBox="0 0 76 16"
     width="76"
     xmlns="http://www.w3.org/2000/svg"

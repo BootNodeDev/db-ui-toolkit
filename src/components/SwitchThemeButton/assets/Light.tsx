@@ -18,7 +18,7 @@ Wrapper.defaultProps = {
   className: 'light',
 }
 
-export const Light: React.FC<HTMLAttributes<SVGElement>> = ({ ...restProps }) => (
+const Light: React.FC<HTMLAttributes<SVGElement>> = ({ ...restProps }) => (
   <Wrapper
     fill="none"
     height="20"
@@ -92,3 +92,5 @@ export const Light: React.FC<HTMLAttributes<SVGElement>> = ({ ...restProps }) =>
     />
   </Wrapper>
 )
+
+export default Light

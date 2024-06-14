@@ -1,2 +1,3 @@
 import React, { HTMLAttributes } from 'react';
-export declare const Dark: React.FC<HTMLAttributes<SVGElement>>;
+declare const Dark: React.FC<HTMLAttributes<SVGElement>>;
+export default Dark;

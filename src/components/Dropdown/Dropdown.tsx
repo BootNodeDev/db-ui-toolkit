@@ -17,7 +17,9 @@ interface WrapperProps {
   disabled?: boolean
 }
 
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div.attrs<WrapperProps>(
+  ({ className = 'dbuitkDropdown', disabled = false }) => ({ className, disabled }),
+)<WrapperProps>`
   outline: none;
   position: relative;
   z-index: 0;
@@ -38,12 +40,7 @@ const Wrapper = styled.div<WrapperProps>`
   }
 `
 
-Wrapper.defaultProps = {
-  className: 'dbuitkDropdown',
-  disabled: false,
-}
-
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled.div.attrs(({ className = 'dbuitkDropdownButton' }) => ({ className }))`
   background-color: transparent;
   border: none;
   display: flex;
@@ -52,10 +49,6 @@ const ButtonWrapper = styled.div`
   user-select: none;
   width: 100%;
 `
-
-ButtonWrapper.defaultProps = {
-  className: 'dbuitkDropdownButton',
-}
 
 type HighlightItem = number | true | undefined
 

@@ -1,6 +1,17 @@
 import { styled } from 'styled-components'
 
-const Text = styled.p`
+/**
+ * Text component
+ *
+ * Theme CSS variables:
+ *
+ * --theme-color-text: Text color.
+ *
+ * Base CSS variables:
+ *
+ * --base-text-font-size: Text font size.
+ */
+const Text = styled.p.attrs(({ className = 'dbuitkText' }) => ({ className }))`
   color: var(--theme-color-text, #000);
   font-size: var(--base-text-font-size, 16px);
   font-weight: 400;
@@ -12,9 +23,5 @@ const Text = styled.p`
     margin-bottom: 0;
   }
 `
-
-Text.defaultProps = {
-  className: 'dbuitkText',
-}
 
 export default Text

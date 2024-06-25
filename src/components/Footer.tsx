@@ -2,8 +2,13 @@ import { styled } from 'styled-components'
 
 /**
  * Barebones footer component
+ *
+ * Theme CSS variables:
+ *
+ * --theme-footer-background-color: Footer background color.
+ * --theme-footer-text-color: Footer text color.
  */
-const Footer = styled.footer`
+const Footer = styled.footer.attrs(({ className = 'dbuitkFooter' }) => ({ className }))`
   align-items: center;
   background-color: var(--theme-footer-background-color, transparent);
   color: var(--theme-footer-text-color, #000);
@@ -11,9 +16,5 @@ const Footer = styled.footer`
   flex-grow: 0;
   flex-shrink: 0;
 `
-
-Footer.defaultProps = {
-  className: 'dbuitkFooter',
-}
 
 export default Footer

@@ -2,8 +2,14 @@ import { styled } from 'styled-components'
 
 /**
  * Card component
+ *
+ * Theme CSS variables:
+ *
+ * --theme-card-background-color: Card background color.
+ * --theme-card-border-color: Card border color.
+ * --theme-card-box-shadow: Card box shadow.
  */
-const Card = styled.div`
+const Card = styled.div.attrs(({ className = 'dbuitkCard' }) => ({ className }))`
   background-color: var(--theme-card-background-color, #fff);
   border-radius: var(--base-border-radius, 8px);
   border: 1px solid var(--theme-card-border-color, #fff);
@@ -13,9 +19,5 @@ const Card = styled.div`
   padding: var(--base-common-padding, 8px);
   white-space: normal;
 `
-
-Card.defaultProps = {
-  className: 'dbuitkCard',
-}
 
 export default Card

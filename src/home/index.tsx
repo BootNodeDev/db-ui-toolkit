@@ -145,6 +145,7 @@ const App = () => {
       text: 'Log Out',
       extraProps: {
         $state: 'danger' as ActionStates,
+        onClick: () => console.log('Log out action'),
       },
     },
   ]
@@ -187,7 +188,7 @@ const App = () => {
               <Title>Buttons</Title>
               <ComponentGrid>
                 <Button>Base button</Button>
-                <PrimaryButton>Themed button</PrimaryButton>
+                <PrimaryButton type="submit">Themed button</PrimaryButton>
                 <SecondaryButton>Themed button</SecondaryButton>
               </ComponentGrid>
               <ComponentGrid>

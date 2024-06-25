@@ -1,15 +1,24 @@
 import { styled } from 'styled-components'
 
-const Title = styled.h1`
-  color: var(--theme-color-text-primary, #000);
+/**
+ * Title component
+ *
+ * Theme CSS variables:
+ *
+ * --theme-color-title: Title text color.
+ *
+ * Base CSS variables:
+ *
+ * --base-title-font-size: Title font size.
+ */
+const Title = styled.h1.attrs(({ className = 'dbuitkTitle' }) => ({ className }))`
+  --theme-color-title: var(--theme-color-text-primary, #000);
+
+  color: var(--theme-color-title);
   font-size: var(--base-title-font-size, 24px);
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 calc(var(--base-gap, 8px) * 3);
 `
-
-Title.defaultProps = {
-  className: 'dbuitkTitle',
-}
 
 export default Title

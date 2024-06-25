@@ -4,13 +4,18 @@ interface Props {
 }
 /**
  * Themed button CSS generator
+ */
+export declare const ButtonVariantCSS: import("styled-components").RuleSet<Props>;
+/**
+ * Base themed button component
  *
- * @param {string} cssVarRoot - CSS variable root for the themed button
- * i.e.: --button-primary. The root is used to generate several CSS variables.
+ * @param {string} $cssVarRoot - CSS variable root for the themed button
+ * i.e.: --button-primary. The root is used to dinamically generate several
+ * CSS variables. For example: [$cssVarRoot]-background-color,
+ * [$cssVarRoot]-border-color, etc.
  *
- * You need to provide the following variables in your CSS (examples based on
- * the '--button-primary' root above). Some default values are provided in case
- * you don't provide them in your CSS:
+ * Based on the $cssVarRoot='--button-primary' example above, you'd need to
+ * create the following variables in your CSS:
  *
  * --button-primary-background-color
  * --button-primary-background-color-hover
@@ -21,10 +26,10 @@ interface Props {
  * --button-primary-background-color-disabled
  * --button-primary-border-color-disabled
  * --button-primary-color-disabled
+ *
+ * See the examples in the page demo or in dAppBooster for further clarification.
  */
-export declare const ButtonVariantCSS: import("styled-components").RuleSet<Props>;
-/**
- * Base themed button component
- */
-declare const ThemedButton: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Props>> & string;
+declare const ThemedButton: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Omit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
+    ref?: ((instance: HTMLButtonElement | null) => void) | import("react").RefObject<HTMLButtonElement> | null | undefined;
+}>, Props>, never>> & string;
 export default ThemedButton;

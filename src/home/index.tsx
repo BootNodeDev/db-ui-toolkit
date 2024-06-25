@@ -13,6 +13,7 @@ import {
   Dropdown,
   ExternalLink,
   Footer as BaseFooter,
+  GeneralError,
   Header as BaseHeader,
   InnerContainer,
   Item as BaseItem,
@@ -53,17 +54,9 @@ const Wrapper = styled(BaseWrapper)`
   row-gap: 32px;
 `
 
-const PrimaryButton = styled(ThemedButton)``
+const PrimaryButton = styled(ThemedButton).attrs({ $cssVarRoot: '--button-primary' })``
 
-PrimaryButton.defaultProps = {
-  $cssVarRoot: '--button-primary',
-}
-
-const SecondaryButton = styled(ThemedButton)``
-
-SecondaryButton.defaultProps = {
-  $cssVarRoot: '--button-secondary',
-}
+const SecondaryButton = styled(ThemedButton).attrs({ $cssVarRoot: '--button-secondary' })``
 
 const Header = styled(BaseHeader)`
   height: 48px;
@@ -84,6 +77,7 @@ const InnerMain = styled(Inner)`
   flex-direction: column;
   padding-bottom: var(--inner-main-vertical-padding);
   padding-top: var(--inner-main-vertical-padding);
+  row-gap: 50px;
 `
 
 const Footer = styled(BaseFooter)`
@@ -185,98 +179,131 @@ const App = () => {
         </Header>
         <Main>
           <InnerMain>
-            <Title>Title text</Title>
-            <Text>Lorem ipsum dolors sit ameat, adipiscing elit. Nullam</Text>
-            <Text>
-              <b>Buttons</b>
-            </Text>
-            <ComponentGrid>
-              <Button>Base button</Button>
-              <PrimaryButton>Themed button</PrimaryButton>
-              <SecondaryButton>Themed button</SecondaryButton>
-            </ComponentGrid>
-            <ComponentGrid>
-              <Button disabled>Base button</Button>
-              <PrimaryButton disabled>Themed button</PrimaryButton>
-              <SecondaryButton disabled>Themed button</SecondaryButton>
-            </ComponentGrid>
-            <Text>
-              <b>Dropdown</b>
-            </Text>
-            <ComponentGrid>
-              <Dropdown
-                clearDropdownStyle
-                button={
-                  <Button>
-                    <span>Info</span>
-                    <span>▾</span>
-                  </Button>
-                }
-                items={
-                  <CustomDropdownItems>
-                    <Text>
-                      <b>Title </b>
-                    </Text>
-                    <span>
-                      This dropdown uses a single item. Also the item&apos;s container is a custom
-                      one.
-                    </span>
-                  </CustomDropdownItems>
-                }
-              />
-              <Dropdown
-                button={
-                  <PrimaryButton>
-                    <span>Profile</span>
-                    <span>▾</span>
-                  </PrimaryButton>
-                }
-                items={profileDropdownItems.map(({ text, extraProps }, index) => {
-                  return (
-                    <Item key={index} {...extraProps}>
-                      {text}
-                    </Item>
-                  )
-                })}
-              />
-              <Dropdown
-                button={
-                  <SecondaryButton>
-                    <span>Filter</span>
-                    <span>▾</span>
-                  </SecondaryButton>
-                }
-                highlightItem={0}
-                items={filterDropdownItems.map(({ text, extraProps }, index) => {
-                  return (
-                    <Item key={index} {...extraProps}>
-                      {text}
-                    </Item>
-                  )
-                })}
-              />
-            </ComponentGrid>
-            <Text>
-              <b>Copy button</b>
-            </Text>
-            <ComponentGrid>
-              <CopyButton value="Value to copy" onClick={() => console.log('Text copied!')} />
-              <CopyButtonText
-                value="Another value to be copied"
-                onClick={() => console.log('Text copied!')}
-              >
-                Click me to copy
-              </CopyButtonText>
-            </ComponentGrid>
-            <Text>
-              <b>External Link</b>
-            </Text>
-            <ComponentGrid>
-              <ExternalLink href="https://www.bootnode.dev/" />
-              <ExternalLinkText href="https://github.com/BootNodeDev/dAppBooster">
-                Open external link
-              </ExternalLinkText>
-            </ComponentGrid>
+            <div>
+              <Title>Generic title and text</Title>
+              <Text>Lorem ipsum dolors sit ameat, adipiscing elit. Nullam</Text>
+            </div>
+            <div>
+              <Title>Buttons</Title>
+              <ComponentGrid>
+                <Button>Base button</Button>
+                <PrimaryButton>Themed button</PrimaryButton>
+                <SecondaryButton>Themed button</SecondaryButton>
+              </ComponentGrid>
+              <ComponentGrid>
+                <Button disabled>Base button</Button>
+                <PrimaryButton disabled>Themed button</PrimaryButton>
+                <SecondaryButton disabled>Themed button</SecondaryButton>
+              </ComponentGrid>
+            </div>
+            <div>
+              <Title>Dropdown</Title>
+              <ComponentGrid>
+                <Dropdown
+                  clearDropdownStyle
+                  button={
+                    <Button>
+                      <span>Info</span>
+                      <span>▾</span>
+                    </Button>
+                  }
+                  items={
+                    <CustomDropdownItems>
+                      <Text>Title</Text>
+                      <span>
+                        This dropdown uses a single item. Also the item&apos;s container is a custom
+                        one.
+                      </span>
+                    </CustomDropdownItems>
+                  }
+                />
+                <Dropdown
+                  button={
+                    <PrimaryButton>
+                      <span>Profile</span>
+                      <span>▾</span>
+                    </PrimaryButton>
+                  }
+                  items={profileDropdownItems.map(({ text, extraProps }, index) => {
+                    return (
+                      <Item key={index} {...extraProps}>
+                        {text}
+                      </Item>
+                    )
+                  })}
+                />
+                <Dropdown
+                  button={
+                    <SecondaryButton>
+                      <span>Filter</span>
+                      <span>▾</span>
+                    </SecondaryButton>
+                  }
+                  highlightItem={0}
+                  items={filterDropdownItems.map(({ text, extraProps }, index) => {
+                    return (
+                      <Item key={index} {...extraProps}>
+                        {text}
+                      </Item>
+                    )
+                  })}
+                />
+              </ComponentGrid>
+            </div>
+            <div>
+              <Title>Copy button</Title>
+              <ComponentGrid>
+                <CopyButton value="Value to copy" onClick={() => console.log('Text copied!')} />
+                <CopyButtonText
+                  value="Another value to be copied"
+                  onClick={() => console.log('Text copied!')}
+                >
+                  Click me to copy
+                </CopyButtonText>
+              </ComponentGrid>
+            </div>
+            <div>
+              <Title>External Link</Title>
+              <ComponentGrid>
+                <ExternalLink href="https://www.bootnode.dev/" />
+                <ExternalLinkText href="https://github.com/BootNodeDev/dAppBooster">
+                  Open external link
+                </ExternalLinkText>
+              </ComponentGrid>
+            </div>
+            <div>
+              <Title>General Error</Title>
+              <ComponentGrid>
+                <GeneralError
+                  message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec lorem
+                consectetur adipiscing elit. Nullam nec purus nec lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                  title="Consectetur adipiscing elit"
+                  actionButton={
+                    <PrimaryButton onClick={() => window.location.reload()}>Reload</PrimaryButton>
+                  }
+                />
+                <GeneralError
+                  message={
+                    <>
+                      <p>
+                        Error: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nu nec purus
+                        nec lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                        nec purus nec lorem.
+                      </p>
+                      <p>Source:</p>
+                      <pre>
+                        <code>
+                          {`function myFunction() {
+    console.log('Hello, World!');
+}`}
+                        </code>
+                      </pre>
+                    </>
+                  }
+                  title="Error 500"
+                />
+              </ComponentGrid>
+            </div>
           </InnerMain>
         </Main>
         <Footer>

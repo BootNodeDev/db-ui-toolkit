@@ -19,14 +19,16 @@ const Link: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.a`
+const Wrapper = styled.a.attrs(({ className = 'dbuitkExternalLink' }) => ({ className }))<
+  AnchorHTMLAttributes<HTMLAnchorElement>
+>`
   align-items: center;
-  color: var(--external-link-button-color, #000);
+  color: var(--theme-external-link-button-color, #000);
   column-gap: var(--base-button-gap, 8px);
   cursor: pointer;
   display: flex;
   font-family: var(--base-font-family, sans-serif);
-  font-size: var(--base-button-font-size, 15px);
+  font-size: var(--base-button-font-size, 1.5rem);
   font-weight: 400;
   height: fit-content;
   justify-content: center;
@@ -40,7 +42,7 @@ const Wrapper = styled.a`
   width: fit-content;
 
   &:hover {
-    color: var(--external-link-button-color-hover, #8b46a4);
+    color: var(--theme-external-link-button-color-hover, #8b46a4);
     text-decoration: none;
   }
 
@@ -49,16 +51,16 @@ const Wrapper = styled.a`
   }
 `
 
-Wrapper.defaultProps = {
-  className: 'dbuitkExternalLink',
-  type: 'button',
-}
-
 /**
  * ExternalLink component, a button that opens a link in a new tab.
  *
  * @param {React.HTMLAttributeAnchorTarget} target - The target attribute specifies where to open the linked document. Default is '_blank'.
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the ExternalLink icon.
+ *
+ * Theme CSS variables:
+ *
+ * --theme-external-link-button-color: Color of the link.
+ * --theme-external-link-button-color-hover: Color of the link on hover.
  */
 const ExternalLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   children = <Link />,

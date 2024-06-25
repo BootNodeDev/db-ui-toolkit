@@ -19,16 +19,19 @@ const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.button`
+const Wrapper = styled.button.attrs(({ className = 'dbuitkCopyButton', type = 'button' }) => ({
+  className,
+  type,
+}))`
   align-items: center;
   background: transparent;
   border: none;
-  color: var(--copy-button-color, #000);
+  color: var(--theme-copy-button-color, #000);
   column-gap: var(--base-button-gap, 8px);
   cursor: pointer;
   display: flex;
   font-family: var(--base-font-family, sans-serif);
-  font-size: var(--base-button-font-size, 15px);
+  font-size: var(--base-button-font-size, 1.5rem);
   font-weight: 400;
   height: fit-content;
   justify-content: center;
@@ -45,18 +48,13 @@ const Wrapper = styled.button`
   width: fit-content;
 
   &:hover {
-    color: var(--copy-button-color-hover, #8b46a4);
+    color: var(--theme-copy-button-color-hover, #8b46a4);
   }
 
   &:active {
     opacity: 0.8;
   }
 `
-
-Wrapper.defaultProps = {
-  className: 'dbuitkCopyButton',
-  type: 'button',
-}
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   value: string
@@ -68,6 +66,11 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  * @param {string} value - The value to copy to the clipboard
  * @param {MouseEventHandler<HTMLButtonElement>} [onClick=undefined] - The function to call when the button is clicked. Default is undefined.
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the Copy icon.
+ *
+ * Theme CSS variables:
+ *
+ * --theme-copy-button-color: Button color.
+ * --theme-copy-button-color-hover: Button color on hover.
  */
 const CopyButton: React.FC<Props> = ({ children = <Copy />, onClick, value, ...restProps }) => {
   const onCopy: MouseEventHandler<HTMLButtonElement> = (e) => {

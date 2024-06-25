@@ -34,8 +34,8 @@ const AlertIcon: React.FC = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled(Card).attrs({ className: 'dbuitkGenericError' })`
-  --theme-generic-error-color-title: var(--theme-color-text-primary, #4b4d60);
+const Wrapper = styled(Card).attrs(({ className = 'dbuitkGenericError' }) => ({ className }))`
+  --theme-generic-error-color-title: var(--theme-color-text-primary, #2e3048);
   --theme-generic-error-color-text: var(--theme-color-text, #4b4d60);
   --theme-generic-error-color-icon: var(--theme-color-danger, #800);
   --theme-generic-error-color-message-background: #f8f8f8;
@@ -43,8 +43,8 @@ const Wrapper = styled(Card).attrs({ className: 'dbuitkGenericError' })`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: calc(var(--base-gap, 8px) * 4);
-  padding-top: calc(var(--base-gap, 8px) * 4);
+  padding-bottom: calc(var(--base-common-padding, 8px) * 4);
+  padding-top: calc(var(--base-common-padding, 8px) * 4);
   row-gap: calc(var(--base-gap, 8px) * 2);
   width: 100%;
 
@@ -68,7 +68,7 @@ const Title = styled.h1`
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
-  padding-bottom: var(--base-gap, 8px);
+  padding-bottom: var(--base-common-padding, 8px);
   text-align: center;
   word-break: break-word;
 `
@@ -79,12 +79,12 @@ const Message = styled.div`
   color: var(--theme-generic-error-color-text);
   display: flex;
   flex-direction: column;
-  font-size: 1.6rem;
+  font-size: var(--base-text-font-size, 1.6rem);
   font-weight: 400;
   line-height: 1.4;
   max-height: 250px;
   overflow: auto;
-  padding: calc(var(--base-gap, 8px) * 2);
+  padding: calc(var(--base-common-padding, 8px) * 2);
   position: relative;
   row-gap: calc(var(--base-gap, 8px) * 3);
   width: 100%;

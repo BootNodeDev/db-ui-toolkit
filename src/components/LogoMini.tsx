@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react'
 import { styled } from 'styled-components'
 
-const Wrapper = styled.svg`
+const Wrapper = styled.svg.attrs(({ className = 'dbuitkLogoMini' }) => ({ className }))`
   display: block;
   flex-shrink: 0;
 
@@ -15,10 +15,6 @@ const Wrapper = styled.svg`
     }
   }
 `
-
-Wrapper.defaultProps = {
-  className: 'dbuitkLogoMini',
-}
 
 /**
  * Default mini logo component

@@ -10,8 +10,26 @@ export interface Props {
  *
  * @param {boolean} [$closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
  * @param {boolean} [disabled=false] - Disable the dropdown item. Default is false.
+ *
+ * Theme CSS variables:
+ *
+ * --theme-dropdown-item-background-color: Dropdown item background color.
+ * --theme-dropdown-item-border-color: Dropdown item border color.
+ * --theme-dropdown-item-color: Dropdown item text color.
+ * --theme-dropdown-item-background-color-hover: Dropdown item background color on hover.
+ * --theme-dropdown-item-border-color-hover: Dropdown item border color on hover.
+ * --theme-dropdown-item-color-hover: Dropdown item text color on hover.
+ * --theme-dropdown-item-background-color-active: Dropdown item background color when active.
+ * --theme-dropdown-item-border-color-active: Dropdown item border color when active.
+ * --theme-dropdown-item-color-active: Dropdown item text color when active.
  */
-const Item = styled.div<Props>`
+const Item = styled.div.attrs<Props>(
+  ({ className = 'dbuitkDropdownItem', $closeOnClick = true, disabled = false }) => ({
+    className,
+    $closeOnClick,
+    disabled,
+  }),
+)`
   align-items: center;
   background-color: var(--theme-dropdown-item-background-color, transparent);
   border-bottom: 1px solid var(--theme-dropdown-item-border-color, #f0f0f0);
@@ -70,11 +88,5 @@ const Item = styled.div<Props>`
     opacity: 0.8;
   }
 `
-
-Item.defaultProps = {
-  className: 'dbuitkDropdownItem',
-  $closeOnClick: true,
-  disabled: false,
-}
 
 export default Item

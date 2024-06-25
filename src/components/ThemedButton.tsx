@@ -7,23 +7,6 @@ interface Props {
 
 /**
  * Themed button CSS generator
- *
- * @param {string} cssVarRoot - CSS variable root for the themed button
- * i.e.: --button-primary. The root is used to generate several CSS variables.
- *
- * You need to provide the following variables in your CSS (examples based on
- * the '--button-primary' root above). Some default values are provided in case
- * you don't provide them in your CSS:
- *
- * --button-primary-background-color
- * --button-primary-background-color-hover
- * --button-primary-border-color
- * --button-primary-border-color-hover
- * --button-primary-color
- * --button-primary-color-hover
- * --button-primary-background-color-disabled
- * --button-primary-border-color-disabled
- * --button-primary-color-disabled
  */
 export const ButtonVariantCSS = css<Props>`
   ${({ $cssVarRoot }) => css`
@@ -52,8 +35,33 @@ export const ButtonVariantCSS = css<Props>`
 
 /**
  * Base themed button component
+ *
+ * @param {string} $cssVarRoot - CSS variable root for the themed button
+ * i.e.: --button-primary. The root is used to dinamically generate several
+ * CSS variables. For example: [$cssVarRoot]-background-color,
+ * [$cssVarRoot]-border-color, etc.
+ *
+ * Based on the $cssVarRoot='--button-primary' example above, you'd need to
+ * create the following variables in your CSS:
+ *
+ * --button-primary-background-color
+ * --button-primary-background-color-hover
+ * --button-primary-border-color
+ * --button-primary-border-color-hover
+ * --button-primary-color
+ * --button-primary-color-hover
+ * --button-primary-background-color-disabled
+ * --button-primary-border-color-disabled
+ * --button-primary-color-disabled
+ *
+ * See the examples in the page demo or in dAppBooster for further clarification.
  */
-const ThemedButton = styled.button<Props>`
+const ThemedButton = styled.button.attrs<Props>(
+  ({ type = 'button', className = 'dbuitkThemedButton' }) => ({
+    type,
+    className,
+  }),
+)`
   /**
    * You can use a combination of these to make any component look like a button
    */
@@ -62,10 +70,5 @@ const ThemedButton = styled.button<Props>`
   ${DisabledButtonCSS}
   ${ButtonVariantCSS}
 `
-
-ThemedButton.defaultProps = {
-  className: 'dbuitkThemedButton',
-  type: 'button',
-}
 
 export default ThemedButton

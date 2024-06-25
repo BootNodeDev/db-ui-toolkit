@@ -33,7 +33,9 @@ const IconWrapperDark = styled(IconWrapper)`
   }
 `
 
-const Wrapper = styled.button`
+const Wrapper = styled.button.attrs(
+  ({ className = 'dbuitkSwitchThemeButton', type = 'button' }) => ({ className, type }),
+)`
   --base-switch-theme-button-animation-delay: var(--base-animation-time, 0.3s);
   --base-active-state-size: 36px;
   --base-left-start: 4px;
@@ -73,11 +75,6 @@ const Wrapper = styled.button`
   }
 `
 
-Wrapper.defaultProps = {
-  className: 'dbuitkSwitchThemeButton',
-  type: 'button',
-}
-
 const ActiveState = styled.div`
   border-radius: 50%;
   background-color: var(--theme-active-state-background-color);
@@ -91,7 +88,7 @@ const ActiveState = styled.div`
   z-index: 1;
 `
 
-// this animation rotates the icon a full 360 degrees
+// This animation rotates the icon a full 360 degrees
 const rotate = keyframes`
   from {
     transform: rotate(0deg);

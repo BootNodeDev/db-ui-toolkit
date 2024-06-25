@@ -8,13 +8,20 @@ interface ItemsProps {
 }
 
 /**
- * BaseItems component - A container for dropdown items.
+ * BaseItems component - A generic container for dropdown items. No theming.
  *
  * @param {boolean} [$isOpen=false] - Whether the dropdown is open. Defaults to false.
  * @param {Position} [$position='left'] - The position of the dropdown. Defaults to 'left'.
  * @param {Direction} [$direction='downwards'] - The direction of the dropdown. Defaults to 'downwards'.
  */
-export const BaseItems = styled.div<ItemsProps>`
+export const BaseItems = styled.div.attrs<ItemsProps>(
+  ({
+    $direction = 'downwards',
+    $isOpen = false,
+    $position = 'left',
+    className = 'dbuitkDropdownItems',
+  }) => ({ className, $direction, $isOpen, $position }),
+)`
   display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
   flex-direction: column;
   min-width: 90px;
@@ -53,13 +60,19 @@ export const BaseItems = styled.div<ItemsProps>`
     `}
 `
 
-BaseItems.defaultProps = {
-  $direction: 'downwards',
-  $isOpen: false,
-  $position: 'left',
-  className: 'dbuitkDropdownItems',
-}
-
+/**
+ * Items component - A container for dropdown items.
+ *
+ * @param {boolean} [$isOpen=false] - Whether the dropdown is open. Defaults to false.
+ * @param {Position} [$position='left'] - The position of the dropdown. Defaults to 'left'.
+ * @param {Direction} [$direction='downwards'] - The direction of the dropdown. Defaults to 'downwards'.
+ *
+ * Theme CSS Variables:
+ *
+ * --theme-dropdown-background-color: Dropdown background color.
+ * --theme-dropdown-border-color: Dropdown border color.
+ * --theme-dropdown-box-shadow: Dropdown box shadow.
+ */
 const Items = styled(BaseItems)`
   background-color: var(--theme-dropdown-background-color, #fff);
   border-color: var(--theme-dropdown-border-color, #fff);

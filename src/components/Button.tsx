@@ -37,7 +37,7 @@ export const ButtonCSS = css`
   cursor: pointer;
   display: flex;
   font-family: var(--base-font-family, sans-serif);
-  font-size: var(--base-button-font-size, 15px);
+  font-size: var(--base-button-font-size, 1.5rem);
   font-weight: 400;
   height: var(--base-button-height, 38px);
   justify-content: center;
@@ -53,14 +53,24 @@ export const ButtonCSS = css`
   white-space: nowrap;
 `
 
-const Button = styled.button`
+/**
+ * Common button
+ *
+ * Base CSS variables:
+ *
+ * --base-button-border-radius: Button border radius.
+ * --base-button-font-size: Button font size.
+ * --base-button-gap: Button column gap.
+ * --base-button-height: Button height.
+ * --base-button-padding: Button padding.
+ */
+const Button = styled.button.attrs(({ className = 'dbuitkButton', type = 'button' }) => ({
+  className,
+  type,
+}))`
   ${ButtonCSS}
   ${ActiveButtonCSS}
   ${DisabledButtonCSS}
 `
-
-Button.defaultProps = {
-  type: 'button',
-}
 
 export default Button

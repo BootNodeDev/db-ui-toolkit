@@ -24,6 +24,7 @@ import {
   Text,
   ThemedButton,
   Title,
+  Toast,
   Wrapper as BaseWrapper,
 } from '../index'
 
@@ -252,26 +253,34 @@ const App = () => {
               </ComponentGrid>
             </div>
             <div>
-              <Title>Copy button</Title>
+              <Title>Toast</Title>
               <ComponentGrid>
-                <CopyButton value="Value to copy" onClick={() => console.log('Text copied!')} />
-                <CopyButtonText
-                  value="Another value to be copied"
-                  onClick={() => console.log('Text copied!')}
-                >
-                  Click me to copy
-                </CopyButtonText>
+                <Toast>This is how a simple toast would look.</Toast>
               </ComponentGrid>
             </div>
-            <div>
-              <Title>External Link</Title>
-              <ComponentGrid>
-                <ExternalLink href="https://www.bootnode.dev/" />
-                <ExternalLinkText href="https://github.com/BootNodeDev/dAppBooster">
-                  Open external link
-                </ExternalLinkText>
-              </ComponentGrid>
-            </div>
+            <ComponentGrid>
+              <div>
+                <Title>Copy button</Title>
+                <ComponentGrid>
+                  <CopyButton value="Value to copy" onClick={() => console.log('Text copied!')} />
+                  <CopyButtonText
+                    value="Another value to be copied"
+                    onClick={() => console.log('Text copied!')}
+                  >
+                    Click me to copy
+                  </CopyButtonText>
+                </ComponentGrid>
+              </div>
+              <div>
+                <Title>External Link</Title>
+                <ComponentGrid>
+                  <ExternalLink href="https://www.bootnode.dev/" />
+                  <ExternalLinkText href="https://github.com/BootNodeDev/dAppBooster">
+                    Open external link
+                  </ExternalLinkText>
+                </ComponentGrid>
+              </div>
+            </ComponentGrid>
             <div>
               <Title>General Error</Title>
               <ComponentGrid>

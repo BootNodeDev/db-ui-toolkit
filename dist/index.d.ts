@@ -17,6 +17,7 @@ export { default as SwitchThemeButton } from './components/SwitchThemeButton';
 export { default as Text } from './components/Text';
 export { default as ThemedButton, ButtonVariantCSS } from './components/ThemedButton';
 export { default as Title } from './components/Title';
+export { default as Toast } from './components/Toast';
 export { default as Wrapper } from './components/Wrapper';
 /**
  * Exported utils

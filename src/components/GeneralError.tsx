@@ -2,8 +2,6 @@ import React, { ReactElement } from 'react'
 import { styled, css } from 'styled-components'
 import { breakpointMediaQuery } from '../utils/breakpoints'
 
-import Card from './Card'
-
 const AlertIcon: React.FC = ({ ...restProps }) => (
   <svg
     fill="none"
@@ -34,18 +32,19 @@ const AlertIcon: React.FC = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled(Card).attrs(({ className = 'dbuitkGenericError' }) => ({ className }))`
-  --theme-generic-error-color-title: var(--theme-color-text-primary, #2e3048);
-  --theme-generic-error-color-text: var(--theme-color-text, #4b4d60);
-  --theme-generic-error-color-icon: var(--theme-color-danger, #800);
-  --theme-generic-error-color-message-background: #f8f8f8;
-
+const Wrapper = styled.div.attrs(({ className = 'dbuitkGenericError' }) => ({ className }))`
   align-items: center;
+  background-color: var(--theme-generic-error-background-color, #fff);
+  border-radius: var(--base-border-radius, 8px);
+  border: 1px solid var(--theme-generic-error-border-color, #fff);
+  box-shadow: var(--theme-generic-error-box-shadow, 0 9.6px 13px 0 rgb(0 0 0 / 8%));
+  display: flex;
+  flex-direction: column;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: calc(var(--base-common-padding, 8px) * 4);
-  padding-top: calc(var(--base-common-padding, 8px) * 4);
+  padding: calc(var(--base-common-padding, 8px) * 4) var(--base-common-padding-xl, 16px);
   row-gap: calc(var(--base-gap, 8px) * 2);
+  white-space: normal;
   width: 100%;
 
   ${breakpointMediaQuery(
@@ -57,13 +56,13 @@ const Wrapper = styled(Card).attrs(({ className = 'dbuitkGenericError' }) => ({ 
 `
 
 const Icon = styled.div`
-  color: var(--theme-generic-error-color-icon);
+  color: var(--theme-generic-error-color-icon, #800);
   display: flex;
   justify-content: center;
 `
 
 const Title = styled.h1`
-  color: var(--theme-generic-error-color-title);
+  color: var(--theme-generic-error-color-title, #2e3048);
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.2;
@@ -74,9 +73,9 @@ const Title = styled.h1`
 `
 
 const Message = styled.div`
-  background-color: var(--theme-generic-error-color-message-background);
+  background-color: var(--theme-generic-error-color-message-background, #f8f8f8);
   border-radius: var(--base-border-radius, 8px);
-  color: var(--theme-generic-error-color-text);
+  color: var(--theme-generic-error-color-text, #4b4d60);
   display: flex;
   flex-direction: column;
   font-size: var(--base-text-font-size, 1.6rem);
@@ -123,10 +122,13 @@ interface Props {
  *
  * Theme CSS variables:
  *
+ * --theme-generic-error-background-color: Background color of the container.
+ * --theme-generic-error-border-color: Border color of the container.
+ * --theme-generic-error-box-shadow: Box shadow of the container.
+ * --theme-generic-error-color-icon: Color of the icon (only works for fill="currentColor").
  * --theme-generic-error-color-title: Color of the title.
- * --theme-generic-error-color-text: Color of the text.
- * --theme-generic-error-color-icon: Color of the icon.
- * --theme-generic-error-color-message-background: Background color of the message.
+ * --theme-generic-error-color-text: Color of the text message.
+ * --theme-generic-error-color-message-background: Background color of the text message.
  */
 const GeneralError: React.FC<Props> = ({
   actionButton,

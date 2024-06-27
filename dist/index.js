@@ -31,7 +31,7 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,r,M){var u=r?r.cal
     color var(--base-animation-time-xs, 0.2s);
   user-select: none;
   white-space: nowrap;
-`,qe=He.button.attrs((({className:t="dbuitkButton",type:e="button"})=>({className:t,type:e})))`
+`,qe=He.button.attrs((({type:t="button"})=>({className:"dbuitkButton",type:t})))`
   ${_e}
   ${Je}
   ${Xe}
@@ -501,7 +501,7 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,r,M){var u=r?r.cal
       color: var(${t}-color-disabled, ${t}-color, #000);
     }
   `}
-`,Fr=He(qe).attrs((({type:t="button",className:e="dbuitkThemedButton"})=>({type:t,className:e})))`
+`,Fr=He(qe).attrs((()=>({className:"dbuitkThemedButton"})))`
   ${$r}
 `,Hr=He.h1.attrs((({className:t="dbuitkTitle"})=>({className:t})))`
   color: var(--theme-color-title, --theme-color-text-primary, #000);

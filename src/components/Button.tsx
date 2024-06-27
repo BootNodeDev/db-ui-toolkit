@@ -64,8 +64,8 @@ export const ButtonCSS = css`
  * --base-button-height: Button height.
  * --base-button-padding: Button padding.
  */
-const Button = styled.button.attrs(({ className = 'dbuitkButton', type = 'button' }) => ({
-  className,
+const Button = styled.button.attrs(({ type = 'button' }) => ({
+  className: 'dbuitkButton',
   type,
 }))`
   ${ButtonCSS}

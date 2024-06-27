@@ -15,10 +15,13 @@ interface Props {
  *
  * Theme CSS variables:
  *
+ * --theme-generic-error-background-color: Background color of the container.
+ * --theme-generic-error-border-color: Border color of the container.
+ * --theme-generic-error-box-shadow: Box shadow of the container.
+ * --theme-generic-error-color-icon: Color of the icon (only works for fill="currentColor").
  * --theme-generic-error-color-title: Color of the title.
- * --theme-generic-error-color-text: Color of the text.
- * --theme-generic-error-color-icon: Color of the icon.
- * --theme-generic-error-color-message-background: Background color of the message.
+ * --theme-generic-error-color-text: Color of the text message.
+ * --theme-generic-error-color-message-background: Background color of the text message.
  */
 declare const GeneralError: React.FC<Props>;
 export default GeneralError;

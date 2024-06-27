@@ -16,7 +16,7 @@ const Card = styled.div.attrs(({ className = 'dbuitkCard' }) => ({ className }))
   box-shadow: var(--theme-card-box-shadow, 0 9.6px 13px 0 rgb(0 0 0 / 8%));
   display: flex;
   flex-direction: column;
-  padding: var(--base-common-padding, 8px);
+  padding: var(--base-common-padding-xl, 16px);
   white-space: normal;
 `
 

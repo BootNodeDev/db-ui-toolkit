@@ -62,9 +62,6 @@ const ThemedButton = styled(Button).attrs<Props>(
     className,
   }),
 )`
-  /**
-   * You can use a combination of these to make any component look like a button
-   */
   ${ButtonVariantCSS}
 `
 

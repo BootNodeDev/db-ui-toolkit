@@ -501,13 +501,10 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,r,M){var u=r?r.cal
       color: var(${t}-color-disabled, ${t}-color, #000);
     }
   `}
-`,Fr=He.button.attrs((({type:t="button",className:e="dbuitkThemedButton"})=>({type:t,className:e})))`
+`,Fr=He(qe).attrs((({type:t="button",className:e="dbuitkThemedButton"})=>({type:t,className:e})))`
   /**
    * You can use a combination of these to make any component look like a button
    */
-  ${_e}
-  ${Je}
-  ${Xe}
   ${$r}
 `,Hr=He.h1.attrs((({className:t="dbuitkTitle"})=>({className:t})))`
   color: var(--theme-color-title, --theme-color-text-primary, #000);

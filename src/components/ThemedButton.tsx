@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components'
-import { ButtonCSS, DisabledButtonCSS, ActiveButtonCSS } from './Button'
+import Button from './Button'
 
 interface Props {
   $cssVarRoot?: string
@@ -56,7 +56,7 @@ export const ButtonVariantCSS = css<Props>`
  *
  * See the examples in the page demo or in dAppBooster for further clarification.
  */
-const ThemedButton = styled.button.attrs<Props>(
+const ThemedButton = styled(Button).attrs<Props>(
   ({ type = 'button', className = 'dbuitkThemedButton' }) => ({
     type,
     className,
@@ -65,9 +65,6 @@ const ThemedButton = styled.button.attrs<Props>(
   /**
    * You can use a combination of these to make any component look like a button
    */
-  ${ButtonCSS}
-  ${ActiveButtonCSS}
-  ${DisabledButtonCSS}
   ${ButtonVariantCSS}
 `
 

@@ -41,7 +41,7 @@ export const ButtonVariantCSS = css<Props>`
  * CSS variables. For example: [$cssVarRoot]-background-color,
  * [$cssVarRoot]-border-color, etc.
  *
- * Based on the $cssVarRoot='--button-primary' example above, you'd need to
+ * Based on the $cssVarRoot == '--button-primary' example above, you'd need to
  * create the following variables in your CSS:
  *
  * --button-primary-background-color
@@ -54,7 +54,7 @@ export const ButtonVariantCSS = css<Props>`
  * --button-primary-border-color-disabled
  * --button-primary-color-disabled
  *
- * See the examples in the page demo or in dAppBooster for further clarification.
+ * See the examples in the demo page or in dAppBooster for further clarification.
  */
 const ThemedButton = styled(Button).attrs<Props>(() => ({ className: 'dbuitkThemedButton' }))`
   ${ButtonVariantCSS}

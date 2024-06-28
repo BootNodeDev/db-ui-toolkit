@@ -8,7 +8,7 @@ import { styled } from 'styled-components'
  * --theme-header-background-color: Header background color.
  * --theme-header-text-color: Header text color.
  */
-const Header = styled.header.attrs(({ className = 'dbuitkHeader' }) => ({ className }))`
+const Header = styled.header`
   background-color: var(--theme-header-background-color, transparent);
   color: var(--theme-header-text-color, #000);
   flex-grow: 0;

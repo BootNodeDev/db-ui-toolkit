@@ -11,7 +11,7 @@ import { styled } from 'styled-components'
  *
  * --base-text-font-size: Text font size.
  */
-const Text = styled.p.attrs(({ className = 'dbuitkText' }) => ({ className }))`
+const Text = styled.p`
   color: var(--theme-color-text, #000);
   font-size: var(--base-text-font-size, 16px);
   font-weight: 400;

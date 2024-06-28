@@ -9,7 +9,7 @@ import { styled } from 'styled-components'
  * --theme-card-border-color: Card border color.
  * --theme-card-box-shadow: Card box shadow.
  */
-const Card = styled.div.attrs(({ className = 'dbuitkCard' }) => ({ className }))`
+const Card = styled.div`
   background-color: var(--theme-card-background-color, #fff);
   border-radius: var(--base-border-radius, 8px);
   border: 1px solid var(--theme-card-border-color, #fff);

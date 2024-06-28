@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, MouseEventHandler } from 'react'
+import React, { ButtonHTMLAttributes } from 'react'
 import { styled, css, keyframes } from 'styled-components'
 
 import Dark from './assets/Dark'
@@ -9,16 +9,16 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: var(--base-active-state-size);
+  height: var(--base-switch-theme-button-active-state-size);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: var(--base-active-state-size);
+  width: var(--base-switch-theme-button-active-state-size);
   z-index: 5;
 `
 
 const IconWrapperLight = styled(IconWrapper)`
-  left: var(--base-left-end);
+  left: var(--base-switch-theme-button-left-end);
 
   [data-theme='dark'] & {
     cursor: pointer;
@@ -26,31 +26,26 @@ const IconWrapperLight = styled(IconWrapper)`
 `
 
 const IconWrapperDark = styled(IconWrapper)`
-  left: var(--base-left-start);
+  left: var(--base-switch-theme-button-left-start);
 
   [data-theme='light'] & {
     cursor: pointer;
   }
 `
 
-const Wrapper = styled.button.attrs(
-  ({ className = 'dbuitkSwitchThemeButton', type = 'button' }) => ({ className, type }),
-)`
+const Wrapper = styled.button.attrs(({ type = 'button' }) => ({ type }))`
   --base-switch-theme-button-animation-delay: var(--base-animation-time, 0.3s);
-  --base-active-state-size: 36px;
-  --base-left-start: 4px;
-  --base-left-end: 44px;
-  --base-active-state-left: var(--base-left-end);
-
-  --theme-switch-theme-button-background-color: #fff;
-  --theme-active-state-background-color: #8b46a4;
+  --base-switch-theme-button-active-state-size: 36px;
+  --base-switch-theme-button-left-start: 4px;
+  --base-switch-theme-button-left-end: 44px;
+  --base-switch-theme-button-active-state-left: var(--base-switch-theme-button-left-end);
 
   [data-theme='dark'] & {
     --theme-switch-theme-button-background-color: #24263d;
-    --base-active-state-left: var(--base-left-start);
+    --base-switch-theme-button-active-state-left: var(--base-switch-theme-button-left-start);
   }
 
-  background-color: var(--theme-switch-theme-button-background-color);
+  background-color: var(--theme-switch-theme-button-background-color, #fff);
   border-radius: 40px;
   border: none;
   height: 44px;
@@ -77,14 +72,14 @@ const Wrapper = styled.button.attrs(
 
 const ActiveState = styled.div`
   border-radius: 50%;
-  background-color: var(--theme-active-state-background-color);
-  height: var(--base-active-state-size);
+  background-color: var(--theme-active-state-background-color, #8b46a4);
+  height: var(--base-switch-theme-button-active-state-size);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: var(--base-active-state-left);
+  left: var(--base-switch-theme-button-active-state-left);
   transition: left var(--base-switch-theme-button-animation-delay) ease-in-out;
-  width: var(--base-active-state-size);
+  width: var(--base-switch-theme-button-active-state-size);
   z-index: 1;
 `
 
@@ -126,9 +121,7 @@ const DarkIcon = styled(Dark)`
   }
 `
 
-interface Props extends PropsWithChildren {
-  onClick: MouseEventHandler<HTMLButtonElement>
-}
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 /**
  * SwitchThemeButton component - A button that switches between light and dark themes.

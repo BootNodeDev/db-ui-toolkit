@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, SVGProps, HTMLAttributes } from 'react'
 import { styled, css } from 'styled-components'
 import { breakpointMediaQuery } from '../utils/breakpoints'
 
-const AlertIcon: React.FC = ({ ...restProps }) => (
+const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
     fill="none"
     height="80"
@@ -32,7 +32,7 @@ const AlertIcon: React.FC = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.div.attrs(({ className = 'dbuitkGenericError' }) => ({ className }))`
+const Wrapper = styled.div`
   align-items: center;
   background-color: var(--theme-generic-error-background-color, #fff);
   border-radius: var(--base-border-radius, 8px);
@@ -105,7 +105,7 @@ const Message = styled.div`
   }
 `
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   actionButton?: ReactElement<HTMLButtonElement>
   icon?: ReactElement
   message?: string | ReactElement

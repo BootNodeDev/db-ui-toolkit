@@ -56,7 +56,7 @@ export const ButtonVariantCSS = css<Props>`
  *
  * See the examples in the demo page or in dAppBooster for further clarification.
  */
-const ThemedButton = styled(Button).attrs<Props>(() => ({ className: 'dbuitkThemedButton' }))`
+const ThemedButton = styled(Button)<Props>`
   ${ButtonVariantCSS}
 `
 

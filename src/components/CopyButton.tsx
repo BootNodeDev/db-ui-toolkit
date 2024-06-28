@@ -25,8 +25,7 @@ const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.button.attrs(({ className = 'dbuitkCopyButton', type = 'button' }) => ({
-  className,
+const Wrapper = styled.button.attrs(({ type = 'button' }) => ({
   type,
 }))`
   align-items: center;

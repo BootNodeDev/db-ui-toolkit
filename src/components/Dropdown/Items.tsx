@@ -3,8 +3,8 @@ import { Direction, Position } from './index'
 
 interface ItemsProps {
   $direction?: Direction
-  $position?: Position
   $isOpen: boolean
+  $position?: Position
 }
 
 /**

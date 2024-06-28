@@ -3,9 +3,8 @@ import { styled } from 'styled-components'
 import LogoDark from './assets/logo-dark.svg'
 import LogoLight from './assets/logo-light.svg'
 
-const Wrapper = styled.img.attrs(({ alt = 'Logo', className = 'dbuitkLogo' }) => ({
+const Wrapper = styled.img.attrs(({ alt = 'Logo' }) => ({
   alt,
-  className,
 }))`
   --base-logo: url(${LogoLight});
 

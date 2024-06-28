@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from 'react'
+import React, { SVGProps } from 'react'
 import { styled } from 'styled-components'
 
-const Wrapper = styled.svg.attrs(({ className = 'dbuitkLogoMini' }) => ({ className }))`
+const Wrapper = styled.svg`
   display: block;
   flex-shrink: 0;
 
@@ -19,7 +19,7 @@ const Wrapper = styled.svg.attrs(({ className = 'dbuitkLogoMini' }) => ({ classN
 /**
  * Default mini logo component
  */
-const LogoMini: React.FC<HTMLAttributes<SVGElement>> = ({ ...restProps }) => (
+const LogoMini: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <Wrapper
     width="76"
     height="17"

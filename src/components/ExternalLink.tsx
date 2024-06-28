@@ -31,9 +31,7 @@ const Link: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.a.attrs(({ className = 'dbuitkExternalLink' }) => ({ className }))<
-  AnchorHTMLAttributes<HTMLAnchorElement>
->`
+const Wrapper = styled.a<AnchorHTMLAttributes<HTMLAnchorElement>>`
   align-items: center;
   color: var(--theme-external-link-button-color, #000);
   column-gap: var(--base-button-gap, 8px);

@@ -8,7 +8,7 @@ import { styled } from 'styled-components'
  * --theme-footer-background-color: Footer background color.
  * --theme-footer-text-color: Footer text color.
  */
-const Footer = styled.footer.attrs(({ className = 'dbuitkFooter' }) => ({ className }))`
+const Footer = styled.footer`
   align-items: center;
   background-color: var(--theme-footer-background-color, transparent);
   color: var(--theme-footer-text-color, #000);

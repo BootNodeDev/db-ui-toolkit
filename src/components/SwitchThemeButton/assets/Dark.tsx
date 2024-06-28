@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { SVGProps } from 'react'
 import { styled } from 'styled-components'
 
 const Wrapper = styled.svg`
@@ -18,7 +18,7 @@ Wrapper.defaultProps = {
   className: 'dark',
 }
 
-const Dark: React.FC<HTMLAttributes<SVGElement>> = ({ ...restProps }) => (
+const Dark: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <Wrapper
     fill="none"
     height="18"

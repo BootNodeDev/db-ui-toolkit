@@ -189,15 +189,15 @@ export const TextfieldCSS = css<Props>`
  *
  * Theme CSS vars:
  *
- * * --theme-textfield-default-background-color
- * * --theme-textfield-default-background-color-active
- * * --theme-textfield-default-border-color
- * * --theme-textfield-default-color
- * * --theme-textfield-default-error-color
- * * --theme-textfield-default-ok-color
- * * --theme-textfield-default-placeholder-color
- * * --theme-textfield-default-border-error-color
- * * --theme-textfield-default-border-ok-color
+ * * --theme-textfield-background-color
+ * * --theme-textfield-background-color-active
+ * * --theme-textfield-border-color
+ * * --theme-textfield-color
+ * * --theme-textfield-error-color
+ * * --theme-textfield-ok-color
+ * * --theme-textfield-placeholder-color
+ * * --theme-textfield-border-error-color
+ * * --theme-textfield-border-ok-color
  * * --theme-textfield-active-boxshadow
  *
  * Base CSS vars:
@@ -205,8 +205,8 @@ export const TextfieldCSS = css<Props>`
  * * --base-textfield-height
  * * --base-textfield-border-radius
  * * --base-textfield-font-size
- * * --base-textfield-default-vertical-padding
- * * --base-textfield-default-horizontal-padding
+ * * --base-textfield-vertical-padding
+ * * --base-textfield-horizontal-padding
  * * --base-textfield-transition-time
  */
 const Textfield = styled.input<Props>`

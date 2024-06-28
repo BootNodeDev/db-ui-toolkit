@@ -14,16 +14,18 @@ export declare const TextfieldCSS: import("styled-components").RuleSet<Props>;
  *
  * Theme CSS vars:
  *
+ * * --theme-textfield-color
+ * * --theme-textfield-color-active
+ * * --theme-textfield-color-error
+ * * --theme-textfield-color-ok
  * * --theme-textfield-background-color
  * * --theme-textfield-background-color-active
  * * --theme-textfield-border-color
- * * --theme-textfield-color
- * * --theme-textfield-error-color
- * * --theme-textfield-ok-color
+ * * --theme-textfield-border-color-active
+ * * --theme-textfield-border-color-error
+ * * --theme-textfield-border-color-ok
  * * --theme-textfield-placeholder-color
- * * --theme-textfield-border-error-color
- * * --theme-textfield-border-ok-color
- * * --theme-textfield-active-boxshadow
+ * * --theme-textfield-boxshadow-active
  *
  * Base CSS vars:
  *

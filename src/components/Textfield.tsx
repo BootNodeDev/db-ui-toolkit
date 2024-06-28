@@ -14,15 +14,13 @@ const TextfieldTextColorCSS = css<Props>`
   ${({ $status }) =>
     $status === 'error'
       ? css`
-          color: var(--theme-textfield-error-color, var(--theme-textfield-default-error-color));
+          color: var(--theme-textfield-color-error, var(--theme-textfield-default-color-error));
         `
       : $status === 'ok'
         ? css`
-            color: var(--theme-textfield-ok-color, var(--theme-textfield-default-ok-color));
+            color: var(--theme-textfield-color-ok, var(--theme-textfield-default-color-ok));
           `
-        : css`
-            color: var(--theme-textfield-color, var(--theme-textfield-default-color));
-          `}
+        : css``}
 `
 
 /**
@@ -33,53 +31,49 @@ const TextfieldBorderColorCSS = css<Props>`
     $status === 'error'
       ? css`
           border-color: var(
-            --theme-textfield-border-error-color,
-            var(--theme-textfield-default-border-error-color)
+            --theme-textfield-border-color-error,
+            var(--theme-textfield-default-border-color-error)
           );
         `
       : $status === 'ok'
         ? css`
             border-color: var(
-              --theme-textfield-border-ok-color,
-              var(--theme-textfield-default-border-ok-color)
+              --theme-textfield-border-color-ok,
+              var(--theme-textfield-default-border-color-ok)
             );
           `
-        : css`
-            border-color: var(
-              --theme-textfield-border-color,
-              var(--theme-textfield-default-border-color)
-            );
-          `}
+        : css``}
 `
 
 /**
  * Textfield CSS
  */
 export const TextfieldCSS = css<Props>`
+  --theme-textfield-default-color: #333;
+  --theme-textfield-default-color-active: #333;
+  --theme-textfield-default-color-error: var(--theme-color-danger, #800);
+  --theme-textfield-default-color-ok: var(--theme-color-ok, #080);
   --theme-textfield-default-background-color: #f7f7f7;
   --theme-textfield-default-background-color-active: #f7f7f7;
   --theme-textfield-default-border-color: #c5c2cb;
-  --theme-textfield-default-color: #333;
-  --theme-textfield-default-error-color: var(--theme-color-danger, #800);
-  --theme-textfield-default-ok-color: var(--theme-color-ok, #080);
+  --theme-textfield-default-border-color-active: #c5c2cb;
+  --theme-textfield-default-border-color-error: var(--theme-color-danger, #800);
+  --theme-textfield-default-border-color-ok: var(--theme-color-ok, #080);
   --theme-textfield-default-placeholder-color: #666;
-  --theme-textfield-default-border-error-color: var(--theme-color-danger, #800);
-  --theme-textfield-default-border-ok-color: var(--theme-color-ok, #080);
 
   --base-textfield-default-vertical-padding: 0;
   --base-textfield-default-horizontal-padding: var(--base-common-padding-xl, 16px);
   --base-textfield-default-font-size: 1.4rem;
 
-  ${TextfieldTextColorCSS}
-  ${TextfieldBorderColorCSS}
-
   background-color: var(
     --theme-textfield-background-color,
     var(--theme-textfield-default-background-color)
   );
+  border-color: var(--theme-textfield-border-color, var(--theme-textfield-default-border-color));
   border-radius: var(--base-textfield-border-radius, var(--base-border-radius, 8px));
   border-style: solid;
   border-width: 1px;
+  color: var(--theme-textfield-color, var(--theme-textfield-default-color));
   font-size: var(--base-textfield-font-size, var(--base-textfield-default-font-size));
   font-weight: 400;
   height: var(--base-textfield-height, 50px);
@@ -109,19 +103,27 @@ export const TextfieldCSS = css<Props>`
     box-shadow var(--base-textfield-transition-time, var(--base-animation-time-sm, 0.2s)) linear;
   white-space: nowrap;
 
+  ${TextfieldTextColorCSS}
+  ${TextfieldBorderColorCSS}
+
   /**
    * Textfield states
    */
   &:active,
   &:focus {
-    ${TextfieldTextColorCSS}
-    ${TextfieldBorderColorCSS}
-
+    color: var(--theme-textfield-color-active, var(--theme-textfield-default-color-active));
+    border-color: var(
+      --theme-textfield-border-color-active,
+      var(--theme-textfield-default-border-color-active)
+    );
     background-color: var(
       --theme-textfield-background-color-active,
       var(--theme-textfield-default-background-color-active)
     );
-    box-shadow: var(--theme-textfield-active-boxshadow, none);
+    box-shadow: var(--theme-textfield-boxshadow-active, none);
+
+    ${TextfieldTextColorCSS}
+    ${TextfieldBorderColorCSS}
   }
 
   &[disabled],
@@ -189,16 +191,18 @@ export const TextfieldCSS = css<Props>`
  *
  * Theme CSS vars:
  *
+ * * --theme-textfield-color
+ * * --theme-textfield-color-active
+ * * --theme-textfield-color-error
+ * * --theme-textfield-color-ok
  * * --theme-textfield-background-color
  * * --theme-textfield-background-color-active
  * * --theme-textfield-border-color
- * * --theme-textfield-color
- * * --theme-textfield-error-color
- * * --theme-textfield-ok-color
+ * * --theme-textfield-border-color-active
+ * * --theme-textfield-border-color-error
+ * * --theme-textfield-border-color-ok
  * * --theme-textfield-placeholder-color
- * * --theme-textfield-border-error-color
- * * --theme-textfield-border-ok-color
- * * --theme-textfield-active-boxshadow
+ * * --theme-textfield-boxshadow-active
  *
  * Base CSS vars:
  *

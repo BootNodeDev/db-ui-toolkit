@@ -14,7 +14,7 @@ export declare const ButtonVariantCSS: import("styled-components").RuleSet<Props
  * CSS variables. For example: [$cssVarRoot]-background-color,
  * [$cssVarRoot]-border-color, etc.
  *
- * Based on the $cssVarRoot='--button-primary' example above, you'd need to
+ * Based on the $cssVarRoot == '--button-primary' example above, you'd need to
  * create the following variables in your CSS:
  *
  * --button-primary-background-color
@@ -27,11 +27,9 @@ export declare const ButtonVariantCSS: import("styled-components").RuleSet<Props
  * --button-primary-border-color-disabled
  * --button-primary-color-disabled
  *
- * See the examples in the page demo or in dAppBooster for further clarification.
+ * See the examples in the demo page or in dAppBooster for further clarification.
  */
-declare const ThemedButton: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("styled-components/dist/types").Substitute<import("styled-components").FastOmit<import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Omit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
+declare const ThemedButton: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("styled-components").FastOmit<import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Omit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
     ref?: ((instance: HTMLButtonElement | null) => void) | import("react").RefObject<HTMLButtonElement> | null | undefined;
-}>, never>, never>, import("styled-components").FastOmit<import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Omit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
-    ref?: ((instance: HTMLButtonElement | null) => void) | import("react").RefObject<HTMLButtonElement> | null | undefined;
-}>, never>, never>>, Props>, never>> & string;
+}>, never>, never>, Props>> & string;
 export default ThemedButton;

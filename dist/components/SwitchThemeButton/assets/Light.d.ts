@@ -1,3 +1,3 @@
-import React, { HTMLAttributes } from 'react';
-declare const Light: React.FC<HTMLAttributes<SVGElement>>;
+import React, { SVGProps } from 'react';
+declare const Light: React.FC<SVGProps<SVGSVGElement>>;
 export default Light;

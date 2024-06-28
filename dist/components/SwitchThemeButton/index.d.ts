@@ -1,6 +1,5 @@
-import React, { PropsWithChildren, MouseEventHandler } from 'react';
-interface Props extends PropsWithChildren {
-    onClick: MouseEventHandler<HTMLButtonElement>;
+import React, { ButtonHTMLAttributes } from 'react';
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 /**
  * SwitchThemeButton component - A button that switches between light and dark themes.

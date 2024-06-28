@@ -2,8 +2,8 @@
 import { Direction, Position } from './index';
 interface ItemsProps {
     $direction?: Direction;
-    $position?: Position;
     $isOpen: boolean;
+    $position?: Position;
 }
 /**
  * BaseItems component - A generic container for dropdown items. No theming.

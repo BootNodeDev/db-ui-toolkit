@@ -20,6 +20,7 @@ import {
   Logo,
   LogoMini,
   Main,
+  Spinner,
   SwitchThemeButton,
   Text,
   Textfield,
@@ -262,6 +263,13 @@ const App = () => {
                 <Textfield $status="ok" defaultValue="Success" />
                 <Textfield disabled placeholder="Disabled" />
                 <Textfield readOnly placeholder="Read only" />
+              </ComponentGrid>
+            </div>
+            <div>
+              <Title>Spinner</Title>
+              <ComponentGrid>
+                <Spinner />
+                <Spinner width={25} height={25} />
               </ComponentGrid>
             </div>
             <div>

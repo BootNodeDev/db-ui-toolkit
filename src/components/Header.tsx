@@ -5,8 +5,8 @@ import { styled } from 'styled-components'
  *
  * Theme CSS variables:
  *
- * --theme-header-background-color: Header background color.
- * --theme-header-text-color: Header text color.
+ * * --theme-header-background-color: Header background color.
+ * * --theme-header-text-color: Header text color.
  */
 const Header = styled.header`
   background-color: var(--theme-header-background-color, transparent);

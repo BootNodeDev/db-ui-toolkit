@@ -8,10 +8,6 @@ const Wrapper = styled.img.attrs(({ alt = 'Logo' }) => ({
 }))`
   --base-logo: url(${LogoLight});
 
-  [data-theme='light'] & {
-    --base-logo: url(${LogoLight});
-  }
-
   [data-theme='dark'] & {
     --base-logo: url(${LogoDark});
   }

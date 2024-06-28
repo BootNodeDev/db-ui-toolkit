@@ -126,6 +126,7 @@ const Dropdown: FC<Props> = ({
 
   /**
    * Handles closing the dropdown when the user clicks outside of it
+   *
    * @param event MouseEvent - The event object
    */
   useEffect(() => {
@@ -147,6 +148,7 @@ const Dropdown: FC<Props> = ({
   /**
    * Transforms the props of the element where adequate, i.e.: add some extra
    * functionality to the onClick event
+   *
    * @param element ReactElement - The element to transform
    */
   const transformElementProps = (

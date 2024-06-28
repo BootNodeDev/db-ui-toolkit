@@ -5,9 +5,9 @@ import { styled } from 'styled-components'
  *
  * Theme CSS variables:
  *
- * --theme-card-background-color: Card background color.
- * --theme-card-border-color: Card border color.
- * --theme-card-box-shadow: Card box shadow.
+ * * --theme-card-background-color: Card background color.
+ * * --theme-card-border-color: Card border color.
+ * * --theme-card-box-shadow: Card box shadow.
  */
 const Card = styled.div`
   background-color: var(--theme-card-background-color, #fff);

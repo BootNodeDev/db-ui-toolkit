@@ -58,11 +58,11 @@ export const ButtonCSS = css`
  *
  * Base CSS variables:
  *
- * --base-button-border-radius: Button border radius.
- * --base-button-font-size: Button font size.
- * --base-button-gap: Button column gap.
- * --base-button-height: Button height.
- * --base-button-padding: Button padding.
+ * * --base-button-border-radius: Button border radius.
+ * * --base-button-font-size: Button font size.
+ * * --base-button-gap: Button column gap.
+ * * --base-button-height: Button height.
+ * * --base-button-padding: Button padding.
  */
 const Button = styled.button.attrs(({ type = 'button' }) => ({
   type,

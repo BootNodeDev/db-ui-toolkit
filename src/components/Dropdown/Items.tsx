@@ -69,9 +69,9 @@ export const BaseItems = styled.div.attrs<ItemsProps>(
  *
  * Theme CSS Variables:
  *
- * --theme-dropdown-background-color: Dropdown background color.
- * --theme-dropdown-border-color: Dropdown border color.
- * --theme-dropdown-box-shadow: Dropdown box shadow.
+ * * --theme-dropdown-background-color: Dropdown background color.
+ * * --theme-dropdown-border-color: Dropdown border color.
+ * * --theme-dropdown-box-shadow: Dropdown box shadow.
  */
 const Items = styled(BaseItems)`
   background-color: var(--theme-dropdown-background-color, #fff);

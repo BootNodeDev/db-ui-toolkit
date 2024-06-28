@@ -1,27 +1,30 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
+import { ActionStates } from './types'
 
 export interface Props {
   $closeOnClick?: boolean
   disabled?: boolean
+  $state?: ActionStates
 }
 
 /**
  * Dropdown item component
  *
  * @param {boolean} [$closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
- * @param {boolean} [disabled=false] - Disable the dropdown item. Default is false.
+ * @param {boolean} [disabled=false] - Disables the dropdown item. Default is false.
+ * @param {ActionStates} [$state=undefined] - The state of the item. Defaults to undefined.
  *
  * Theme CSS variables:
  *
- * --theme-dropdown-item-background-color: Dropdown item background color.
- * --theme-dropdown-item-border-color: Dropdown item border color.
- * --theme-dropdown-item-color: Dropdown item text color.
- * --theme-dropdown-item-background-color-hover: Dropdown item background color on hover.
- * --theme-dropdown-item-border-color-hover: Dropdown item border color on hover.
- * --theme-dropdown-item-color-hover: Dropdown item text color on hover.
- * --theme-dropdown-item-background-color-active: Dropdown item background color when active.
- * --theme-dropdown-item-border-color-active: Dropdown item border color when active.
- * --theme-dropdown-item-color-active: Dropdown item text color when active.
+ * * --theme-dropdown-item-background-color: Dropdown item background color.
+ * * --theme-dropdown-item-border-color: Dropdown item border color.
+ * * --theme-dropdown-item-color: Dropdown item text color.
+ * * --theme-dropdown-item-background-color-hover: Dropdown item background color on hover.
+ * * --theme-dropdown-item-border-color-hover: Dropdown item border color on hover.
+ * * --theme-dropdown-item-color-hover: Dropdown item text color on hover.
+ * * --theme-dropdown-item-background-color-active: Dropdown item background color when active.
+ * * --theme-dropdown-item-border-color-active: Dropdown item border color when active.
+ * * --theme-dropdown-item-color-active: Dropdown item text color when active.
  */
 const Item = styled.div.attrs<Props>(
   ({ className = 'dbuitkDropdownItem', $closeOnClick = true, disabled = false }) => ({
@@ -71,6 +74,26 @@ const Item = styled.div.attrs<Props>(
     background-color: var(--theme-dropdown-item-background-color-active, rgba(0, 0, 0, 0.1));
     border-color: var(--theme-dropdown-item-border-color-active, #f0f0f0);
     color: var(--theme-dropdown-item-color-active, #000);
+  }
+
+  /**
+   * State styles
+   */
+  &,
+  &:hover {
+    ${({ $state }) =>
+      $state === 'danger'
+        ? css`
+            color: var(--theme-color-danger, #800);
+          `
+        : $state === 'ok'
+          ? css`
+              color: var(--theme-color-ok, #080);
+            `
+          : $state === 'warning' &&
+            css`
+              color: var(--theme-color-warning, #cc0);
+            `};
   }
 
   &:disabled,

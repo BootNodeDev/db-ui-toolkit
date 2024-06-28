@@ -138,6 +138,7 @@ const App = () => {
     {
       text: 'Settings',
       extraProps: {
+        $state: 'ok' as ActionStates,
         $closeOnClick: false,
         onClick: () => alert('Settings modal, dropdown stays open'),
       },
@@ -189,7 +190,7 @@ const App = () => {
               <Title>Buttons</Title>
               <ComponentGrid>
                 <Button>Base button</Button>
-                <PrimaryButton type="submit">Themed button</PrimaryButton>
+                <PrimaryButton>Themed button</PrimaryButton>
                 <SecondaryButton>Themed button</SecondaryButton>
               </ComponentGrid>
               <ComponentGrid>

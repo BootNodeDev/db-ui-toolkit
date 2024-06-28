@@ -5,8 +5,8 @@ import { styled } from 'styled-components'
  *
  * Theme CSS variables:
  *
- * --theme-toast-background-color: Toast background color.
- * --theme-toast-color: Toast text color.
+ * * --theme-toast-background-color: Toast background color.
+ * * --theme-toast-color: Toast text color.
  */
 const Toast = styled.div`
   align-items: center;

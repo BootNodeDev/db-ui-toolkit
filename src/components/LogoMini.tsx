@@ -6,9 +6,7 @@ const Wrapper = styled.svg`
   flex-shrink: 0;
 
   .themedColor {
-    [data-theme='light'] & {
-      fill: #2e3048;
-    }
+    fill: #2e3048;
 
     [data-theme='dark'] & {
       fill: #c5c2cb;

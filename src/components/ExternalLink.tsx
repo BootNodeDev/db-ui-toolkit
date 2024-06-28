@@ -69,8 +69,8 @@ const Wrapper = styled.a<AnchorHTMLAttributes<HTMLAnchorElement>>`
  *
  * Theme CSS variables:
  *
- * --theme-external-link-button-color: Color of the link.
- * --theme-external-link-button-color-hover: Color of the link on hover.
+ * * --theme-external-link-button-color: Color of the link.
+ * * --theme-external-link-button-color-hover: Color of the link on hover.
  */
 const ExternalLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   children = <Link />,

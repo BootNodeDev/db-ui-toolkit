@@ -5,11 +5,11 @@ import { styled } from 'styled-components'
  *
  * Theme CSS variables:
  *
- * --theme-color-title: Title text color.
+ * * --theme-color-title: Title text color.
  *
  * Base CSS variables:
  *
- * --base-title-font-size: Title font size.
+ * * --base-title-font-size: Title font size.
  */
 const Title = styled.h1`
   color: var(--theme-color-title, --theme-color-text-primary, #000);

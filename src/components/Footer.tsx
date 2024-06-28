@@ -5,8 +5,8 @@ import { styled } from 'styled-components'
  *
  * Theme CSS variables:
  *
- * --theme-footer-background-color: Footer background color.
- * --theme-footer-text-color: Footer text color.
+ * * --theme-footer-background-color: Footer background color.
+ * * --theme-footer-text-color: Footer text color.
  */
 const Footer = styled.footer`
   align-items: center;

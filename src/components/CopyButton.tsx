@@ -74,8 +74,8 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  *
  * Theme CSS variables:
  *
- * --theme-copy-button-color: Button color.
- * --theme-copy-button-color-hover: Button color on hover.
+ * * --theme-copy-button-color: Button color.
+ * * --theme-copy-button-color-hover: Button color on hover.
  */
 const CopyButton: React.FC<Props> = ({ children = <Copy />, onClick, value, ...restProps }) => {
   const onCopy: MouseEventHandler<HTMLButtonElement> = (e) => {

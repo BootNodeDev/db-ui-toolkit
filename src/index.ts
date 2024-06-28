@@ -24,6 +24,8 @@ export { default as ThemedButton, ButtonVariantCSS } from './components/ThemedBu
 export { default as Title } from './components/Title'
 export { default as Toast } from './components/Toast'
 export { default as Wrapper } from './components/Wrapper'
+export { default as Textfield } from './components/Textfield'
+export { TextfieldCSS } from './components/Textfield'
 
 /**
  * Exported utils

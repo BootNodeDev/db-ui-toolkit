@@ -22,6 +22,7 @@ import {
   Main,
   SwitchThemeButton,
   Text,
+  Textfield,
   ThemedButton,
   Title,
   Toast,
@@ -251,6 +252,16 @@ const App = () => {
                     )
                   })}
                 />
+              </ComponentGrid>
+            </div>
+            <div>
+              <Title>Textfield</Title>
+              <ComponentGrid>
+                <Textfield placeholder="Write something..." />
+                <Textfield $status="error" value={'Error'} />
+                <Textfield $status="ok" value={'Success'} />
+                <Textfield disabled placeholder="Disabled" />
+                <Textfield readOnly placeholder="Read only" />
               </ComponentGrid>
             </div>
             <div>

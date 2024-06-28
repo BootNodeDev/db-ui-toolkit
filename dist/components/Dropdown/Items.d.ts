@@ -24,9 +24,9 @@ export declare const BaseItems: import("styled-components/dist/types").IStyledCo
  *
  * Theme CSS Variables:
  *
- * --theme-dropdown-background-color: Dropdown background color.
- * --theme-dropdown-border-color: Dropdown border color.
- * --theme-dropdown-box-shadow: Dropdown box shadow.
+ * * --theme-dropdown-background-color: Dropdown background color.
+ * * --theme-dropdown-border-color: Dropdown border color.
+ * * --theme-dropdown-box-shadow: Dropdown box shadow.
  */
 declare const Items: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, Omit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref"> & {
     ref?: ((instance: HTMLDivElement | null) => void) | import("react").RefObject<HTMLDivElement> | null | undefined;

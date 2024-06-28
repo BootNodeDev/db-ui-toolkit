@@ -17,15 +17,15 @@ export declare const ButtonVariantCSS: import("styled-components").RuleSet<Props
  * Based on the $cssVarRoot == '--button-primary' example above, you'd need to
  * create the following variables in your CSS:
  *
- * --button-primary-background-color
- * --button-primary-background-color-hover
- * --button-primary-border-color
- * --button-primary-border-color-hover
- * --button-primary-color
- * --button-primary-color-hover
- * --button-primary-background-color-disabled
- * --button-primary-border-color-disabled
- * --button-primary-color-disabled
+ * * --button-primary-background-color
+ * * --button-primary-background-color-hover
+ * * --button-primary-border-color
+ * * --button-primary-border-color-hover
+ * * --button-primary-color
+ * * --button-primary-color-hover
+ * * --button-primary-background-color-disabled
+ * * --button-primary-border-color-disabled
+ * * --button-primary-color-disabled
  *
  * See the examples in the demo page or in dAppBooster for further clarification.
  */

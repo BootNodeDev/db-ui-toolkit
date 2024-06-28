@@ -7,8 +7,8 @@ import React, { AnchorHTMLAttributes } from 'react';
  *
  * Theme CSS variables:
  *
- * --theme-external-link-button-color: Color of the link.
- * --theme-external-link-button-color-hover: Color of the link on hover.
+ * * --theme-external-link-button-color: Color of the link.
+ * * --theme-external-link-button-color-hover: Color of the link on hover.
  */
 declare const ExternalLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>>;
 export default ExternalLink;

@@ -46,9 +46,9 @@ const Item = styled.div.attrs<Props>(
   line-height: 1.4;
   min-height: 32px;
   overflow: hidden;
-  padding: 0 calc(var(--base-gap, 8px) * 2);
+  padding: 0 var(--base-common-padding-xl, 16px);
   text-decoration: none;
-  transition: background-color 0.1s linear;
+  transition: background-color var(--base-animation-time-xs, 0.1s) linear;
   user-select: none;
   white-space: nowrap;
 

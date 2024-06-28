@@ -3,40 +3,59 @@ import { styled, css } from 'styled-components'
 
 export type TextfieldStatus = 'error' | 'ok' | undefined
 
-interface TextfieldCSSProps {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   $status?: TextfieldStatus | undefined
 }
 
-interface TextfieldProps extends InputHTMLAttributes<HTMLInputElement>, TextfieldCSSProps {}
+/**
+ *  Text color
+ */
+const TextfieldTextColorCSS = css<Props>`
+  ${({ $status }) =>
+    $status === 'error'
+      ? css`
+          color: var(--theme-textfield-error-color, var(--theme-textfield-default-error-color));
+        `
+      : $status === 'ok'
+        ? css`
+            color: var(--theme-textfield-ok-color, var(--theme-textfield-default-ok-color));
+          `
+        : css`
+            color: var(--theme-textfield-color, var(--theme-textfield-default-color));
+          `}
+`
 
 /**
- * Textfield component
- *
- * @param {TextfieldStatus} [$status=undefined] - The status of the textfield. Defaults to undefined.
- *
- * Theme CSS vars:
- *
- * * --theme-textfield-default-background-color
- * * --theme-textfield-default-background-color-active
- * * --theme-textfield-default-border-color
- * * --theme-textfield-default-color
- * * --theme-textfield-default-error-color
- * * --theme-textfield-default-ok-color
- * * --theme-textfield-default-placeholder-color
- * * --theme-textfield-default-border-error-color
- * * --theme-textfield-default-border-ok-color
- * * --theme-textfield-active-boxshadow
- *
- * Base CSS vars:
- *
- * * --base-textfield-height
- * * --base-textfield-border-radius
- * * --base-textfield-font-size
- * * --base-textfield-default-vertical-padding
- * * --base-textfield-default-horizontal-padding
- * * --base-textfield-transition-time
+ *  Border color
  */
-export const TextfieldCSS = css<TextfieldCSSProps>`
+const TextfieldBorderColorCSS = css<Props>`
+  ${({ $status }) =>
+    $status === 'error'
+      ? css`
+          border-color: var(
+            --theme-textfield-border-error-color,
+            var(--theme-textfield-default-border-error-color)
+          );
+        `
+      : $status === 'ok'
+        ? css`
+            border-color: var(
+              --theme-textfield-border-ok-color,
+              var(--theme-textfield-default-border-ok-color)
+            );
+          `
+        : css`
+            border-color: var(
+              --theme-textfield-border-color,
+              var(--theme-textfield-default-border-color)
+            );
+          `}
+`
+
+/**
+ * Textfield CSS
+ */
+export const TextfieldCSS = css<Props>`
   --theme-textfield-default-background-color: #f7f7f7;
   --theme-textfield-default-background-color-active: #f7f7f7;
   --theme-textfield-default-border-color: #c5c2cb;
@@ -50,6 +69,9 @@ export const TextfieldCSS = css<TextfieldCSSProps>`
   --base-textfield-default-vertical-padding: 0;
   --base-textfield-default-horizontal-padding: var(--base-common-padding-xl, 16px);
   --base-textfield-default-font-size: 1.4rem;
+
+  ${TextfieldTextColorCSS}
+  ${TextfieldBorderColorCSS}
 
   background-color: var(
     --theme-textfield-background-color,
@@ -88,97 +110,18 @@ export const TextfieldCSS = css<TextfieldCSSProps>`
   white-space: nowrap;
 
   /**
-   *  Text color
-   */
-  ${({ $status }) =>
-    $status === 'error'
-      ? css`
-          color: var(--theme-textfield-error-color, var(--theme-textfield-default-error-color));
-        `
-      : $status === 'ok'
-        ? css`
-            color: var(--theme-textfield-ok-color, var(--theme-textfield-default-ok-color));
-          `
-        : css`
-            color: var(--theme-textfield-color, var(--theme-textfield-default-color));
-          `}
-
-  /**
-   *  Border color
-   */
-  ${({ $status }) =>
-    $status === 'error'
-      ? css`
-          border-color: var(
-            --theme-textfield-border-error-color,
-            var(--theme-textfield-default-border-error-color)
-          );
-        `
-      : $status === 'ok'
-        ? css`
-            border-color: var(
-              --theme-textfield-border-ok-color,
-              var(--theme-textfield-default-border-ok-color)
-            );
-          `
-        : css`
-            border-color: var(
-              --theme-textfield-border-color,
-              var(--theme-textfield-default-border-color)
-            );
-          `}
-
-  /**
    * Textfield states
    */
   &:active,
   &:focus {
+    ${TextfieldTextColorCSS}
+    ${TextfieldBorderColorCSS}
+
     background-color: var(
       --theme-textfield-background-color-active,
       var(--theme-textfield-default-background-color-active)
     );
     box-shadow: var(--theme-textfield-active-boxshadow, none);
-
-    /**
-     *  Text color
-     */
-    ${({ $status }) =>
-      $status === 'error'
-        ? css`
-            color: var(--theme-textfield-error-color, var(--theme-textfield-default-error-color));
-          `
-        : $status === 'ok'
-          ? css`
-              color: var(--theme-textfield-ok-color, var(--theme-textfield-default-ok-color));
-            `
-          : css`
-              color: var(--theme-textfield-color, var(--theme-textfield-default-color));
-            `}
-
-    /**
-     *  Border color
-     */
-    ${({ $status }) =>
-      $status === 'error'
-        ? css`
-            border-color: var(
-              --theme-textfield-border-error-color,
-              var(--theme-textfield-default-border-error-color)
-            );
-          `
-        : $status === 'ok'
-          ? css`
-              border-color: var(
-                --theme-textfield-border-ok-color,
-                var(--theme-textfield-default-border-ok-color)
-              );
-            `
-          : css`
-              border-color: var(
-                --theme-textfield-border-color,
-                var(--theme-textfield-default-border-color)
-              );
-            `}
   }
 
   &[disabled],
@@ -239,8 +182,34 @@ export const TextfieldCSS = css<TextfieldCSSProps>`
     -webkit-appearance: none;
   }
 `
-
-const Textfield = styled.input<TextfieldProps>`
+/**
+ * Textfield component
+ *
+ * @param {TextfieldStatus} [$status=undefined] - The status of the textfield. Defaults to undefined.
+ *
+ * Theme CSS vars:
+ *
+ * * --theme-textfield-default-background-color
+ * * --theme-textfield-default-background-color-active
+ * * --theme-textfield-default-border-color
+ * * --theme-textfield-default-color
+ * * --theme-textfield-default-error-color
+ * * --theme-textfield-default-ok-color
+ * * --theme-textfield-default-placeholder-color
+ * * --theme-textfield-default-border-error-color
+ * * --theme-textfield-default-border-ok-color
+ * * --theme-textfield-active-boxshadow
+ *
+ * Base CSS vars:
+ *
+ * * --base-textfield-height
+ * * --base-textfield-border-radius
+ * * --base-textfield-font-size
+ * * --base-textfield-default-vertical-padding
+ * * --base-textfield-default-horizontal-padding
+ * * --base-textfield-transition-time
+ */
+const Textfield = styled.input<Props>`
   ${TextfieldCSS}
 `
 

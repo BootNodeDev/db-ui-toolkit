@@ -1,5 +1,5 @@
 import React, { ReactElement, HTMLAttributes } from 'react';
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
     actionButton?: ReactElement<HTMLButtonElement>;
     icon?: ReactElement;
     message?: string | ReactElement;

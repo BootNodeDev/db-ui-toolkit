@@ -33,6 +33,8 @@ const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
 )
 
 const Wrapper = styled.div`
+  --base-generic-error-width-default: 400px;
+
   align-items: center;
   background-color: var(--theme-generic-error-background-color, #fff);
   border-radius: var(--base-border-radius, 8px);
@@ -42,15 +44,16 @@ const Wrapper = styled.div`
   flex-direction: column;
   flex-direction: column;
   justify-content: center;
+  max-width: 100%;
+  min-width: var(--base-generic-error-width, var(--base-generic-error-width-default));
   padding: calc(var(--base-common-padding, 8px) * 4) var(--base-common-padding-xl, 16px);
   row-gap: calc(var(--base-gap, 8px) * 2);
   white-space: normal;
-  width: 100%;
 
   ${breakpointMediaQuery(
     'tabletPortraitStart',
     css`
-      max-width: 400px;
+      max-width: var(--base-generic-error-width, var(--base-generic-error-width-default));
     `,
   )}
 `
@@ -105,7 +108,7 @@ const Message = styled.div`
   }
 `
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   actionButton?: ReactElement<HTMLButtonElement>
   icon?: ReactElement
   message?: string | ReactElement

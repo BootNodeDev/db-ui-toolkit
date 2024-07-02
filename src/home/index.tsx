@@ -103,7 +103,7 @@ const Item = styled(BaseItem)`
   min-width: 160px;
 `
 
-const CustomDropdownItems = styled(Card)`
+const CustomDropdownItems = styled(Card)<{ $closeOnClick?: boolean }>`
   --custom-dropdown-color: #fff;
   --custom-dropdown-background-color: #8b46a4;
   --theme-color-text: var(--custom-dropdown-color);
@@ -213,12 +213,13 @@ const App = () => {
                     </Button>
                   }
                   items={
-                    <CustomDropdownItems>
+                    <CustomDropdownItems $closeOnClick={false}>
                       <Text>Title</Text>
                       <span>
                         This dropdown uses a single item. Also the item&apos;s container is a custom
                         one.
                       </span>
+                      <span>It should stay open when you click on it</span>
                     </CustomDropdownItems>
                   }
                 />

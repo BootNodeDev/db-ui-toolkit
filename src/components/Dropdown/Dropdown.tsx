@@ -155,7 +155,7 @@ const Dropdown: FC<Props> = ({
     element: ReactElement,
     index?: number | undefined,
   ): ReactElement => {
-    const { $closeOnClick, onClick, className } = element.props
+    const { $closeOnClick = true, onClick, className } = element.props
 
     /**
      * Checks if the dropdown item is active
@@ -176,7 +176,7 @@ const Dropdown: FC<Props> = ({
         `${className ? className : ''} ${isItemActive() ? 'dropdownItemActive' : ''}`.trim(),
       onClick: (event: MouseEvent): void => {
         event.stopPropagation()
-
+        // console.log($closeOnClick)
         if ($closeOnClick) {
           setIsOpen(false)
         }

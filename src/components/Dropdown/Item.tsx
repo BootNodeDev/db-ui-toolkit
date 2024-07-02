@@ -3,8 +3,8 @@ import { ActionStates } from './types'
 
 export interface Props {
   $closeOnClick?: boolean
-  disabled?: boolean
   $state?: ActionStates
+  disabled?: boolean
 }
 
 /**

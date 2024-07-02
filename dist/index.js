@@ -114,27 +114,21 @@ import*as e from"react";var t={945:e=>{e.exports=function(e,t,r,o){var i=r?r.cal
   position: absolute;
   white-space: nowrap;
 
-  ${({$position:e})=>"left"===e&&$t`
-      left: 0;
-    `}
+  ${({$position:e})=>"left"===e?$t`
+          left: 0;
+        `:"center"===e?$t`
+            left: 50%;
+            transform: translateX(-50%);
+          `:"right"===e&&$t`
+            right: 0;
+          `}
 
-  ${({$position:e})=>"right"===e&&$t`
-      right: 0;
-    `}
-
-  ${({$position:e})=>"center"===e&&$t`
-      left: 50%;
-      transform: translateX(-50%);
-    `}
-
-  ${({$direction:e})=>"downwards"===e&&$t`
-      top: calc(100% + 10px);
-    `}
-
-  ${({$direction:e})=>"upwards"===e&&$t`
-      bottom: calc(100%);
-    `}
-`,rr=Ht(tr)`
+  ${({$direction:e})=>"downwards"===e?$t`
+          top: calc(100% + 10px);
+        `:"upwards"===e&&$t`
+            bottom: calc(100%);
+          `}
+`,rr=Ht.div`
   background-color: var(--theme-dropdown-background-color, #fff);
   border-color: var(--theme-dropdown-border-color, #fff);
   border-radius: var(--base-border-radius, 8px);

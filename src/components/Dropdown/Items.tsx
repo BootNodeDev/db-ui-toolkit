@@ -28,44 +28,36 @@ export const BaseItems = styled.div.attrs<ItemsProps>(
   position: absolute;
   white-space: nowrap;
 
-  ${({ $position }) =>
-    $position === 'left' &&
-    css`
-      left: 0;
-    `}
+  ${({ $position }) => {
+    return $position === 'left'
+      ? css`
+          left: 0;
+        `
+      : $position === 'center'
+        ? css`
+            left: 50%;
+            transform: translateX(-50%);
+          `
+        : $position === 'right' &&
+          css`
+            right: 0;
+          `
+  }}
 
-  ${({ $position }) =>
-    $position === 'right' &&
-    css`
-      right: 0;
-    `}
-
-  ${({ $position }) =>
-    $position === 'center' &&
-    css`
-      left: 50%;
-      transform: translateX(-50%);
-    `}
-
-  ${({ $direction }) =>
-    $direction === 'downwards' &&
-    css`
-      top: calc(100% + 10px);
-    `}
-
-  ${({ $direction }) =>
-    $direction === 'upwards' &&
-    css`
-      bottom: calc(100%);
-    `}
+  ${({ $direction }) => {
+    return $direction === 'downwards'
+      ? css`
+          top: calc(100% + 10px);
+        `
+      : $direction === 'upwards' &&
+          css`
+            bottom: calc(100%);
+          `
+  }}
 `
 
 /**
- * Items component - A container for dropdown items.
- *
- * @param {boolean} [$isOpen=false] - Whether the dropdown is open. Defaults to false.
- * @param {Position} [$position='left'] - The position of the dropdown. Defaults to 'left'.
- * @param {Direction} [$direction='downwards'] - The direction of the dropdown. Defaults to 'downwards'.
+ * Items component - Default container for dropdown items.
  *
  * Theme CSS Variables:
  *
@@ -73,7 +65,7 @@ export const BaseItems = styled.div.attrs<ItemsProps>(
  * * --theme-dropdown-border-color: Dropdown border color.
  * * --theme-dropdown-box-shadow: Dropdown box shadow.
  */
-const Items = styled(BaseItems)`
+const Items = styled.div`
   background-color: var(--theme-dropdown-background-color, #fff);
   border-color: var(--theme-dropdown-border-color, #fff);
   border-radius: var(--base-border-radius, 8px);

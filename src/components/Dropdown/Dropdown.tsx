@@ -75,12 +75,10 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
  * `undefined` disables the functionality, no item is highlighted when clicked.
  * Default is undefined.
  * @param {boolean} [disabled=false] - Whether the dropdown is disabled. Default is false.
- * @param {boolean} [clearDropdownStyle=false] - Whether to clear the dropdown styles. Useful if you don't want to use the default "card like" items wrapper but still preserve the basic functionality. Default is false.
  */
 const Dropdown: FC<Props> = ({
   button,
   className,
-  clearDropdownStyle = false,
   direction = 'downwards',
   disabled = false,
   highlightItem,
@@ -199,9 +197,11 @@ const Dropdown: FC<Props> = ({
       ref={node}
       {...restProps}
     >
-      <ButtonWrapper onClick={handleButtonClick}>{button}</ButtonWrapper>
+      <ButtonWrapper className={`${isOpen ? 'isActive' : ''}`.trim()} onClick={handleButtonClick}>
+        {button}
+      </ButtonWrapper>
       <BaseItems
-        as={clearDropdownStyle ? undefined : Items}
+        as={!Array.isArray(items) ? undefined : Items}
         $direction={direction}
         $position={position}
         $isOpen={isOpen}

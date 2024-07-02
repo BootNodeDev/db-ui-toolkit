@@ -7,7 +7,14 @@ export {
   ActiveButtonCSS,
   ButtonCSS,
 } from './components/Button'
-export { Dropdown, Item, Direction, Position, ActionStates } from './components/Dropdown'
+export {
+  Dropdown,
+  Item,
+  type Direction,
+  type Position,
+  type ActionStates,
+  Items,
+} from './components/Dropdown'
 export { TextfieldCSS } from './components/Textfield'
 export { default as Card } from './components/Card'
 export { default as CopyButton } from './components/CopyButton'

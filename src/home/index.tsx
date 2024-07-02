@@ -205,7 +205,6 @@ const App = () => {
               <Title>Dropdown</Title>
               <ComponentGrid>
                 <Dropdown
-                  clearDropdownStyle
                   button={
                     <Button>
                       <span>Info</span>

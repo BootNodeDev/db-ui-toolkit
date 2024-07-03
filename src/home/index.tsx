@@ -103,7 +103,7 @@ const Item = styled(BaseItem)`
   min-width: 160px;
 `
 
-const CustomDropdownItems = styled(Card)<{ $closeOnClick?: boolean }>`
+const CustomDropdownItems = styled(Card)`
   --custom-dropdown-color: #fff;
   --custom-dropdown-background-color: #8b46a4;
   --theme-color-text: var(--custom-dropdown-color);

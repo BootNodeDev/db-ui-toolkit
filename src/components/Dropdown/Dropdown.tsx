@@ -135,23 +135,21 @@ const Dropdown: FC<Props> = forwardRef<DropdownExposedMethods, Omit<Props, 'ref'
      *
      * @param event MouseEvent - The event object
      */
-    const handleOuterClick = useCallback(
-      (event: MouseEvent) => {
-        if (node.current?.contains(event.target as Node)) {
+    useEffect(() => {
+      const handleOuterClick = (event: MouseEvent) => {
+        if (node && node.current && node.current.contains(event.target as Node)) {
           return
         }
 
         setIsOpen(false)
-      },
-      [setIsOpen, node],
-    )
+      }
 
-    useEffect(() => {
       document.addEventListener('mousedown', handleOuterClick)
+
       return () => {
         document.removeEventListener('mousedown', handleOuterClick)
       }
-    }, [handleOuterClick])
+    }, [node])
 
     /**
      * Exposes a some methods to the parent component

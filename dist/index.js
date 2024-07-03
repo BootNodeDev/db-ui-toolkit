@@ -35,7 +35,7 @@ import*as e from"react";var t={945:e=>{e.exports=function(e,t,r,o){var i=r?r.cal
   ${qt}
   ${_t}
   ${Jt}
-`,er=Ht.div.attrs((({className:e="dbuitkDropdownItem",disabled:t=!1})=>({className:e,disabled:t})))`
+`,er=Ht.div.attrs((({tabIndex:e=0,className:t="dbuitkDropdownItem",disabled:r=!1})=>({className:t,disabled:r,tabIndex:e})))`
   align-items: center;
   background-color: var(--theme-dropdown-item-background-color, transparent);
   border-bottom: 1px solid var(--theme-dropdown-item-border-color, #f0f0f0);

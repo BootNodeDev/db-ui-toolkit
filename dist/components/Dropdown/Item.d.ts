@@ -1,14 +1,12 @@
 /// <reference types="react" />
 import { ActionStates } from './types';
 export interface Props {
-    $closeOnClick?: boolean;
     $state?: ActionStates;
     disabled?: boolean;
 }
 /**
  * Dropdown item component
  *
- * @param {boolean} [$closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
  * @param {boolean} [disabled=false] - Disables the dropdown item. Default is false.
  * @param {ActionStates} [$state=undefined] - The state of the item. Defaults to undefined.
  *

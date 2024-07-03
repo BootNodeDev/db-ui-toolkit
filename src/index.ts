@@ -10,10 +10,11 @@ export {
 export {
   Dropdown,
   Item,
-  type Direction,
-  type Position,
-  type ActionStates,
   Items,
+  type ActionStates,
+  type Direction,
+  type DropdownExposedMethods,
+  type Position,
 } from './components/Dropdown'
 export { TextfieldCSS } from './components/Textfield'
 export { default as Card } from './components/Card'

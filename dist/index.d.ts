@@ -2,7 +2,7 @@
  * Exported components
  */
 export { default as Button, DisabledButtonCSS, ActiveButtonCSS, ButtonCSS, } from './components/Button';
-export { Dropdown, Item, type Direction, type Position, type ActionStates, Items, } from './components/Dropdown';
+export { Dropdown, Item, Items, type ActionStates, type Direction, type DropdownExposedMethods, type Position, } from './components/Dropdown';
 export { TextfieldCSS } from './components/Textfield';
 export { default as Card } from './components/Card';
 export { default as CopyButton } from './components/CopyButton';

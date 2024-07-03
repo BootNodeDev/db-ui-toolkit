@@ -2,7 +2,6 @@ import { styled, css } from 'styled-components'
 import { ActionStates } from './types'
 
 export interface Props {
-  $closeOnClick?: boolean
   $state?: ActionStates
   disabled?: boolean
 }
@@ -10,7 +9,6 @@ export interface Props {
 /**
  * Dropdown item component
  *
- * @param {boolean} [$closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
  * @param {boolean} [disabled=false] - Disables the dropdown item. Default is false.
  * @param {ActionStates} [$state=undefined] - The state of the item. Defaults to undefined.
  *
@@ -26,13 +24,10 @@ export interface Props {
  * * --theme-dropdown-item-border-color-active: Dropdown item border color when active.
  * * --theme-dropdown-item-color-active: Dropdown item text color when active.
  */
-const Item = styled.div.attrs<Props>(
-  ({ className = 'dbuitkDropdownItem', $closeOnClick = true, disabled = false }) => ({
-    className,
-    $closeOnClick,
-    disabled,
-  }),
-)`
+const Item = styled.div.attrs<Props>(({ className = 'dbuitkDropdownItem', disabled = false }) => ({
+  className,
+  disabled,
+}))`
   align-items: center;
   background-color: var(--theme-dropdown-item-background-color, transparent);
   border-bottom: 1px solid var(--theme-dropdown-item-border-color, #f0f0f0);

@@ -24,10 +24,13 @@ export interface Props {
  * * --theme-dropdown-item-border-color-active: Dropdown item border color when active.
  * * --theme-dropdown-item-color-active: Dropdown item text color when active.
  */
-const Item = styled.div.attrs<Props>(({ className = 'dbuitkDropdownItem', disabled = false }) => ({
-  className,
-  disabled,
-}))`
+const Item = styled.div.attrs<Props>(
+  ({ tabIndex = 0, className = 'dbuitkDropdownItem', disabled = false }) => ({
+    className,
+    disabled,
+    tabIndex,
+  }),
+)`
   align-items: center;
   background-color: var(--theme-dropdown-item-background-color, transparent);
   border-bottom: 1px solid var(--theme-dropdown-item-border-color, #f0f0f0);

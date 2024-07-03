@@ -25,7 +25,8 @@ export declare const TextfieldCSS: import("styled-components").RuleSet<Props>;
  * * --theme-textfield-border-color-error
  * * --theme-textfield-border-color-ok
  * * --theme-textfield-placeholder-color
- * * --theme-textfield-boxshadow-active
+ * * --theme-textfield-box-shadow
+ * * --theme-textfield-box-shadow-active
  *
  * Base CSS vars:
  *

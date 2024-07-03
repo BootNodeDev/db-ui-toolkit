@@ -14,11 +14,11 @@ const TextfieldTextColorCSS = css<Props>`
   ${({ $status }) =>
     $status === 'error'
       ? css`
-          color: var(--theme-textfield-color-error, var(--theme-textfield-default-color-error));
+          color: var(--theme-textfield-color-error, var(--theme-textfield-color-error-default));
         `
       : $status === 'ok'
         ? css`
-            color: var(--theme-textfield-color-ok, var(--theme-textfield-default-color-ok));
+            color: var(--theme-textfield-color-ok, var(--theme-textfield-color-ok-default));
           `
         : css``}
 `
@@ -32,14 +32,14 @@ const TextfieldBorderColorCSS = css<Props>`
       ? css`
           border-color: var(
             --theme-textfield-border-color-error,
-            var(--theme-textfield-default-border-color-error)
+            var(--theme-textfield-border-color-error-default)
           );
         `
       : $status === 'ok'
         ? css`
             border-color: var(
               --theme-textfield-border-color-ok,
-              var(--theme-textfield-default-border-color-ok)
+              var(--theme-textfield-border-color-ok-default)
             );
           `
         : css``}
@@ -49,51 +49,52 @@ const TextfieldBorderColorCSS = css<Props>`
  * Textfield CSS
  */
 export const TextfieldCSS = css<Props>`
-  --theme-textfield-default-color: #333;
-  --theme-textfield-default-color-active: #333;
-  --theme-textfield-default-color-error: var(--theme-color-danger, #800);
-  --theme-textfield-default-color-ok: var(--theme-color-ok, #080);
-  --theme-textfield-default-background-color: #f7f7f7;
-  --theme-textfield-default-background-color-active: #f7f7f7;
-  --theme-textfield-default-border-color: #c5c2cb;
-  --theme-textfield-default-border-color-active: #c5c2cb;
-  --theme-textfield-default-border-color-error: var(--theme-color-danger, #800);
-  --theme-textfield-default-border-color-ok: var(--theme-color-ok, #080);
-  --theme-textfield-default-placeholder-color: #666;
+  --theme-textfield-color-default: #333;
+  --theme-textfield-color-active-default: #333;
+  --theme-textfield-color-error-default: var(--theme-color-danger, #800);
+  --theme-textfield-color-ok-default: var(--theme-color-ok, #080);
+  --theme-textfield-background-color-default: #f7f7f7;
+  --theme-textfield-background-color-active-default: #f7f7f7;
+  --theme-textfield-border-color-default: #c5c2cb;
+  --theme-textfield-border-color-active-default: #c5c2cb;
+  --theme-textfield-border-color-error-default: var(--theme-color-danger, #800);
+  --theme-textfield-border-color-ok-default: var(--theme-color-ok, #080);
+  --theme-textfield-placeholder-color-default: #666;
 
-  --base-textfield-default-vertical-padding: 0;
-  --base-textfield-default-horizontal-padding: var(--base-common-padding-xl, 16px);
-  --base-textfield-default-font-size: 1.4rem;
+  --base-textfield-vertical-padding-default: 0;
+  --base-textfield-horizontal-padding-default: var(--base-common-padding-xl, 16px);
+  --base-textfield-font-size-default: 1.4rem;
 
   background-color: var(
     --theme-textfield-background-color,
-    var(--theme-textfield-default-background-color)
+    var(--theme-textfield-background-color-default)
   );
-  border-color: var(--theme-textfield-border-color, var(--theme-textfield-default-border-color));
+  border-color: var(--theme-textfield-border-color, var(--theme-textfield-border-color-default));
   border-radius: var(--base-textfield-border-radius, var(--base-border-radius, 8px));
   border-style: solid;
   border-width: 1px;
-  color: var(--theme-textfield-color, var(--theme-textfield-default-color));
-  font-size: var(--base-textfield-font-size, var(--base-textfield-default-font-size));
+  box-shadow: var(--theme-textfield-box-shadow, none);
+  color: var(--theme-textfield-color, var(--theme-textfield-color-default));
+  font-size: var(--base-textfield-font-size, var(--base-textfield-font-size-default));
   font-weight: 400;
   height: var(--base-textfield-height, 50px);
   outline: none;
   overflow: hidden;
   padding-bottom: var(
     --base-textfield-vertical-padding,
-    var(--base-textfield-default-vertical-padding)
+    var(--base-textfield-vertical-padding-default)
   );
   padding-left: var(
     --base-textfield-horizontal-padding,
-    var(--base-textfield-default-horizontal-padding)
+    var(--base-textfield-horizontal-padding-default)
   );
   padding-right: var(
     --base-textfield-horizontal-padding,
-    var(--base-textfield-default-horizontal-padding)
+    var(--base-textfield-horizontal-padding-default)
   );
   padding-top: var(
     --base-textfield-vertical-padding,
-    var(--base-textfield-default-vertical-padding)
+    var(--base-textfield-vertical-padding-default)
   );
   text-overflow: ellipsis;
   transition:
@@ -111,16 +112,16 @@ export const TextfieldCSS = css<Props>`
    */
   &:active,
   &:focus {
-    color: var(--theme-textfield-color-active, var(--theme-textfield-default-color-active));
+    color: var(--theme-textfield-color-active, var(--theme-textfield-color-active-default));
     border-color: var(
       --theme-textfield-border-color-active,
-      var(--theme-textfield-default-border-color-active)
+      var(--theme-textfield-border-color-active-default)
     );
     background-color: var(
       --theme-textfield-background-color-active,
-      var(--theme-textfield-default-background-color-active)
+      var(--theme-textfield-background-color-active-default)
     );
-    box-shadow: var(--theme-textfield-boxshadow-active, none);
+    box-shadow: var(--theme-textfield-box-shadow-active, none);
 
     ${TextfieldTextColorCSS}
     ${TextfieldBorderColorCSS}
@@ -130,25 +131,25 @@ export const TextfieldCSS = css<Props>`
   &[disabled]:hover {
     background-color: var(
       --theme-textfield-background-color,
-      var(--theme-textfield-default-background-color)
+      var(--theme-textfield-background-color-default)
     );
-    border-color: var(--theme-textfield-border-color, var(--theme-textfield-default-border-color));
-    color: var(--theme-textfield-color, var(--theme-textfield-default-color));
+    border-color: var(--theme-textfield-border-color, var(--theme-textfield-border-color-default));
+    color: var(--theme-textfield-color, var(--theme-textfield-color-default));
     cursor: not-allowed;
     opacity: 0.5;
   }
 
   &[disabled]::placeholder,
   &[disabled]:hover::placeholder {
-    color: var(--theme-textfield-color, var(--theme-textfield-default-color)) !important;
+    color: var(--theme-textfield-color, var(--theme-textfield-color-default)) !important;
   }
 
   &::placeholder {
     color: var(
       --theme-textfield-placeholder-color,
-      var(--theme-textfield-default-placeholder-color)
+      var(--theme-textfield-placeholder-color-default)
     );
-    font-size: var(--base-textfield-font-size, var(--base-textfield-default-font-size));
+    font-size: var(--base-textfield-font-size, var(--base-textfield-font-size-default));
     font-style: normal;
     font-weight: 400;
     opacity: 1;
@@ -160,12 +161,12 @@ export const TextfieldCSS = css<Props>`
   &[readonly] {
     background-color: var(
       --theme-textfield-background-color,
-      var(--theme-textfield-default-background-color)
+      var(--theme-textfield-background-color-default)
     );
-    border-color: var(--theme-textfield-border-color, var(--theme-textfield-default-border-color));
+    border-color: var(--theme-textfield-border-color, var(--theme-textfield-border-color-default));
     color: var(
       --theme-textfield-placeholder-color,
-      var(--theme-textfield-default-placeholder-color)
+      var(--theme-textfield-placeholder-color-default)
     );
     cursor: default;
     font-style: normal;
@@ -202,7 +203,8 @@ export const TextfieldCSS = css<Props>`
  * * --theme-textfield-border-color-error
  * * --theme-textfield-border-color-ok
  * * --theme-textfield-placeholder-color
- * * --theme-textfield-boxshadow-active
+ * * --theme-textfield-box-shadow
+ * * --theme-textfield-box-shadow-active
  *
  * Base CSS vars:
  *

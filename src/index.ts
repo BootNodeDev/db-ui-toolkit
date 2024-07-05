@@ -38,6 +38,11 @@ export { default as Toast } from './components/Toast'
 export { default as Wrapper } from './components/Wrapper'
 
 /**
+ * Hooks
+ */
+export { default as useModal } from './hooks/useModal'
+
+/**
  * Exported utils
  */
 export { breakpointMediaQuery, breakpoints, Breakpoint } from './utils/breakpoints'

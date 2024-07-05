@@ -4,14 +4,15 @@ import { styled } from 'styled-components'
 
 import { GlobalStyles } from './GlobalStyles'
 
-import TextDemo from './demo/TextDemo'
 import ButtonsDemo from './demo/ButtonsDemo'
-import DropdownDemo from './demo/DropdownDemo'
-import TextfieldDemo from './demo/TextfieldDemo'
-import SpinnerDemo from './demo/SpinnerDemo'
-import ToastDemo from './demo/ToastDemo'
 import CopyButtonExternalLinkButtonDemo from './demo/CopyButtonExternalLinkButtonDemo'
+import DropdownDemo from './demo/DropdownDemo'
 import GeneralErrorDemo from './demo/GeneralErrorDemo'
+import ModalDemo from './demo/ModalDemo'
+import SpinnerDemo from './demo/SpinnerDemo'
+import TextDemo from './demo/TextDemo'
+import TextfieldDemo from './demo/TextfieldDemo'
+import ToastDemo from './demo/ToastDemo'
 
 import {
   ContainerPadding,
@@ -108,6 +109,7 @@ const App = () => {
             <ToastDemo />
             <CopyButtonExternalLinkButtonDemo />
             <GeneralErrorDemo />
+            <ModalDemo />
           </InnerMain>
         </Main>
         <Footer>

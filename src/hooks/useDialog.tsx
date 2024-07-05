@@ -1,12 +1,14 @@
 import React, {
+  KeyboardEventHandler,
+  ReactElement,
+  ReactEventHandler,
   type FC,
   type HTMLAttributes,
   type MouseEventHandler,
   useCallback,
+  useEffect,
   useRef,
   useState,
-  useEffect,
-  ReactElement,
 } from 'react'
 import { styled } from 'styled-components'
 
@@ -57,6 +59,7 @@ interface DialogProps extends HTMLAttributes<HTMLDialogElement> {}
 
 interface Options extends DialogProps {
   closeOnOutsideClick?: boolean
+  closeOnEscape?: boolean
 }
 
 interface Props {
@@ -69,10 +72,13 @@ interface Props {
  * @name useDialog
  * @description A hook to create and use a dialog component.
  *
+ * @returns {Props} {open: (children: ReactElement) => void, close: () => void, Dialog: FC<Options>} - The `Dialog` component and the hook's methods.
+ *
+ * **Dialog props**
+ *
  * @param {Options} options - The options for the dialog.
  * @param {boolean} [options.closeOnOutsideClick=true] - Whether the dialog should close when clicking outside of it. Defaults to true.
- *
- * @returns {Props} {open: (children: ReactElement) => void, close: () => void, Dialog: FC<ModalProps>} - The `Dialog` component and the hook's methods.
+ * @param {boolean} [options.closeOnEscape=true] - Whether the dialog should close when pressing the escape key. Defaults to true.
  *
  * **Base CSS Variables for `Dialog` Component**
  *
@@ -95,6 +101,9 @@ const useDialog = (): Props => {
     setIsOpen(false)
   }, [])
 
+  /**
+   * Handle dialog open / close state
+   */
   useEffect(() => {
     if (dialogRef.current && isOpen) {
       dialogRef.current.showModal()
@@ -105,15 +114,42 @@ const useDialog = (): Props => {
     }
   }, [isOpen])
 
-  const Dialog: FC<Options> = ({ closeOnOutsideClick = true }) => {
+  const Dialog: FC<Options> = ({ closeOnOutsideClick = true, closeOnEscape = true }) => {
+    /**
+     * Handle clicking outside of the dialog
+     */
     const handleOutsideClick: MouseEventHandler<HTMLDialogElement> = (event) => {
       if (dialogRef.current && event.target === dialogRef.current && closeOnOutsideClick) {
         close()
       }
     }
 
+    /**
+     * Handle pressing the escape key
+     */
+    const handleKeyDown: KeyboardEventHandler<HTMLDialogElement> = (event) => {
+      event.preventDefault()
+
+      if (event.key === 'Escape' && closeOnEscape) {
+        close()
+      }
+    }
+
+    const handleCancel: ReactEventHandler<HTMLDialogElement> = (event) => {
+      event.preventDefault()
+
+      if (closeOnEscape) {
+        close()
+      }
+    }
+
     return (
-      <Wrapper onClick={closeOnOutsideClick ? handleOutsideClick : undefined} ref={dialogRef}>
+      <Wrapper
+        onCancel={handleCancel}
+        onClick={closeOnOutsideClick ? handleOutsideClick : undefined}
+        onKeyDown={handleKeyDown}
+        ref={dialogRef}
+      >
         {isOpen ? children : null}
       </Wrapper>
     )

@@ -40,7 +40,7 @@ export { default as Wrapper } from './components/Wrapper'
 /**
  * Hooks
  */
-export { default as useModal } from './hooks/useModal'
+export { default as useDialog } from './hooks/useDialog'
 
 /**
  * Exported utils

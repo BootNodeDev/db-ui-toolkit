@@ -8,7 +8,7 @@ import ButtonsDemo from './demo/ButtonsDemo'
 import CopyButtonExternalLinkButtonDemo from './demo/CopyButtonExternalLinkButtonDemo'
 import DropdownDemo from './demo/DropdownDemo'
 import GeneralErrorDemo from './demo/GeneralErrorDemo'
-import ModalDemo from './demo/ModalDemo'
+import DialogDemo from './demo/DialogDemo'
 import SpinnerDemo from './demo/SpinnerDemo'
 import TextDemo from './demo/TextDemo'
 import TextfieldDemo from './demo/TextfieldDemo'
@@ -109,7 +109,7 @@ const App = () => {
             <ToastDemo />
             <CopyButtonExternalLinkButtonDemo />
             <GeneralErrorDemo />
-            <ModalDemo />
+            <DialogDemo />
           </InnerMain>
         </Main>
         <Footer>

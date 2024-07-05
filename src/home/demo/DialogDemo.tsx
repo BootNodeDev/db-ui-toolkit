@@ -48,7 +48,8 @@ const DialogDemo = () => {
         <Text>
           You can also customize the width of the modal by providing a <code>width</code> prop.
           Possible values are <code>sm</code>, <code>md</code>, <code>lg</code> or a custom string
-          (i.e. <code>100%</code>, <code>800px</code>, etc.).
+          (i.e. <code>&apos;100%&apos;</code>, <code>&apos;800px&apos;</code>,{' '}
+          <code>&apos;10rem&apos;</code>, etc.).
         </Text>
       </Modal>,
     )
@@ -63,7 +64,23 @@ const DialogDemo = () => {
           It&apos;s very flexible and can be customized to show any content you want.
         </Text>
         <Text>
-          A basic, default <code>&lt;Modal /&gt;</code> component is available for general use.
+          <code>useDialog</code> return values are
+        </Text>
+        <Text>
+          <code>open</code> - a function that takes a React element as an argument and shows it in a
+          dialog.
+        </Text>
+        <Text>
+          <code>close</code> - a function that closes the dialog.
+        </Text>
+        <Text>
+          <code>Dialog</code> - a React component that can be used to create custom dialogs.{' '}
+          <code>Dialog</code>&apos;s props <code>closeOnEscape</code> and{' '}
+          <code>closeOnOutsideClick</code> are available to control whether the modal should close
+          when the user presses the escape key or clicks outside the modal.
+        </Text>
+        <Text>
+          A basic <code>&lt;Modal /&gt;</code> component is also available for general use.
         </Text>
         <ComponentGrid>
           <PrimaryButton onClick={openModal}>Open modal</PrimaryButton>

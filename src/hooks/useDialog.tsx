@@ -13,6 +13,7 @@ import { styled } from 'styled-components'
 const Wrapper = styled.dialog`
   border: none;
   border-radius: var(--base-dialog-border-radius, var(--base-border-radius, 8px));
+  max-width: calc(100vw - 20px);
   padding: 0;
   transition:
     display var(--base-dialog-animation-time, var(--base-animation-time-xl, 0.4s)) ease-out

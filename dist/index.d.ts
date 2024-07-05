@@ -15,6 +15,7 @@ export { default as InnerContainer } from './components/InnerContainer';
 export { default as Logo } from './components/Logo';
 export { default as LogoMini } from './components/LogoMini';
 export { default as Main } from './components/Main';
+export { default as Modal } from './components/Modal';
 export { default as Spinner } from './components/Spinner';
 export { default as SwitchThemeButton } from './components/SwitchThemeButton';
 export { default as Text } from './components/Text';
@@ -23,6 +24,10 @@ export { default as ThemedButton, ButtonVariantCSS } from './components/ThemedBu
 export { default as Title } from './components/Title';
 export { default as Toast } from './components/Toast';
 export { default as Wrapper } from './components/Wrapper';
+/**
+ * Hooks
+ */
+export { default as useDialog } from './hooks/useDialog';
 /**
  * Exported utils
  */

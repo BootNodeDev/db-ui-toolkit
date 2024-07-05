@@ -1,10 +1,11 @@
 import { type FC, type HTMLAttributes, ReactElement } from 'react';
-type DialogProps = HTMLAttributes<HTMLDialogElement>;
-interface Options {
+interface DialogProps extends HTMLAttributes<HTMLDialogElement> {
+}
+interface Options extends DialogProps {
     closeOnOutsideClick?: boolean;
 }
 interface Props {
-    Dialog: FC<DialogProps>;
+    Dialog: FC<Options>;
     close: () => void;
     open: (children: ReactElement) => void;
 }
@@ -23,5 +24,5 @@ interface Props {
  * - `--base-dialog-overlay-animation-time`
  * - `--base-dialog-animation-time`
  */
-declare const useDialog: ({ closeOnOutsideClick }?: Options) => Props;
+declare const useDialog: () => Props;
 export default useDialog;

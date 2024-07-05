@@ -763,7 +763,7 @@ import*as e from"react";var t={945:e=>{e.exports=function(e,t,r,o){var a=r?r.cal
       }
     }
   }
-`,No=({closeOnOutsideClick:e=!0}={})=>{const t=(0,u.useRef)(null),[r,o]=(0,u.useState)(!1),[a,i]=(0,u.useState)(null),n=(0,u.useCallback)((e=>{i(e),o(!0)}),[]),M=(0,u.useCallback)((()=>{i(null),o(!1)}),[]);return(0,u.useEffect)((()=>{t.current&&r&&t.current.showModal(),t.current&&!r&&t.current.close()}),[r]),{open:n,close:M,Dialog:()=>u.default.createElement(jo,{onClick:e?r=>{t.current&&r.target===t.current&&e&&M()}:void 0,ref:t},r?a:null)}},go=$t`
+`,No=()=>{const e=(0,u.useRef)(null),[t,r]=(0,u.useState)(!1),[o,a]=(0,u.useState)(null),i=(0,u.useCallback)((e=>{a(e),r(!0)}),[]),n=(0,u.useCallback)((()=>{a(null),r(!1)}),[]);return(0,u.useEffect)((()=>{e.current&&t&&e.current.showModal(),e.current&&!t&&e.current.close()}),[t]),{open:i,close:n,Dialog:({closeOnOutsideClick:r=!0})=>u.default.createElement(jo,{onClick:r?t=>{e.current&&t.target===e.current&&r&&n()}:void 0,ref:e},t?o:null)}},go=$t`
   padding-left: var(--base-padding-mobile, 4px);
   padding-right: var(--base-padding-mobile, 4px);
 

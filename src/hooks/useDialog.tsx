@@ -53,14 +53,14 @@ const Wrapper = styled.dialog`
   }
 `
 
-type DialogProps = HTMLAttributes<HTMLDialogElement>
+interface DialogProps extends HTMLAttributes<HTMLDialogElement> {}
 
-interface Options {
+interface Options extends DialogProps {
   closeOnOutsideClick?: boolean
 }
 
 interface Props {
-  Dialog: FC<DialogProps>
+  Dialog: FC<Options>
   close: () => void
   open: (children: ReactElement) => void
 }
@@ -80,7 +80,7 @@ interface Props {
  * - `--base-dialog-overlay-animation-time`
  * - `--base-dialog-animation-time`
  */
-const useDialog = ({ closeOnOutsideClick = true }: Options = {}): Props => {
+const useDialog = (): Props => {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [children, setChildren] = useState<ReactElement | null>(null)
@@ -105,7 +105,7 @@ const useDialog = ({ closeOnOutsideClick = true }: Options = {}): Props => {
     }
   }, [isOpen])
 
-  const Dialog: FC<DialogProps> = () => {
+  const Dialog: FC<Options> = ({ closeOnOutsideClick = true }) => {
     const handleOutsideClick: MouseEventHandler<HTMLDialogElement> = (event) => {
       if (dialogRef.current && event.target === dialogRef.current && closeOnOutsideClick) {
         close()

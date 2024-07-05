@@ -5,10 +5,10 @@ import { ComponentGrid } from '../helpers'
 
 import { GeneralError, Title, useDialog } from '../../index'
 
-const ModalDemo = () => {
+const DialogDemo = () => {
   const { Dialog, open, close } = useDialog()
 
-  const openModal_1 = () => {
+  const openGeneralErrorDialog = () => {
     open(
       <GeneralError
         message="Consectetur adipiscing elit"
@@ -39,9 +39,9 @@ const ModalDemo = () => {
   return (
     <>
       <div>
-        <Title>Modal</Title>
+        <Title>Dialog / Modal</Title>
         <ComponentGrid>
-          <PrimaryButton onClick={openModal_1}>Open modal 1</PrimaryButton>
+          <PrimaryButton onClick={openGeneralErrorDialog}>General Error</PrimaryButton>
           <PrimaryButton onClick={openModal_2}>Open modal 2</PrimaryButton>
         </ComponentGrid>
       </div>
@@ -50,4 +50,4 @@ const ModalDemo = () => {
   )
 }
 
-export default ModalDemo
+export default DialogDemo

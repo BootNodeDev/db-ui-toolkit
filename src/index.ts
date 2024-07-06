@@ -13,7 +13,7 @@ export {
   Items,
   type ActionStates,
   type Direction,
-  type DropdownExposedMethods,
+  type DropdownExposedProps,
   type Position,
 } from './components/Dropdown'
 export { TextfieldCSS } from './components/Textfield'

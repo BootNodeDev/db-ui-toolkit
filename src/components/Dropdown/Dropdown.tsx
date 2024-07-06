@@ -26,10 +26,12 @@ export interface Options
     RefAttributes<DropdownExposedProps> {
   button: ReactElement<HTMLButtonElement>
   closeOnClick?: boolean
+  defaultActiveItem?: number
   direction?: Direction
   disabled?: boolean
-  highlightSelectedItem?: boolean
+  highlightActiveItem?: boolean
   items: Array<ReactElement> | ReactElement
+  onItemSelect?: (index: number) => void
   position?: Position
 }
 
@@ -43,8 +45,10 @@ export interface Options
  * @param {Direction} [direction='downwards'] - The direction of the dropdown (upwards or downwards). Default is downwards.
  * @param {Position} [position='left'] - The position of the dropdown (left, right or center). Default is left.
  * @param {boolean} [closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
- * @param {HighlightItem} [highlightSelectedItem=true] - Optionally highlight the selected item. Default is true.
+ * @param {HighlightItem} [highlightActiveItem=true] - Optionally highlight the selected item. Default is true.
  * @param {boolean} [disabled=false] - Whether the dropdown is disabled. Default is false.
+ * @param {number} [defaultActiveItem=-1] - The index of the item that is active by default. Default is -1.
+ * @param {Function} [onItemSelect] - A function that is called when an item is selected.
  */
 const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 'ref'>>(
   (
@@ -52,17 +56,19 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
       button,
       className,
       closeOnClick = true,
+      defaultActiveItem = -1,
       direction = 'downwards',
       disabled = false,
-      highlightSelectedItem = true,
+      highlightActiveItem = true,
       items,
+      onItemSelect,
       position = 'left',
       ...restProps
     },
     ref,
   ) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [activeItem, setActiveItem] = useState<number>(-1)
+    const [activeItem, setActiveItem] = useState<number>(defaultActiveItem)
     const node = createRef<HTMLDivElement>()
 
     /**
@@ -123,7 +129,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
 
         return cloneElement(element, {
           className:
-            `${className ? className : ''} ${isItemActive && highlightSelectedItem ? 'dropdownItemActive' : ''}`.trim(),
+            `${className ? className : ''} ${isItemActive && highlightActiveItem ? 'dropdownItemActive' : ''}`.trim(),
           onClick: (event: MouseEvent): void => {
             event.stopPropagation()
 
@@ -133,13 +139,14 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
 
             if (typeof index === 'number') {
               setActiveItem(index)
+              onItemSelect?.(index)
             }
 
             onClick?.()
           },
         })
       },
-      [activeItem, closeOnClick, highlightSelectedItem, setActiveItem, setIsOpen],
+      [activeItem, closeOnClick, highlightActiveItem, onItemSelect],
     )
 
     /**

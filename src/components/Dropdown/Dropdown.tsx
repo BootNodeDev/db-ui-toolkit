@@ -149,6 +149,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
       closeDropdown: () => {
         setIsOpen(false)
       },
+      getActiveItem: () => activeItem,
     }))
 
     return (

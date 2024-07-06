@@ -1,31 +1,46 @@
 import React, { type FC, useRef } from 'react'
 
-import Dropdown, { DropdownExposedProps, type Options } from './Dropdown'
+import Dropdown, { type DropdownExposedProps, type Options } from './Dropdown'
 
-export interface Props extends DropdownExposedProps {
-  Dropdown: FC<Options>
+interface DropdownOptions extends Options {
+  id: string
+}
+
+interface Props {
+  Dropdown: FC<DropdownOptions>
+  closeDropdown: (id: string) => void
 }
 
 /**
  * @name useDropdown
  * @description A hook that returns a Dropdown component and its exposed methods
  *
- * @returns {Props} { Dropdown: FC<Options>, closeDropdown: () => void } - The `Dropdown` component and the hook's methods.
+ * @returns {Props} { Dropdown: FC<DropdownOptions>, closeDropdown: (id: string) => void } - The `Dropdown` component and the hook's methods.
  */
 const useDropdown = (): Props => {
-  const dropdownRef = useRef<DropdownExposedProps>(null)
+  /**
+   * An object that all the dropdown refs will be stored in
+   */
+  const dropdownRefs = useRef<{ [key: string]: DropdownExposedProps | null }>({})
 
   /**
-   * Closes the dropdown
+   * Closes the dropdown using the dropdown's id and the ref's exposed method
    */
-  const closeDropdown = () => {
-    if (dropdownRef.current) {
-      dropdownRef.current.closeDropdown()
+  const closeDropdown = (id: string) => {
+    if (dropdownRefs.current[id]) {
+      dropdownRefs.current[id]?.closeDropdown()
     }
   }
 
   return {
-    Dropdown: ({ ...props }) => <Dropdown ref={dropdownRef} {...props} />,
+    Dropdown: ({ id, ...props }) => (
+      <Dropdown
+        ref={(el) => {
+          dropdownRefs.current[id] = el
+        }}
+        {...props}
+      />
+    ),
     closeDropdown,
   }
 }

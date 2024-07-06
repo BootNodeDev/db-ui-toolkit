@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { styled } from 'styled-components'
 
 import { PrimaryButton, SecondaryButton } from './ButtonsDemo'
@@ -31,6 +31,45 @@ const CustomDropdownItems = styled(Card)`
 `
 
 const DropdownDemo = () => {
+  const hookedProfileDropdownItems = [
+    {
+      text: 'Profile',
+      extraProps: {
+        onClick: () => {
+          console.log('Profile action')
+        },
+      },
+    },
+    {
+      text: 'Activity',
+      extraProps: {
+        onClick: () => {
+          console.log('Activity action')
+        },
+      },
+    },
+    {
+      text: 'Settings',
+      extraProps: {
+        $state: 'ok' as ActionStates,
+        onClick: () => {
+          console.log('Settings action')
+          closeDropdown('hook-profile')
+        },
+      },
+    },
+    {
+      text: 'Log Out',
+      extraProps: {
+        $state: 'danger' as ActionStates,
+        onClick: () => {
+          console.log('Log out action')
+          closeDropdown('hook-profile')
+        },
+      },
+    },
+  ]
+
   const profileDropdownItems = [
     {
       text: 'Profile',
@@ -42,14 +81,18 @@ const DropdownDemo = () => {
       text: 'Settings',
       extraProps: {
         $state: 'ok' as ActionStates,
-        onClick: () => console.log('Settings action'),
+        onClick: () => {
+          console.log('Settings action')
+        },
       },
     },
     {
       text: 'Log Out',
       extraProps: {
         $state: 'danger' as ActionStates,
-        onClick: () => console.log('Log out action'),
+        onClick: () => {
+          console.log('Log out action')
+        },
       },
     },
   ]
@@ -86,86 +129,6 @@ const DropdownDemo = () => {
     <div>
       <Title>Dropdown</Title>
       <ComponentGrid>
-        <HookDropdown
-          id="hook-profile-dropdown"
-          highlightSelectedItem
-          button={
-            <PrimaryButton>
-              <span>Hook Profile</span>
-              <span>▾</span>
-            </PrimaryButton>
-          }
-          items={profileDropdownItems.map(({ text, extraProps }, index) => {
-            return (
-              <Item key={index} {...extraProps}>
-                {text}
-              </Item>
-            )
-          })}
-        />
-        <HookDropdown
-          id="hooked-dropdown"
-          closeOnClick={false}
-          button={
-            <Button>
-              <span>Hooked dropdown</span>
-              <span>▾</span>
-            </Button>
-          }
-          items={
-            <CustomDropdownItems>
-              <Text>Created from a hook</Text>
-              <Text>
-                This dropdown comes from a <code>useDropdown</code> hook.
-              </Text>
-              <Text>
-                It will stay open if you click on it. You can use the button below to close it.
-              </Text>
-              <Button onClick={closeDropdown}>Close It!</Button>
-            </CustomDropdownItems>
-          }
-        />
-        <HookDropdown
-          id="hooked-drsopdown"
-          closeOnClick={false}
-          button={
-            <Button>
-              <span>Hooked dropdown</span>
-              <span>▾</span>
-            </Button>
-          }
-          items={
-            <CustomDropdownItems>
-              <Text>Created from a hook</Text>
-              <Text>
-                This dropdown comes from a <code>useDropdown</code> hook.
-              </Text>
-              <Text>
-                It will stay open if you click on it. You can use the button below to close it.
-              </Text>
-              <Button onClick={closeDropdown}>Close It!</Button>
-            </CustomDropdownItems>
-          }
-        />
-
-        <HookDropdown
-          id="hook-profile-drsopdown"
-          highlightSelectedItem
-          button={
-            <PrimaryButton>
-              <span>Hook Profile</span>
-              <span>▾</span>
-            </PrimaryButton>
-          }
-          items={profileDropdownItems.map(({ text, extraProps }, index) => {
-            return (
-              <Item key={index} {...extraProps}>
-                {text}
-              </Item>
-            )
-          })}
-        />
-
         <Dropdown
           ref={dropdownRef}
           closeOnClick={false}
@@ -209,6 +172,48 @@ const DropdownDemo = () => {
             </SecondaryButton>
           }
           items={filterDropdownItems.map(({ text, extraProps }, index) => {
+            return (
+              <Item key={index} {...extraProps}>
+                {text}
+              </Item>
+            )
+          })}
+        />
+      </ComponentGrid>
+      <ComponentGrid>
+        <HookDropdown
+          id="hook-info"
+          closeOnClick={false}
+          button={
+            <Button>
+              <span>Hook Info</span>
+              <span>▾</span>
+            </Button>
+          }
+          items={
+            <CustomDropdownItems>
+              <Text>Created from a hook</Text>
+              <Text>
+                This dropdown comes from a <code>useDropdown</code> hook.
+              </Text>
+              <Text>
+                It will stay open if you click on it. You can use the button below to close it.
+              </Text>
+              <Button onClick={() => closeDropdown('hook-info')}>Close It!</Button>
+            </CustomDropdownItems>
+          }
+        />
+        <HookDropdown
+          id="hook-profile"
+          highlightSelectedItem
+          closeOnClick={false}
+          button={
+            <PrimaryButton>
+              <span>Hook Profile</span>
+              <span>▾</span>
+            </PrimaryButton>
+          }
+          items={hookedProfileDropdownItems.map(({ text, extraProps }, index) => {
             return (
               <Item key={index} {...extraProps}>
                 {text}

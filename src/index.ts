@@ -42,7 +42,7 @@ export { default as Wrapper } from './components/Wrapper'
  * Hooks
  */
 export { default as useDialog } from './hooks/useDialog'
-export { default as useDropdown } from './components/Dropdown/useDropdown'
+export { default as useDropdown } from './hooks/useDropdown'
 
 /**
  * Exported utils

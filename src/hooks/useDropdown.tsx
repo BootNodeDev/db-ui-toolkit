@@ -1,6 +1,6 @@
 import React, { type FC, useRef, useCallback } from 'react'
 
-import Dropdown, { type DropdownExposedProps, type Options } from './Dropdown'
+import Dropdown, { type DropdownExposedProps, type Options } from '../components/Dropdown/Dropdown'
 
 interface DropdownOptions extends Options {
   id: string

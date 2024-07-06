@@ -1,4 +1,4 @@
-import React, { type FC, useRef } from 'react'
+import React, { type FC, useRef, useCallback } from 'react'
 
 import Dropdown, { type DropdownExposedProps, type Options } from './Dropdown'
 
@@ -32,8 +32,11 @@ const useDropdown = (): Props => {
     }
   }
 
-  return {
-    Dropdown: ({ id, ...props }) => (
+  /**
+   * Avoids re-rendering the Dropdown component every time a prop changes
+   */
+  const DropdownComponent = useCallback(
+    ({ id, ...props }: DropdownOptions) => (
       <Dropdown
         ref={(el) => {
           dropdownRefs.current[id] = el
@@ -41,6 +44,11 @@ const useDropdown = (): Props => {
         {...props}
       />
     ),
+    [],
+  )
+
+  return {
+    Dropdown: DropdownComponent,
     closeDropdown,
   }
 }

@@ -13,6 +13,7 @@ import {
   Item as BaseItem,
   Text,
   Title,
+  useDropdown,
 } from '../../index'
 
 const Item = styled(BaseItem)`
@@ -79,10 +80,50 @@ const DropdownDemo = () => {
     }
   }
 
+  const { Dropdown: HookDropdown, closeDropdown } = useDropdown()
+
   return (
     <div>
       <Title>Dropdown</Title>
       <ComponentGrid>
+        {/* <HookDropdown
+          closeOnClick={false}
+          button={
+            <Button>
+              <span>Hooked dropdown</span>
+              <span>▾</span>
+            </Button>
+          }
+          items={
+            <CustomDropdownItems>
+              <Text>Created from a hook</Text>
+              <Text>
+                This dropdown comes from a <code>useDropdown</code> hook.
+              </Text>
+              <Text>
+                It will stay open if you click on it. You can use the button below to close it.
+              </Text>
+              <Button onClick={closeDropdown}>Close It!</Button>
+            </CustomDropdownItems>
+          }
+        /> */}
+        <HookDropdown
+          highlightSelectedItem
+          button={
+            <PrimaryButton>
+              <span>Hook Profile</span>
+              <span>▾</span>
+            </PrimaryButton>
+          }
+          items={profileDropdownItems.map(({ text, extraProps }, index) => {
+            return (
+              <Item key={index} {...extraProps}>
+                {text}
+              </Item>
+            )
+          })}
+        />
+
         <Dropdown
           ref={dropdownRef}
           closeOnClick={false}

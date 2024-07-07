@@ -49,6 +49,16 @@ export interface Options
  * @param {boolean} [disabled=false] - Whether the dropdown is disabled. Default is false.
  * @param {number} [defaultActiveItem=-1] - The index of the item that is active by default. Default is -1.
  * @param {Function} [onItemSelect] - A function that is called when an item is selected.
+ *
+ * Theme CSS Variables:
+ *
+ * * --theme-dropdown-background-color
+ * * --theme-dropdown-border-color
+ * * --theme-dropdown-box-shadow
+ *
+ * Base CSS Variables:
+ *
+ * * --base-dropdown-border-radius
  */
 const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 'ref'>>(
   (

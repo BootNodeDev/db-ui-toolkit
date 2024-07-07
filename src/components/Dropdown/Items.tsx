@@ -58,17 +58,11 @@ export const BaseItems = styled.div.attrs<ItemsProps>(
 
 /**
  * Items component - Default container for dropdown items.
- *
- * Theme CSS Variables:
- *
- * * --theme-dropdown-background-color: Dropdown background color.
- * * --theme-dropdown-border-color: Dropdown border color.
- * * --theme-dropdown-box-shadow: Dropdown box shadow.
  */
 const Items = styled.div`
   background-color: var(--theme-dropdown-background-color, #fff);
   border-color: var(--theme-dropdown-border-color, #fff);
-  border-radius: var(--base-border-radius, 8px);
+  border-radius: var(--base-dropdown-border-radius, var(--base-border-radius, 8px));
   border-style: solid;
   border-width: 1px;
   box-shadow: var(--theme-dropdown-box-shadow, 0 9.6px 13px 0 rgb(0 0 0 / 8%));

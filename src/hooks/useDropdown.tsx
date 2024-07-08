@@ -8,27 +8,29 @@ interface DropdownOptions extends Options {
 
 interface Props {
   Dropdown: FC<DropdownOptions>
-  closeDropdown: (id: string) => void
+  close: (id: string) => void
 }
 
 /**
  * @name useDropdown
  * @description A hook that returns a Dropdown component and its exposed methods
  *
- * @returns {Props} { Dropdown: FC<DropdownOptions>, closeDropdown: (id: string) => void } - The `Dropdown` component and the hook's methods.
+ * @returns {Props} - The `Dropdown` component and the hook's methods.
+ * @returns {FC<DropdownOptions>} Dropdown - The `Dropdown` component.
+ * @returns {(id: string) => void} close - A function that closes the dropdown with the given id.
  */
 const useDropdown = (): Props => {
   /**
-   * An object that all the dropdown refs will be stored in
+   * An object that stores all the dropdown refs will be stored in
    */
   const dropdownRefs = useRef<{ [key: string]: DropdownExposedProps | null }>({})
 
   /**
    * Closes the dropdown using the dropdown's id and the ref's exposed method
    */
-  const closeDropdown = (id: string) => {
+  const close = (id: string) => {
     if (dropdownRefs.current[id]) {
-      dropdownRefs.current[id]?.closeDropdown()
+      dropdownRefs.current[id]?.close()
     }
   }
 
@@ -49,7 +51,7 @@ const useDropdown = (): Props => {
 
   return {
     Dropdown: DropdownComponent,
-    closeDropdown,
+    close,
   }
 }
 

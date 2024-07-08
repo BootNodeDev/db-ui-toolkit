@@ -18,7 +18,7 @@ import { Wrapper, ButtonWrapper } from './Wrapper'
 import Items, { BaseItems } from './Items'
 
 export interface DropdownExposedProps {
-  closeDropdown: () => void
+  close: () => void
 }
 
 export interface Options
@@ -163,7 +163,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
      * Exposes a some methods to the parent component
      */
     useImperativeHandle(ref, () => ({
-      closeDropdown: () => {
+      close: () => {
         setIsOpen(false)
       },
       getActiveItem: () => activeItem,

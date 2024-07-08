@@ -99,11 +99,11 @@ const DropdownDemoExamples = () => {
   /**
    * A hook that returns a Dropdown component and its exposed methods
    */
-  const { Dropdown: HookDropdown, closeDropdown } = useDropdown()
+  const { Dropdown: HookDropdown, close } = useDropdown()
 
   const handleCloseDropdown = () => {
     if (dropdownRef.current) {
-      dropdownRef.current.closeDropdown()
+      dropdownRef.current.close()
     }
   }
 
@@ -214,7 +214,7 @@ const DropdownDemoExamples = () => {
                 It will stay open if you click on it. The button below uses{' '}
                 <code>closeDropdown(&apos;hook-info&apos;)</code> to close it.
               </Text>
-              <Button onClick={() => closeDropdown('hook-info')}>Close It!</Button>
+              <Button onClick={() => close('hook-info')}>Close It!</Button>
             </CustomDropdownItem>
           }
         />

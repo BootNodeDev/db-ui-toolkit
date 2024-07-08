@@ -1,7 +1,6 @@
 import React, {
-  KeyboardEventHandler,
-  ReactElement,
-  ReactEventHandler,
+  type KeyboardEventHandler,
+  type ReactEventHandler,
   type FC,
   type HTMLAttributes,
   type MouseEventHandler,
@@ -13,9 +12,10 @@ import React, {
 
 import Wrapper from '../components/Dialog'
 
-interface DialogProps extends HTMLAttributes<HTMLDialogElement> {
+interface DialogProps extends Omit<HTMLAttributes<HTMLDialogElement>, 'id'> {
   closeOnEscape?: boolean
   closeOnOutsideClick?: boolean
+  id: string
 }
 
 interface DialogPropsExtended extends DialogProps {
@@ -89,15 +89,15 @@ const Dialog: FC<DialogPropsExtended> = ({
 
 interface Props {
   Dialog: FC<DialogProps>
-  close: () => void
-  open: (children: ReactElement) => void
+  close: (id: string) => void
+  open: (id: string) => void
 }
 
 /**
  * @name useDialog
  * @description A hook to create and use a dialog component.
  *
- * @returns {Props} {open: (children: ReactElement) => void, close: () => void, Dialog: FC<DialogProps>} - The `Dialog` component and the hook's methods.
+ * @returns {Props} {open: (id: string) => void, close: (id: string) => void, Dialog: FC<DialogProps>} - The `Dialog` component and the hook's methods.
  *
  * **Dialog props**
  *
@@ -112,29 +112,32 @@ interface Props {
  * - `--base-dialog-animation-time`
  */
 const useDialog = (): Props => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [children, setChildren] = useState<ReactElement | null>(null)
+  const [dialogStates, setDialogStates] = useState<{ [id: string]: boolean }>({})
 
-  const open = useCallback((children: ReactElement) => {
-    setChildren(children)
-    setIsOpen(true)
+  /**
+   * Opens a dialog with the given id.
+   */
+  const open = useCallback((id: string) => {
+    setDialogStates((prevState) => ({ ...prevState, [id]: true }))
   }, [])
 
-  const close = useCallback(() => {
-    setChildren(null)
-    setIsOpen(false)
+  /**
+   * Closes a dialog with the given id.
+   */
+  const close = useCallback((id: string) => {
+    setDialogStates((prevState) => ({ ...prevState, [id]: false }))
   }, [])
 
   /**
    * Avoids re-rendering the Dialog component every time a prop changes
    */
   const DialogComponent: FC<DialogProps> = useCallback(
-    ({ ...props }) => (
-      <Dialog isOpen={isOpen} close={close} {...props}>
+    ({ id, children, ...props }) => (
+      <Dialog id={id} isOpen={!!dialogStates[id]} close={() => close(id)} {...props}>
         {children}
       </Dialog>
     ),
-    [isOpen, close, children],
+    [dialogStates, close],
   )
 
   return { open, close, Dialog: DialogComponent }

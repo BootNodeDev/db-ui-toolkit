@@ -16,13 +16,11 @@ const Item = styled(BaseItem)`
   min-width: 160px;
 `
 
-const CustomDropdownItems = styled(Card)`
-  --custom-dropdown-color: #fff;
-  --custom-dropdown-background-color: #8b46a4;
-  --theme-color-text: var(--custom-dropdown-color);
+const CustomDropdownItem = styled(Card)`
+  --theme-card-background-color: #8b46a4;
+  --theme-card-border-color: #8b46a4;
+  --theme-color-text: #fff;
 
-  background-color: var(--custom-dropdown-background-color);
-  color: var(--custom-dropdown-color);
   width: 350px;
 `
 
@@ -181,14 +179,14 @@ const DropdownDemoExamples = () => {
             </Button>
           }
           items={
-            <CustomDropdownItems>
-              <Text>Title</Text>
+            <CustomDropdownItem>
+              <Text>Single item dropdown. The item&apos;s container is custom.</Text>
               <Text>
-                This dropdown uses a single item. Also the item&apos;s container is a custom one.
+                It should stay open when you click on it, you have to use the button below to close
+                it.
               </Text>
-              <Text>It should stay open when you click on it</Text>
               <Button onClick={handleCloseDropdown}>Close It!</Button>
-            </CustomDropdownItems>
+            </CustomDropdownItem>
           }
         />
       </Text>
@@ -208,7 +206,7 @@ const DropdownDemoExamples = () => {
             </Button>
           }
           items={
-            <CustomDropdownItems>
+            <CustomDropdownItem>
               <Text>
                 This dropdown&apos;s id is <code>&apos;hook-info&apos;</code>.
               </Text>
@@ -217,7 +215,7 @@ const DropdownDemoExamples = () => {
                 <code>closeDropdown(&apos;hook-info&apos;)</code> to close it.
               </Text>
               <Button onClick={() => closeDropdown('hook-info')}>Close It!</Button>
-            </CustomDropdownItems>
+            </CustomDropdownItem>
           }
         />
       </Text>

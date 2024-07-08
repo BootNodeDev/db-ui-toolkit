@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-const Dialog = styled.dialog`
+const Wrapper = styled.dialog`
   border: none;
   border-radius: var(--base-dialog-border-radius, var(--base-border-radius, 8px));
   max-width: calc(100vw - 20px);
@@ -43,4 +43,4 @@ const Dialog = styled.dialog`
   }
 `
 
-export default Dialog
+export default Wrapper

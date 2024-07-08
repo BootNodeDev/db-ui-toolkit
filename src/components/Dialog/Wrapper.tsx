@@ -10,8 +10,7 @@ const Wrapper = styled.dialog`
       allow-discrete,
     opacity var(--base-dialog-animation-time, var(--base-animation-time-xl, 0.4s)) ease-out,
     overlay var(--base-dialog-animation-time, var(--base-animation-time-xl, 0.4s)) ease-out
-      allow-discrete,
-    transform var(--base-dialog-animation-time, var(--base-animation-time-xl, 0.4s)) ease-out;
+      allow-discrete;
 
   &::backdrop {
     transition:

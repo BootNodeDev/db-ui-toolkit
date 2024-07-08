@@ -58,10 +58,12 @@ const Dialog: FC<DialogPropsExtended> = ({
    * Handle pressing the escape key
    */
   const handleKeyDown: KeyboardEventHandler<HTMLDialogElement> = (event) => {
-    event.preventDefault()
+    if (event.key === 'Escape') {
+      event.preventDefault()
 
-    if (event.key === 'Escape' && closeOnEscape) {
-      close()
+      if (closeOnEscape) {
+        close()
+      }
     }
   }
 

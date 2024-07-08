@@ -2,10 +2,11 @@
  * Exported components
  */
 export { default as Button, DisabledButtonCSS, ActiveButtonCSS, ButtonCSS, } from './components/Button';
-export { Dropdown, Item, Items, type ActionStates, type Direction, type DropdownExposedMethods, type Position, } from './components/Dropdown';
+export { Dropdown, Item, Items, type ActionStates, type Direction, type DropdownExposedProps, type Position, } from './components/Dropdown';
 export { TextfieldCSS } from './components/Textfield';
 export { default as Card } from './components/Card';
 export { default as CopyButton } from './components/CopyButton';
+export { default as Dialog } from './components/Dialog';
 export { default as ExternalLink } from './components/ExternalLink';
 export { default as Footer } from './components/Footer';
 export { default as GeneralError } from './components/GeneralError';
@@ -28,6 +29,7 @@ export { default as Wrapper } from './components/Wrapper';
  * Hooks
  */
 export { default as useDialog } from './hooks/useDialog';
+export { default as useDropdown } from './hooks/useDropdown';
 /**
  * Exported utils
  */

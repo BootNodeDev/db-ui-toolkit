@@ -1,12 +1,10 @@
 import { ReactElement, type FC, type HTMLAttributes } from 'react';
 interface DialogProps extends HTMLAttributes<HTMLDialogElement> {
-}
-interface Options extends DialogProps {
-    closeOnOutsideClick?: boolean;
     closeOnEscape?: boolean;
+    closeOnOutsideClick?: boolean;
 }
 interface Props {
-    Dialog: FC<Options>;
+    Dialog: FC<DialogProps>;
     close: () => void;
     open: (children: ReactElement) => void;
 }
@@ -14,11 +12,11 @@ interface Props {
  * @name useDialog
  * @description A hook to create and use a dialog component.
  *
- * @returns {Props} {open: (children: ReactElement) => void, close: () => void, Dialog: FC<Options>} - The `Dialog` component and the hook's methods.
+ * @returns {Props} {open: (children: ReactElement) => void, close: () => void, Dialog: FC<DialogProps>} - The `Dialog` component and the hook's methods.
  *
  * **Dialog props**
  *
- * @param {Options} options - The options for the dialog.
+ * @param {DialogProps} options - The options for the dialog.
  * @param {boolean} [options.closeOnOutsideClick=true] - Whether the dialog should close when clicking outside of it. Defaults to true.
  * @param {boolean} [options.closeOnEscape=true] - Whether the dialog should close when pressing the escape key. Defaults to true.
  *

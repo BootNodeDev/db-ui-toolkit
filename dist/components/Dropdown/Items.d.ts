@@ -17,12 +17,6 @@ export declare const BaseItems: import("styled-components/dist/types").IStyledCo
 }>, ItemsProps>, never>> & string;
 /**
  * Items component - Default container for dropdown items.
- *
- * Theme CSS Variables:
- *
- * * --theme-dropdown-background-color: Dropdown background color.
- * * --theme-dropdown-border-color: Dropdown border color.
- * * --theme-dropdown-box-shadow: Dropdown box shadow.
  */
 declare const Items: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
 export default Items;

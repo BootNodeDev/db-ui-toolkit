@@ -1,18 +1,19 @@
-import { ReactElement, type FC, type HTMLAttributes } from 'react';
-interface DialogProps extends HTMLAttributes<HTMLDialogElement> {
+import { type FC, type HTMLAttributes } from 'react';
+interface DialogProps extends Omit<HTMLAttributes<HTMLDialogElement>, 'id'> {
     closeOnEscape?: boolean;
     closeOnOutsideClick?: boolean;
+    id: string;
 }
 interface Props {
     Dialog: FC<DialogProps>;
-    close: () => void;
-    open: (children: ReactElement) => void;
+    close: (id: string) => void;
+    open: (id: string) => void;
 }
 /**
  * @name useDialog
  * @description A hook to create and use a dialog component.
  *
- * @returns {Props} {open: (children: ReactElement) => void, close: () => void, Dialog: FC<DialogProps>} - The `Dialog` component and the hook's methods.
+ * @returns {Props} {open: (id: string) => void, close: (id: string) => void, Dialog: FC<DialogProps>} - The `Dialog` component and the hook's methods.
  *
  * **Dialog props**
  *

@@ -5,8 +5,10 @@ import { Text, Title } from '../../index'
 const TextDemo = () => {
   return (
     <div>
-      <Title>Generic title and text</Title>
-      <Text>Lorem ipsum dolors sit ameat, adipiscing elit. Nullam</Text>
+      <Title>dAppBooster UI Toolkit</Title>
+      <Text>
+        A simple and concise UI toolkit with dAppBooster&apos;s most commonly used UI components.
+      </Text>
     </div>
   )
 }

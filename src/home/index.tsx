@@ -5,10 +5,11 @@ import { styled } from 'styled-components'
 import { GlobalStyles } from './GlobalStyles'
 
 import ButtonsDemo from './demo/ButtonsDemo'
+import CardDemo from './demo/CardDemo'
 import CopyButtonExternalLinkButtonDemo from './demo/CopyButtonExternalLinkButtonDemo'
+import DialogDemo from './demo/DialogDemo'
 import DropdownDemo from './demo/DropdownDemo'
 import GeneralErrorDemo from './demo/GeneralErrorDemo'
-import DialogDemo from './demo/DialogDemo'
 import SpinnerDemo from './demo/SpinnerDemo'
 import TextDemo from './demo/TextDemo'
 import TextfieldDemo from './demo/TextfieldDemo'
@@ -30,25 +31,25 @@ const Wrapper = styled(BaseWrapper)`
   /**
    * CSS variables for some of the components
   */
-  --button-primary-background-color: #8b46a4;
-  --button-primary-background-color-hover: #2e3048;
-  --button-primary-border-color: #8b46a4;
-  --button-primary-border-color-hover: #2e3048;
-  --button-primary-color: #fff;
-  --button-primary-color-hover: #fff;
-  --button-primary-background-color-disabled: #8b46a4;
-  --button-primary-border-color-disabled: #8b46a4;
-  --button-primary-color-disabled: #fff;
+  --theme-button-primary-background-color: #8b46a4;
+  --theme-button-primary-background-color-hover: #2e3048;
+  --theme-button-primary-border-color: #8b46a4;
+  --theme-button-primary-border-color-hover: #2e3048;
+  --theme-button-primary-color: #fff;
+  --theme-button-primary-color-hover: #fff;
+  --theme-button-primary-background-color-disabled: #8b46a4;
+  --theme-button-primary-border-color-disabled: #8b46a4;
+  --theme-button-primary-color-disabled: #fff;
 
-  --button-secondary-background-color: #2e3048;
-  --button-secondary-background-color-hover: #8b46a4;
-  --button-secondary-border-color: #2e3048;
-  --button-secondary-border-color-hover: #8b46a4;
-  --button-secondary-color: #fff;
-  --button-secondary-color-hover: #fff;
-  --button-secondary-background-color-disabled: #2e3048;
-  --button-secondary-border-color-disabled: #2e3048;
-  --button-secondary-color-disabled: #fff;
+  --theme-button-secondary-background-color: #2e3048;
+  --theme-button-secondary-background-color-hover: #8b46a4;
+  --theme-button-secondary-border-color: #2e3048;
+  --theme-button-secondary-border-color-hover: #8b46a4;
+  --theme-button-secondary-color: #fff;
+  --theme-button-secondary-color-hover: #fff;
+  --theme-button-secondary-background-color-disabled: #2e3048;
+  --theme-button-secondary-border-color-disabled: #2e3048;
+  --theme-button-secondary-color-disabled: #fff;
 
   row-gap: 32px;
 `
@@ -103,13 +104,14 @@ const App = () => {
           <InnerMain>
             <TextDemo />
             <ButtonsDemo />
-            <DropdownDemo />
-            <TextfieldDemo />
-            <SpinnerDemo />
-            <ToastDemo />
+            <CardDemo />
             <CopyButtonExternalLinkButtonDemo />
-            <GeneralErrorDemo />
             <DialogDemo />
+            <DropdownDemo />
+            <GeneralErrorDemo />
+            <SpinnerDemo />
+            <TextfieldDemo />
+            <ToastDemo />
           </InnerMain>
         </Main>
         <Footer>

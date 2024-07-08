@@ -63,6 +63,7 @@ const DialogDemo = () => {
           The <code>useDialog</code> hook is used to show messages, errors, confirmations, etc.
           It&apos;s very flexible and can be customized to show any content you want.
         </Text>
+        <hr />
         <Text>
           <code>useDialog</code> return values are
         </Text>

@@ -19,6 +19,7 @@ export {
 export { TextfieldCSS } from './components/Textfield'
 export { default as Card } from './components/Card'
 export { default as CopyButton } from './components/CopyButton'
+export { default as Dialog } from './components/Dialog'
 export { default as ExternalLink } from './components/ExternalLink'
 export { default as Footer } from './components/Footer'
 export { default as GeneralError } from './components/GeneralError'

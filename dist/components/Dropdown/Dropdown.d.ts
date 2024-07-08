@@ -1,7 +1,7 @@
-import { FC, HTMLAttributes, ReactElement, RefAttributes } from 'react';
+import { type FC, type HTMLAttributes, type ReactElement, type RefAttributes } from 'react';
 import { Direction, Position } from './index';
 export interface DropdownExposedProps {
-    closeDropdown: () => void;
+    close: () => void;
 }
 export interface Options extends HTMLAttributes<HTMLDivElement>, RefAttributes<DropdownExposedProps> {
     button: ReactElement<HTMLButtonElement>;
@@ -38,6 +38,7 @@ export interface Options extends HTMLAttributes<HTMLDivElement>, RefAttributes<D
  * Base CSS Variables:
  *
  * * --base-dropdown-border-radius
+ * * --base-dropdown-animation-time
  */
 declare const Dropdown: FC<Options>;
 export default Dropdown;

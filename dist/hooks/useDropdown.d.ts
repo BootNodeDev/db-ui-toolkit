@@ -5,13 +5,15 @@ interface DropdownOptions extends Options {
 }
 interface Props {
     Dropdown: FC<DropdownOptions>;
-    closeDropdown: (id: string) => void;
+    close: (id: string) => void;
 }
 /**
  * @name useDropdown
  * @description A hook that returns a Dropdown component and its exposed methods
  *
- * @returns {Props} { Dropdown: FC<DropdownOptions>, closeDropdown: (id: string) => void } - The `Dropdown` component and the hook's methods.
+ * @returns {Props} - The `Dropdown` component and the hook's methods.
+ * @returns {FC<DropdownOptions>} Dropdown - The `Dropdown` component.
+ * @returns {(id: string) => void} close - A function that closes the dropdown with the given id.
  */
 declare const useDropdown: () => Props;
 export default useDropdown;

@@ -15,18 +15,35 @@ interface ItemsProps {
  * @param {Direction} [$direction='downwards'] - The direction of the dropdown. Defaults to 'downwards'.
  */
 export const BaseItems = styled.div.attrs<ItemsProps>(
-  ({
-    $direction = 'downwards',
-    $isOpen = false,
-    $position = 'left',
-    className = 'dbuitkDropdownItems',
-  }) => ({ className, $direction, $isOpen, $position }),
+  ({ $direction = 'downwards', $isOpen = false, $position = 'left' }) => ({
+    $direction,
+    $isOpen,
+    $position,
+    className: `${$isOpen ? 'isOpen' : ''} dbuitkDropdownItems`,
+  }),
 )`
-  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+  display: none;
   flex-direction: column;
+  max-width: 100vw;
   min-width: 90px;
   position: absolute;
   white-space: nowrap;
+
+  &.isOpen {
+    display: flex;
+    opacity: 1;
+    transition:
+      display var(--base-dropdown-animation-time, var(--base-animation-time-sm, 0.2s)) ease-out
+        allow-discrete,
+      opacity var(--base-dropdown-animation-time, var(--base-animation-time-sm, 0.2s)) ease-out;
+  }
+
+  /* Transitions will start in these states */
+  @starting-style {
+    &.isOpen {
+      opacity: 0;
+    }
+  }
 
   ${({ $position }) => {
     return $position === 'left'

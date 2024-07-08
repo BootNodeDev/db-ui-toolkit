@@ -1,12 +1,12 @@
 import React, {
-  FC,
-  HTMLAttributes,
-  MouseEventHandler,
-  ReactElement,
-  RefAttributes,
   cloneElement,
   createRef,
   forwardRef,
+  type FC,
+  type HTMLAttributes,
+  type MouseEventHandler,
+  type ReactElement,
+  type RefAttributes,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -59,12 +59,12 @@ export interface Options
  * Base CSS Variables:
  *
  * * --base-dropdown-border-radius
+ * * --base-dropdown-animation-time
  */
 const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 'ref'>>(
   (
     {
       button,
-      className,
       closeOnClick = true,
       defaultActiveItem = -1,
       direction = 'downwards',
@@ -170,12 +170,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
     }))
 
     return (
-      <Wrapper
-        className={`${isOpen ? 'isOpen' : ''} ${className ? className : ''}`.trim()}
-        disabled={disabled}
-        ref={node}
-        {...restProps}
-      >
+      <Wrapper $isOpen={isOpen} disabled={disabled} ref={node} {...restProps}>
         <ButtonWrapper className={`${isOpen ? 'isActive' : ''}`.trim()} onClick={handleButtonClick}>
           {button}
         </ButtonWrapper>

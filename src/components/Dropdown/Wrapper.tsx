@@ -1,8 +1,12 @@
 import { styled } from 'styled-components'
 
 export const Wrapper = styled.div.attrs<{
+  $isOpen: boolean
   disabled?: boolean
-}>(({ className = 'dbuitkDropdown', disabled = false }) => ({ className, disabled }))`
+}>(({ disabled = false, $isOpen = false }) => ({
+  className: `${$isOpen ? 'isOpen' : ''} dbuitkDropdown`,
+  disabled,
+}))`
   outline: none;
   position: relative;
   z-index: 0;
@@ -32,5 +36,5 @@ export const ButtonWrapper = styled.div.attrs(({ className = 'dbuitkDropdownButt
   outline: none;
   padding: 0;
   user-select: none;
-  width: 100%;
+  width: fit-content;
 `

@@ -1,4 +1,5 @@
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/home/index.tsx',
@@ -31,4 +32,9 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'demo'),
   },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'public', to: '' }],
+    }),
+  ],
 }

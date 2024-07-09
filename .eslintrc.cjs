@@ -13,9 +13,11 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react', 'import', 'prettier'],
   ignorePatterns: [
     'dist',
+    'demo',
     'eslint.config.cjs',
     'webpack.config.js',
     'webpack.dev.config.js',
+    'webpack.demo.config.js',
     '**/*.css',
     '**/*.scss',
     '**/*.html',

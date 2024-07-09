@@ -6,6 +6,9 @@ logs
 node_modules
 *.local
 
+/dist/home
+/demo
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -67,6 +67,6 @@ pnpm build # This command generates a new distributable bundle in the /dist fold
 - Test your changes. Be thorough. Make sure that everything works by itself in the preview AND in `dAppBooster`.
 - Run `pnpm build`. 
 - Commit and push your changes, and merge into `main`
-- Once everything is stable tag a new version so you don't break everything for everyone.
+- Once everything is stable and ready for release [tag a new version](https://semver.org/) so you don't break everything for everyone.
 
 **Note:** This package is not yet published to npm, so you'll have to use it by doing `pnpm add BootNodeDev/db-ui-toolkit#tag` or `pnpm add BootNodeDev/db-ui-toolkit` on your console.

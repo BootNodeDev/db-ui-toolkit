@@ -1,5 +1,6 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
 import React, { AnchorHTMLAttributes, SVGProps } from 'react'
+import { cssCustomPropertyName } from '../utils'
 
 const Link: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
@@ -31,54 +32,133 @@ const Link: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.a<AnchorHTMLAttributes<HTMLAnchorElement>>`
-  align-items: center;
-  color: var(--theme-external-link-button-color, #000);
-  column-gap: var(--base-button-gap, 8px);
-  cursor: pointer;
-  display: flex;
-  font-family: var(--base-font-family, sans-serif);
-  font-size: var(--base-button-font-size, 1.5rem);
-  font-weight: 400;
-  height: fit-content;
-  justify-content: center;
-  outline: none;
-  padding: 0;
-  transition:
-    background-color var(--base-animation-time-xs, 0.2s),
-    border-color var(--base-animation-time-xs, 0.2s),
-    color var(--base-animation-time-xs, 0.2s);
-  white-space: nowrap;
-  width: fit-content;
+const Wrapper = styled.a<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    align-items: center;
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'external-link-button',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #000
+    );
+    column-gap: var(
+      ${cssCustomPropertyName({
+        componentName: 'external-link-button',
+        customPropertyPrefix: 'base',
+        componentVariant: $variant,
+        customPropertyName: 'column-gap',
+      })},
+      var(--base-gap, 8px)
+    );
+    cursor: pointer;
+    display: flex;
+    font-family: var(
+      ${cssCustomPropertyName({
+        componentName: 'external-link-button',
+        customPropertyPrefix: 'base',
+        componentVariant: $variant,
+        customPropertyName: 'font-family',
+      })},
+      var(--base-font-family, sans-serif)
+    );
+    font-size: 1.5rem;
+    font-weight: 400;
+    height: fit-content;
+    justify-content: center;
+    outline: none;
+    padding: 0;
+    transition:
+      background-color
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'external-link-button',
+            customPropertyPrefix: 'base',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        ),
+      border-color
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'external-link-button',
+            customPropertyPrefix: 'base',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        ),
+      color
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'external-link-button',
+            customPropertyPrefix: 'base',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        );
+    white-space: nowrap;
+    width: fit-content;
 
-  &:hover {
-    color: var(--theme-external-link-button-color-hover, #8b46a4);
-    text-decoration: none;
-  }
+    &:hover {
+      color: var(
+        ${cssCustomPropertyName({
+          componentName: 'external-link-button',
+          componentVariant: $variant,
+          customPropertyName: 'color-hover',
+        })},
+        #000
+      );
+      text-decoration: none;
+    }
 
-  &:active {
-    opacity: 0.8;
-  }
+    &:active {
+      opacity: 0.8;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  `}
 `
 
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  $variant?: string
+}
+
 /**
- * ExternalLink component, a button that opens a link in a new tab.
+ * @name ExternalLink
+ *
+ * @description A button that opens a link in a new tab.
  *
  * @param {React.HTMLAttributeAnchorTarget} target - The target attribute specifies where to open the linked document. Default is '_blank'.
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the ExternalLink icon.
+ * @param {string} [$variant] - The variant of the button.
  *
  * Theme CSS variables:
  *
- * * --theme-external-link-button-color: Color of the link.
- * * --theme-external-link-button-color-hover: Color of the link on hover.
+ * * --theme-external-link-button-color
+ * * --theme-external-link-button-color-hover
+ *
+ * Base CSS variables:
+ *
+ * * --base-external-link-column-gap
+ * * --base-font-family
+ * * --base-transition-duration-sm
  */
-const ExternalLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+const ExternalLink: React.FC<Props> = ({
+  $variant,
   children = <Link />,
   target = '_blank',
   ...restProps
 }) => {
   return (
-    <Wrapper target={target} {...restProps}>
+    <Wrapper $variant={$variant} target={target} {...restProps}>
       {children}
     </Wrapper>
   )

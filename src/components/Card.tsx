@@ -3,7 +3,11 @@ import { styled, css } from 'styled-components'
 import { cssCustomPropertyName } from '../utils'
 
 /**
- * Card component
+ * @name Card
+ *
+ * @description Customizable card
+ *
+ * @param {string} [$variant] - The variant of the card
  *
  * Theme CSS variables:
  *

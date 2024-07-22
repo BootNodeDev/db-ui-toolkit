@@ -230,7 +230,11 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
 `
 
 /**
- * Common button
+ * @name Button
+ *
+ * @description Customizable button
+ *
+ * @param {string} [$variant] - The variant of the button
  *
  * Theme CSS variables:
  *

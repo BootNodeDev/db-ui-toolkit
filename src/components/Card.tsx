@@ -1,5 +1,7 @@
 import { styled } from 'styled-components'
 
+import { cssCustomPropertyName } from '../utils'
+
 /**
  * Card component
  *
@@ -8,15 +10,51 @@ import { styled } from 'styled-components'
  * * --theme-card-background-color: Card background color.
  * * --theme-card-border-color: Card border color.
  * * --theme-card-box-shadow: Card box shadow.
+ *
+ * Base CSS variables:
+ *
+ * * --base-card-border-radius: Card border radius.
+ * * --base-card-padding: Card padding.
  */
-const Card = styled.div`
-  background-color: var(--theme-card-background-color, #fff);
-  border-radius: var(--base-border-radius, 8px);
-  border: 1px solid var(--theme-card-border-color, #fff);
-  box-shadow: var(--theme-card-box-shadow, 0 0 20px 0 rgb(0 0 0 / 8%));
+const Card = styled.div<{ variant?: string }>`
+  background-color: var(
+    ${({ variant }) =>
+      cssCustomPropertyName({ name: 'card', variant: variant, cssProperty: 'background-color' })},
+    #fff
+  );
+  border-radius: var(
+    ${({ variant }) =>
+      cssCustomPropertyName({
+        cssProperty: 'border-radius',
+        name: 'card',
+        prefix: 'base',
+        variant: variant,
+      })},
+    var(--base-border-radius, 8px)
+  );
+  border: 1px solid
+    var(
+      ${({ variant }) =>
+        cssCustomPropertyName({ name: 'card', variant: variant, cssProperty: 'border-color' })},
+      #fff
+    );
+  box-shadow: var(
+    ${({ variant }) =>
+      cssCustomPropertyName({ name: 'card', variant: variant, cssProperty: 'box-shadow' })},
+    0 0 20px 0 rgb(0 0 0 / 8%)
+  );
   display: flex;
   flex-direction: column;
-  padding: var(--base-common-padding-xl, 16px);
+  padding: var(
+    ${({ variant }) =>
+      cssCustomPropertyName({
+        cssProperty: 'padding',
+        name: 'card',
+        prefix: 'base',
+        variant: variant,
+      })},
+    var(--base-common-padding-xl, 16px)
+  );
   white-space: normal;
 `
 

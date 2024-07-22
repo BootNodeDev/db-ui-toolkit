@@ -50,3 +50,4 @@ export { default as useDropdown } from './hooks/useDropdown'
  */
 export { breakpointMediaQuery, breakpoints, Breakpoint } from './utils/breakpoints'
 export { default as ContainerPadding } from './utils/ContainerPadding'
+export { cssCustomPropertyName } from './utils'

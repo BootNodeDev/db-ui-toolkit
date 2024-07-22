@@ -3,9 +3,10 @@
  */
 export {
   default as Button,
-  DisabledButtonCSS,
   ActiveButtonCSS,
   ButtonCSS,
+  ButtonVariantCSS,
+  DisabledButtonCSS,
 } from './components/Button'
 export {
   Dropdown,
@@ -34,7 +35,6 @@ export { default as Spinner } from './components/Spinner'
 export { default as SwitchThemeButton } from './components/SwitchThemeButton'
 export { default as Text } from './components/Text'
 export { default as Textfield } from './components/Textfield'
-export { default as ThemedButton, ButtonVariantCSS } from './components/ThemedButton'
 export { default as Title } from './components/Title'
 export { default as Toast } from './components/Toast'
 export { default as Wrapper } from './components/Wrapper'

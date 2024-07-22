@@ -3,11 +3,11 @@ import React from 'react'
 import { styled } from 'styled-components'
 
 import { ComponentGrid } from '../helpers'
-import { Button, ThemedButton, Title } from '../../index'
+import { Button, Title } from '../../index'
 
-export const PrimaryButton = styled(ThemedButton).attrs({ $cssVarRoot: '--theme-button-primary' })``
-export const SecondaryButton = styled(ThemedButton).attrs({
-  $cssVarRoot: '--theme-button-secondary',
+export const PrimaryButton = styled(Button).attrs({ $variant: 'primary' })``
+export const SecondaryButton = styled(Button).attrs({
+  $variant: 'secondary',
 })``
 
 const ButtonsDemo = () => {

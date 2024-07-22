@@ -130,6 +130,7 @@ const Wrapper = styled.button.attrs<{ $variant?: string }>(({ type = 'button' })
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   value: string
+  $variant?: string
 }
 
 /**
@@ -150,14 +151,20 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  * * --base-copy-button-font-family
  * * --base-copy-button-transition-duration
  */
-const CopyButton: React.FC<Props> = ({ children = <Copy />, onClick, value, ...restProps }) => {
+const CopyButton: React.FC<Props> = ({
+  $variant,
+  children = <Copy />,
+  onClick,
+  value,
+  ...restProps
+}) => {
   const onCopy: MouseEventHandler<HTMLButtonElement> = (e) => {
     navigator.clipboard.writeText(value)
     onClick && onClick(e)
   }
 
   return (
-    <Wrapper onClick={onCopy} {...restProps}>
+    <Wrapper $variant={$variant} onClick={onCopy} {...restProps}>
       {children}
     </Wrapper>
   )

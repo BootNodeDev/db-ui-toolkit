@@ -1,15 +1,15 @@
 export interface VarName {
-  prefix?: 'theme' | 'base'
-  name: string
-  variant?: string
-  cssProperty: string
+  customPropertyPrefix?: 'theme' | 'base'
+  componentName: string
+  componentVariant?: string
+  customPropertyName: string
 }
 
 export const cssCustomPropertyName = ({
-  prefix = 'theme',
-  name,
-  variant,
-  cssProperty,
+  customPropertyPrefix = 'theme',
+  componentName,
+  componentVariant,
+  customPropertyName,
 }: VarName) => {
-  return `--${prefix}-${name}-${variant === undefined ? '' : variant + '-'}${cssProperty}`
+  return `--${customPropertyPrefix}-${componentName}-${componentVariant === undefined ? '' : componentVariant + '-'}${customPropertyName}`
 }

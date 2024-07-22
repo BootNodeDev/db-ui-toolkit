@@ -16,13 +16,13 @@ const ButtonsDemo = () => {
       <Title>Buttons</Title>
       <ComponentGrid>
         <Button>Base button</Button>
-        <PrimaryButton>Themed button</PrimaryButton>
-        <SecondaryButton>Themed button</SecondaryButton>
+        <PrimaryButton>Primary button</PrimaryButton>
+        <SecondaryButton>Secondary button</SecondaryButton>
       </ComponentGrid>
       <ComponentGrid>
         <Button disabled>Base button</Button>
-        <PrimaryButton disabled>Themed button</PrimaryButton>
-        <SecondaryButton disabled>Themed button</SecondaryButton>
+        <PrimaryButton disabled>Primary button</PrimaryButton>
+        <SecondaryButton disabled>Secondary button</SecondaryButton>
       </ComponentGrid>
     </div>
   )

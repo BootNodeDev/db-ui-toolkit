@@ -38,11 +38,7 @@ const Card = styled.div<{ variant?: string }>`
         cssCustomPropertyName({ name: 'card', variant: variant, cssProperty: 'border-color' })},
       #fff
     );
-  box-shadow: var(
-    ${({ variant }) =>
-      cssCustomPropertyName({ name: 'card', variant: variant, cssProperty: 'box-shadow' })},
-    0 0 20px 0 rgb(0 0 0 / 8%)
-  );
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 8%);
   display: flex;
   flex-direction: column;
   padding: var(

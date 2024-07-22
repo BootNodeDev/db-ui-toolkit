@@ -49,7 +49,7 @@ const Wrapper = styled.button.attrs<{ $variant?: string }>(({ type = 'button' })
         componentVariant: $variant,
         customPropertyName: 'column-gap',
       })},
-      var(--base-button-gap, 8px)
+      var(--base-gap, 8px)
     );
     cursor: pointer;
     display: flex;

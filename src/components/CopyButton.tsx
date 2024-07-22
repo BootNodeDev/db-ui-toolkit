@@ -134,7 +134,9 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * CopyButton component, a button that copies a value to the clipboard
+ * @name CopyButton
+ *
+ * @description A button that copies a value to the clipboard
  *
  * @param {string} value - The value to copy to the clipboard
  * @param {MouseEventHandler<HTMLButtonElement>} [onClick=undefined] - The function to call when the button is clicked. Default is undefined.

@@ -1,6 +1,5 @@
 import { styled, css } from 'styled-components'
 import React, { ButtonHTMLAttributes, MouseEventHandler, SVGProps } from 'react'
-
 import { cssCustomPropertyName } from '../utils'
 
 const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (

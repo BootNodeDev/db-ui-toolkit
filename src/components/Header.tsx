@@ -1,18 +1,37 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
+import { cssCustomPropertyName } from '../utils'
 
 /**
- * Barebones header component
+ * @name Header
+ *
+ * @description Barebones header component
  *
  * Theme CSS variables:
  *
  * * --theme-header-background-color: Header background color.
  * * --theme-header-text-color: Header text color.
  */
-const Header = styled.header`
-  background-color: var(--theme-header-background-color, transparent);
-  color: var(--theme-header-text-color, #000);
-  flex-grow: 0;
-  flex-shrink: 0;
+const Header = styled.header<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    background-color: var(
+      ${cssCustomPropertyName({
+        componentName: 'header',
+        componentVariant: $variant,
+        customPropertyName: 'background-color',
+      })},
+      transparent
+    );
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'header',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #000
+    );
+    flex-grow: 0;
+    flex-shrink: 0;
+  `}
 `
 
 export default Header

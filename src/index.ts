@@ -12,7 +12,6 @@ export {
   Dropdown,
   Item,
   Items,
-  type ActionStates,
   type Direction,
   type DropdownExposedProps,
   type Position,

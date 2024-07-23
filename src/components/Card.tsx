@@ -9,16 +9,16 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @param {string} [$variant] - The variant of the card
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-card-background-color
- * * --theme-card-border-color
- * * --theme-card-box-shadow
+ * - `--theme-card-background-color`
+ * - `--theme-card-border-color`
+ * - `--theme-card-box-shadow`
  *
- * Base CSS variables:
+ * **Base CSS variables:**
  *
- * * --base-card-border-radius
- * * --base-card-padding
+ * - `--base-card-border-radius`
+ * - `--base-card-padding`
  */
 const Card = styled.div<{ $variant?: string }>`
   ${({ $variant }) => css`

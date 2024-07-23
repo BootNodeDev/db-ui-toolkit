@@ -17,7 +17,7 @@ const Wrapper = styled.svg`
 /**
  * @name LogoMini
  *
- * @description Default mini logo component
+ * @description dAppBooster mini logo component
  */
 const LogoMini: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <Wrapper

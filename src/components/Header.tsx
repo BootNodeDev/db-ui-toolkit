@@ -6,10 +6,10 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @description Barebones header component
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-header-background-color: Header background color.
- * * --theme-header-text-color: Header text color.
+ * - `--theme-header-background-color: Header background color`
+ * - `--theme-header-text-color: Header text color`
  */
 const Header = styled.header<{ $variant?: string }>`
   ${({ $variant }) => css`

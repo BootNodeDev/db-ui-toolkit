@@ -1,15 +1,17 @@
 import { styled } from 'styled-components'
 
 /**
- * Text component
+ * @name Text
  *
- * Theme CSS variables:
+ * @description Text component
  *
- * * --theme-color-text: Text color.
+ * **Theme CSS variables:**
  *
- * Base CSS variables:
+ * - `--theme-color-text`
  *
- * * --base-text-font-size: Text font size.
+ * **Base CSS variables:**
+ *
+ * - `--base-text-font-size`
  */
 const Text = styled.p`
   color: var(--theme-color-text, #000);

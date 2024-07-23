@@ -1,5 +1,10 @@
 import { styled } from 'styled-components'
 
+/**
+ * @name Wrapper
+ *
+ * @description Dialog main wrapper component
+ */
 const Wrapper = styled.dialog`
   border: none;
   border-radius: var(--base-dialog-border-radius, var(--base-border-radius, 8px));

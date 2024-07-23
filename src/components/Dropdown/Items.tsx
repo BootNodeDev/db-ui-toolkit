@@ -8,7 +8,9 @@ interface ItemsProps {
 }
 
 /**
- * BaseItems component - A generic container for dropdown items. No theming.
+ * @name BaseItems
+ *
+ * @description A generic "abstract" container for dropdown items.
  *
  * @param {boolean} [$isOpen=false] - Whether the dropdown is open. Defaults to false.
  * @param {Position} [$position='left'] - The position of the dropdown. Defaults to 'left'.
@@ -74,7 +76,9 @@ export const BaseItems = styled.div.attrs<ItemsProps>(
 `
 
 /**
- * Items component - Default container for dropdown items.
+ * @name Items
+ *
+ * @description Items component - Default container for dropdown items.
  */
 const Items = styled.div`
   background-color: var(--theme-dropdown-background-color, #fff);

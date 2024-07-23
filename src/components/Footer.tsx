@@ -6,10 +6,10 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @description Barebones footer component
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-footer-background-color: Footer background color.
- * * --theme-footer-text-color: Footer text color.
+ * - `--theme-footer-background-color: Footer background color`
+ * - `--theme-footer-text-color: Footer text color`
  */
 const Footer = styled.footer<{ $variant?: string }>`
   ${({ $variant }) => css`

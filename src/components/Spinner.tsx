@@ -20,17 +20,19 @@ interface Props extends SVGProps<SVGSVGElement> {
 }
 
 /**
- * Spinner Component - A simple animated spinner.
+ * @name Spinner
+ *
+ * @description Spinner Component - A simple animated spinner.
  *
  * @param {string} [$strokeWidth] - Optional stroke width for the spinner. Default is 8.
  *
- * Theme CSS vars:
+ * **Theme CSS variables:**
  *
- * * --theme-spinner-color
+ * - `--theme-spinner-color`
  *
- * Base CSS vars:
+ * **Base CSS variables:**
  *
- * * --base-spinner-animation-time
+ * - `--base-spinner-animation-time`
  */
 const Spinner: React.FC<Props> = ({ $strokeWidth = 8, ...restProps }) => (
   <Wrapper viewBox="0 0 50 50" width="50" height="50" {...restProps}>

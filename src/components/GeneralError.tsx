@@ -230,24 +230,24 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * @param {string} [title] - Optional title to display. Default is 'Error'.
  * @param {string} [$variant] - Optional variant to apply to the component.
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-general-error-background-color
- * * --theme-general-error-border-color
- * * --theme-general-error-box-shadow
- * * --theme-general-error-color-icon
- * * --theme-general-error-color-title
- * * --theme-general-error-color-text
- * * --theme-general-error-color-message-background
+ * - `--theme-general-error-background-color`
+ * - `--theme-general-error-border-color`
+ * - `--theme-general-error-box-shadow`
+ * - `--theme-general-error-color-icon`
+ * - `--theme-general-error-color-title`
+ * - `--theme-general-error-color-text`
+ * - `--theme-general-error-color-message-background`
  *
- * Base CSS variables:
+ * **Base CSS variables:**
  *
- * * --base-general-error-border-radius
- * * --base-general-error-padding
- * * --base-general-error-row-gap
- * * --base-general-error-message-border-radius
- * * --base-general-error-message-padding
- * * --base-general-error-message-row-gap
+ * - `--base-general-error-border-radius`
+ * - `--base-general-error-padding`
+ * - `--base-general-error-row-gap`
+ * - `--base-general-error-message-border-radius`
+ * - `--base-general-error-message-padding`
+ * - `--base-general-error-message-row-gap`
  */
 const GeneralError: React.FC<Props> = ({
   actionButton,

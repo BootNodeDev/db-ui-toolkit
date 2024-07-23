@@ -1,15 +1,17 @@
 import { styled } from 'styled-components'
 
 /**
- * Title component
+ * @name Title
  *
- * Theme CSS variables:
+ * @description Title component
  *
- * * --theme-color-title: Title text color.
+ * **Theme CSS variables:**
  *
- * Base CSS variables:
+ * - `--theme-color-title`
  *
- * * --base-title-font-size: Title font size.
+ * **Base CSS variables:**
+ *
+ * - `--base-title-font-size`
  */
 const Title = styled.h1`
   color: var(--theme-color-title, --theme-color-text-primary, #000);

@@ -142,16 +142,16 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the Copy icon.
  * @param {string} [$variant] - The variant of the button
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-copy-button-color
- * * --theme-copy-button-color-hover
+ * - `--theme-copy-button-color`
+ * - `--theme-copy-button-color-hover`
  *
- * Base CSS variables:
+ * **Base CSS variables:**
  *
- * * --base-copy-button-column-gap
- * * --base-copy-button-font-family
- * * --base-copy-button-transition-duration
+ * - `--base-copy-button-column-gap`
+ * - `--base-copy-button-font-family`
+ * - `--base-copy-button-transition-duration`
  */
 const CopyButton: React.FC<Props> = ({
   $variant,

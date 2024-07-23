@@ -236,25 +236,25 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
  *
  * @param {string} [$variant] - The variant of the button
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-button-background-color
- * * --theme-button-background-color-hover
- * * --theme-button-border-color
- * * --theme-button-border-color-hover
- * * --theme-button-color
- * * --theme-button-color-hover
- * * --theme-button-background-color-disabled
- * * --theme-button-border-color-disabled
- * * --theme-button-color-disabled
+ * - `--theme-button-background-color`
+ * - `--theme-button-background-color-hover`
+ * - `--theme-button-border-color`
+ * - `--theme-button-border-color-hover`
+ * - `--theme-button-color`
+ * - `--theme-button-color-hover`
+ * - `--theme-button-background-color-disabled`
+ * - `--theme-button-border-color-disabled`
+ * - `--theme-button-color-disabled`
  *
- * Base CSS variables:
+ * **Base CSS variables:**
  *
- * * --base-button-border-radius
- * * --base-button-font-family
- * * --base-button-column-gap
- * * --base-button-padding
- * * --base-button-transition-duration
+ * - `--base-button-border-radius`
+ * - `--base-button-font-family`
+ * - `--base-button-column-gap`
+ * - `--base-button-padding`
+ * - `--base-button-transition-duration`
  */
 const Button = styled.button.attrs<{ $variant?: string }>(({ type = 'button' }) => ({
   type,

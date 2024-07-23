@@ -186,34 +186,36 @@ export const TextfieldCSS = css<Props>`
   }
 `
 /**
- * Textfield component
+ * @name Textfield
+ *
+ * @description Input component
  *
  * @param {TextfieldStatus} [$status=undefined] - The status of the textfield. Defaults to undefined.
  *
- * Theme CSS vars:
+ * **Theme CSS variables:**
  *
- * * --theme-textfield-color
- * * --theme-textfield-color-active
- * * --theme-textfield-color-error
- * * --theme-textfield-color-ok
- * * --theme-textfield-background-color
- * * --theme-textfield-background-color-active
- * * --theme-textfield-border-color
- * * --theme-textfield-border-color-active
- * * --theme-textfield-border-color-error
- * * --theme-textfield-border-color-ok
- * * --theme-textfield-placeholder-color
- * * --theme-textfield-box-shadow
- * * --theme-textfield-box-shadow-active
+ * - `--theme-textfield-color`
+ * - `--theme-textfield-color-active`
+ * - `--theme-textfield-color-error`
+ * - `--theme-textfield-color-ok`
+ * - `--theme-textfield-background-color`
+ * - `--theme-textfield-background-color-active`
+ * - `--theme-textfield-border-color`
+ * - `--theme-textfield-border-color-active`
+ * - `--theme-textfield-border-color-error`
+ * - `--theme-textfield-border-color-ok`
+ * - `--theme-textfield-placeholder-color`
+ * - `--theme-textfield-box-shadow`
+ * - `--theme-textfield-box-shadow-active`
  *
- * Base CSS vars:
+ * **Base CSS variables:**
  *
- * * --base-textfield-height
- * * --base-textfield-border-radius
- * * --base-textfield-font-size
- * * --base-textfield-vertical-padding
- * * --base-textfield-horizontal-padding
- * * --base-textfield-transition-time
+ * - `--base-textfield-height`
+ * - `--base-textfield-border-radius`
+ * - `--base-textfield-font-size`
+ * - `--base-textfield-vertical-padding`
+ * - `--base-textfield-horizontal-padding`
+ * - `--base-textfield-transition-time`
  */
 const Textfield = styled.input<Props>`
   ${TextfieldCSS}

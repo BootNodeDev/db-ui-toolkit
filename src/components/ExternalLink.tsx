@@ -140,16 +140,16 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the ExternalLink icon.
  * @param {string} [$variant] - The variant of the button.
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-external-link-button-color
- * * --theme-external-link-button-color-hover
+ * - `--theme-external-link-button-color`
+ * - `--theme-external-link-button-color-hover`
  *
- * Base CSS variables:
+ * **Base CSS variables:**
  *
- * * --base-external-link-column-gap
- * * --base-font-family
- * * --base-transition-duration-sm
+ * - `--base-external-link-column-gap`
+ * - `--base-font-family`
+ * - `--base-transition-duration-sm`
  */
 const ExternalLink: React.FC<Props> = ({
   $variant,

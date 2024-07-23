@@ -32,7 +32,7 @@ interface Props extends DialogProps {
  * @param {boolean} isOpen - Whether the dialog is open.
  * @param {() => void} onClose - A callback function triggered when the dialog is closed.
  *
- * **Base CSS Variables for `Dialog` Component**
+ * **Base CSS Variables**
  *
  * - `--base-dialog-border-radius` (set it the same as the children's in open(children) or the radius of the children will be ignored)
  * - `--base-dialog-overlay-animation-time`

@@ -72,11 +72,13 @@ interface Props {
  *
  * - `--theme-modal-background-color`
  * - `--theme-modal-border-color`
+ * - `--theme-modal-color`
  * - `--theme-modal-box-shadow`
  *
  * **Base CSS variables:**
  *
  * - `--base-modal-padding`
+ * - `--base-modal-border-radius`
  */
 const Modal = styled.div.attrs<Props>(({ children, onClose }) => ({
   children: (

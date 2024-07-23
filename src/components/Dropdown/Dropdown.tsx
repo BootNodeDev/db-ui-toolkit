@@ -25,6 +25,7 @@ export interface DropdownExposedProps {
 export interface Options
   extends HTMLAttributes<HTMLDivElement>,
     RefAttributes<DropdownExposedProps> {
+  $variant?: string
   button: ReactElement<HTMLButtonElement>
   closeOnClick?: boolean
   defaultActiveItem?: number
@@ -50,6 +51,7 @@ export interface Options
  * @param {boolean} [disabled=false] - Whether the dropdown is disabled. Default is false.
  * @param {number} [defaultActiveItem=-1] - The index of the item that is active by default. Default is -1.
  * @param {Function} [onItemSelect] - A function that is called when an item is selected.
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *
@@ -60,11 +62,12 @@ export interface Options
  * **Base CSS variables:**
  *
  * - `--base-dropdown-border-radius`
- * - `--base-dropdown-animation-time`
+ * - `--base-dropdown-transition-duration`
  */
 const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 'ref'>>(
   (
     {
+      $variant,
       button,
       closeOnClick = true,
       defaultActiveItem = -1,
@@ -180,6 +183,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
           $direction={direction}
           $position={position}
           $isOpen={isOpen}
+          $variant={$variant}
         >
           {Array.isArray(items)
             ? items.map((item: ReactElement, index) => transformElementProps(item, index))

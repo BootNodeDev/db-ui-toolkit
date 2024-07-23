@@ -24,6 +24,13 @@ export interface Props {
  * - `--theme-dropdown-item-background-color-active`
  * - `--theme-dropdown-item-border-color-active`
  * - `--theme-dropdown-item-color-active`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-dropdown-item-transition-duration`
+ * - `--base-dropdown-item-padding`
+ * - `--base-dropdown-item-column-gap`
+ *
  */
 const Item = styled.div.attrs<Props>(
   ({ tabIndex = 0, className = 'dbuitkDropdownItem', disabled = false }) => ({

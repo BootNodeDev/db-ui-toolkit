@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
 
 import BaseGeneralError, { Props as GeneralErrorProps } from './GeneralError'
+import { cssCustomPropertyName } from '../utils'
 
 const CloseIcon = ({ ...restProps }) => (
   <svg
@@ -19,28 +20,47 @@ const CloseIcon = ({ ...restProps }) => (
   </svg>
 )
 
-const Dialog = styled.dialog`
-  border: none;
-  border-radius: var(--base-border-radius, 8px);
-  padding: 0;
+const Dialog = styled.dialog<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    border: none;
+    border-radius: var(
+      ${cssCustomPropertyName({
+        componentName: 'dialog',
+        componentVariant: $variant,
+        customPropertyName: 'border-radius',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-border-radius, 8px)
+    );
+    padding: 0;
+  `}
 `
 
 const GeneralError = styled(BaseGeneralError)`
   position: relative;
 `
 
-const CloseButton = styled.button.attrs({
+const CloseButton = styled.button.attrs<{ $variant?: string }>({
   'aria-label': 'Close',
   children: <CloseIcon />,
   type: 'button',
 })`
-  background: none;
-  border: none;
-  color: var(--theme-generic-error-color-title, #2e3048);
-  cursor: pointer;
-  position: absolute;
-  right: calc(var(--base-common-padding, 8px) * 2);
-  top: calc(var(--base-common-padding, 8px) * 2);
+  ${({ $variant }) => css`
+    background: none;
+    border: none;
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #2e3048
+    );
+    cursor: pointer;
+    position: absolute;
+    right: var(--base-common-padding-xl, 16px);
+    top: var(--base-common-padding-xl, 16px);
+  `}
 `
 
 interface Props extends GeneralErrorProps {
@@ -57,8 +77,9 @@ interface Props extends GeneralErrorProps {
  * @param {boolean}     [$closeOnOutsideClick] - If true, the dialog will close when clicking outside of it. Default is true.
  */
 const GeneralErrorDialog: React.FC<Props> = ({
-  $onClose,
   $closeOnOutsideClick = true,
+  $onClose,
+  $variant,
   ...restProps
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null)
@@ -95,9 +116,9 @@ const GeneralErrorDialog: React.FC<Props> = ({
   }, [])
 
   return (
-    <Dialog onClick={handleClickOutside} ref={dialogRef}>
-      <GeneralError {...restProps} />
-      <CloseButton onClick={handleClose} />
+    <Dialog $variant={$variant} onClick={handleClickOutside} ref={dialogRef}>
+      <GeneralError $variant={$variant} {...restProps} />
+      <CloseButton $variant={$variant} onClick={handleClose} />
     </Dialog>
   )
 }

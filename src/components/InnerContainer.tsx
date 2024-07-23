@@ -1,7 +1,9 @@
 import { styled } from 'styled-components'
 
 /**
- * Container for inner content
+ * @name InnerContainer
+ *
+ * @description Container for inner content
  */
 const InnerContainer = styled.div`
   display: flex;

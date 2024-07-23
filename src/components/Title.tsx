@@ -31,7 +31,7 @@ const Title = styled.h1<{ $variant?: string }>`
         customPropertyName: 'font-size',
         customPropertyPrefix: 'base',
       })},
-      24px
+      2.4rem
     );
     font-weight: 700;
     line-height: 1.2;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { styled, css } from 'styled-components'
+import { cssCustomPropertyName } from '../utils'
 
 const CloseIcon = ({ ...restProps }) => (
   <svg
@@ -17,17 +18,32 @@ const CloseIcon = ({ ...restProps }) => (
   </svg>
 )
 
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  right: calc(var(--base-common-padding, 8px) * 2);
-  top: calc(var(--base-common-padding, 8px) * 2);
+const CloseButton = styled.button.attrs<{ $variant?: string }>(({ className }) => ({
+  'aria-label': 'Close',
+  children: <CloseIcon />,
+  className: `closeButton ${className}`,
+  type: 'button',
+}))`
+  ${({ $variant }) => css`
+    background: none;
+    border: none;
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'modal',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #2e3048
+    );
+    cursor: pointer;
+    position: absolute;
+    right: var(--base-common-padding-xl, 16px);
+    top: var(--base-common-padding-xl, 16px);
 
-  &:active {
-    opacity: 0.8;
-  }
+    &:active {
+      opacity: 0.8;
+    }
+  `}
 `
 
 type Width = 'sm' | 'md' | 'lg'
@@ -39,6 +55,7 @@ const widths: Record<'sm' | 'md' | 'lg', string> = {
 }
 
 interface Props {
+  $variant?: string
   onClose?: () => void
   width?: Width | string
 }
@@ -49,6 +66,7 @@ interface Props {
  *
  * @param {Width} [width='md'] - Optional modal width. Can be 'sm', 'md', 'lg' or a custom string value, i.e.: '100%', '800px', etc.
  * @param {Function} [onClose] - Optional function to close the modal. If provided, a default close button will be shown.
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *
@@ -64,23 +82,67 @@ const Modal = styled.div.attrs<Props>(({ children, onClose }) => ({
   children: (
     <>
       {children}
-      {onClose ? (
-        <CloseButton aria-label="Close" onClick={() => onClose()}>
-          <CloseIcon />
-        </CloseButton>
-      ) : null}
+      {onClose ? <CloseButton onClick={() => onClose()} /> : null}
     </>
   ),
 }))`
-  background-color: var(--theme-modal-background-color, #fff);
-  border-radius: var(--base-border-radius, 8px);
-  border: 1px solid var(--theme-modal-border-color, #fff);
-  box-shadow: var(--theme-modal-box-shadow, 0 0 20px 0 rgb(0 0 0 / 8%));
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  padding: var(--base-modal-padding, var(--base-common-padding-xl, 16px));
-  white-space: normal;
+  ${({ $variant }) => css`
+    background-color: var(
+      ${cssCustomPropertyName({
+        componentName: 'modal',
+        componentVariant: $variant,
+        customPropertyName: 'background-color',
+      })},
+      #fff
+    );
+    border-radius: var(
+      ${cssCustomPropertyName({
+        componentName: 'modal',
+        componentVariant: $variant,
+        customPropertyName: 'border-radius',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-border-radius, 8px)
+    );
+    border: 1px solid
+      var(
+        ${cssCustomPropertyName({
+          componentName: 'modal',
+          componentVariant: $variant,
+          customPropertyName: 'border-color',
+        })},
+        #fff
+      );
+    box-shadow: var(
+      ${cssCustomPropertyName({
+        componentName: 'modal',
+        componentVariant: $variant,
+        customPropertyName: 'box-shadow',
+      })},
+      0 0 20px 0 rgb(0 0 0 / 8%)
+    );
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'modal',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #2e3048
+    );
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    padding: var(
+      ${cssCustomPropertyName({
+        componentName: 'modal',
+        componentVariant: $variant,
+        customPropertyName: 'padding',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-common-padding-xl, 16px)
+    );
+    white-space: normal;
+  `}
 
   ${({ width = 'md' }) => {
     return css`

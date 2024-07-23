@@ -18,32 +18,22 @@ const CloseIcon = ({ ...restProps }) => (
   </svg>
 )
 
-const CloseButton = styled.button.attrs<{ $variant?: string }>(({ className }) => ({
+const CloseButton = styled.button.attrs(({ className }) => ({
   'aria-label': 'Close',
   children: <CloseIcon />,
   className: `closeButton ${className}`,
   type: 'button',
 }))`
-  ${({ $variant }) => css`
-    background: none;
-    border: none;
-    color: var(
-      ${cssCustomPropertyName({
-        componentName: 'modal',
-        componentVariant: $variant,
-        customPropertyName: 'color',
-      })},
-      #2e3048
-    );
-    cursor: pointer;
-    position: absolute;
-    right: var(--base-common-padding-xl, 16px);
-    top: var(--base-common-padding-xl, 16px);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: var(--base-common-padding-xl, 16px);
+  top: var(--base-common-padding-xl, 16px);
 
-    &:active {
-      opacity: 0.8;
-    }
-  `}
+  &:active {
+    opacity: 0.8;
+  }
 `
 
 type Width = 'sm' | 'md' | 'lg'

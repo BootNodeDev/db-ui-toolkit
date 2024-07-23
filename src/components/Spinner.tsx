@@ -1,5 +1,6 @@
 import React, { SVGProps } from 'react'
-import { styled, keyframes } from 'styled-components'
+import { styled, keyframes, css } from 'styled-components'
+import { cssCustomPropertyName } from '../utils'
 
 const spin = keyframes`
   0% {
@@ -10,13 +11,33 @@ const spin = keyframes`
   }
 `
 
-const Wrapper = styled.svg`
-  animation: ${spin} var(--base-spinner-animation-time, 1s) linear infinite;
-  color: var(--theme-spinner-color, #8b46a4);
+const Wrapper = styled.svg<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    animation: ${spin}
+      var(
+        ${cssCustomPropertyName({
+          componentName: 'spinner',
+          componentVariant: $variant,
+          customPropertyName: 'animation-time',
+          customPropertyPrefix: 'base',
+        })},
+        1s
+      )
+      linear infinite;
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'spinner',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #8b46a4
+    );
+  `}
 `
 
 interface Props extends SVGProps<SVGSVGElement> {
   $strokeWidth?: string
+  $variant?: string
 }
 
 /**
@@ -34,8 +55,8 @@ interface Props extends SVGProps<SVGSVGElement> {
  *
  * - `--base-spinner-animation-time`
  */
-const Spinner: React.FC<Props> = ({ $strokeWidth = 8, ...restProps }) => (
-  <Wrapper viewBox="0 0 50 50" width="50" height="50" {...restProps}>
+const Spinner: React.FC<Props> = ({ $variant, $strokeWidth = 8, ...restProps }) => (
+  <Wrapper $variant={$variant} viewBox="0 0 50 50" width="50" height="50" {...restProps}>
     <defs>
       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" style={{ stopColor: 'currentColor', stopOpacity: 1 }} />

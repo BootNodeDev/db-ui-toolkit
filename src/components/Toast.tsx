@@ -1,4 +1,5 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
+import { cssCustomPropertyName } from '../utils'
 
 /**
  * @name Toast
@@ -10,18 +11,49 @@ import { styled } from 'styled-components'
  * - `--theme-toast-background-color: Toast background color`
  * - `--theme-toast-color: Toast text color`
  */
-const Toast = styled.div`
-  align-items: center;
-  background-color: var(--theme-toast-background-color, #2e3048);
-  border-radius: var(--base-border-radius-sm, 4px);
-  color: var(--theme-toast-color, #fff);
-  display: flex;
-  font-size: 1.3rem;
-  font-weight: 500;
-  line-height: 1.3;
-  max-width: 250px;
-  padding: calc(var(--base-common-padding, 8px) + var(--base-common-padding-sm, 4px));
-  word-break: break-word;
+const Toast = styled.div<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    align-items: center;
+    background-color: var(
+      ${cssCustomPropertyName({
+        componentName: 'toast',
+        componentVariant: $variant,
+        customPropertyName: 'background-color',
+      })},
+      #2e3048
+    );
+    border-radius: var(
+      ${cssCustomPropertyName({
+        componentName: 'toast',
+        componentVariant: $variant,
+        customPropertyName: 'border-radius',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-border-radius-sm, 4px)
+    );
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'toast',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #fff
+    );
+    display: flex;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.3;
+    max-width: 250px;
+    padding: var(
+      ${cssCustomPropertyName({
+        componentName: 'toast',
+        componentVariant: $variant,
+        customPropertyName: 'padding',
+      })},
+      var(--base-common-padding-xl, 16px)
+    );
+    word-break: break-word;
+  `}
 `
 
 export default Toast

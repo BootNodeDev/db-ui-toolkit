@@ -450,8 +450,7 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,r,o){var n=r?r.cal
       );
       box-shadow: var(
         var(
-          ${Je({componentName:"textfield",componentVariant:t,customPropertyName:"box-shadow-active"})},
-          none
+          ${Je({componentName:"textfield",componentVariant:t,customPropertyName:"box-shadow-active"})}
         ),
         var(
           ${Je({componentName:"textfield",componentVariant:t,customPropertyName:"box-shadow"})},
@@ -485,10 +484,7 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,r,o){var n=r?r.cal
 
     &::placeholder {
       color: var(
-        var(
-          ${Je({componentName:"textfield",componentVariant:t,customPropertyName:"placeholder-color"})},
-          none
-        ),
+        ${Je({componentName:"textfield",componentVariant:t,customPropertyName:"placeholder-color"})},
         #666
       );
       font-style: normal;

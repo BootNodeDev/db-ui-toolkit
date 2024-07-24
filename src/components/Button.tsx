@@ -158,7 +158,14 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
           componentVariant: $variant,
           customPropertyName: 'background-color-hover',
         })},
-        #ddd
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'button',
+            componentVariant: $variant,
+            customPropertyName: 'background-color',
+          })},
+          #ddd
+        )
       );
       border-color: var(
         ${cssCustomPropertyName({
@@ -166,7 +173,14 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
           componentVariant: $variant,
           customPropertyName: 'border-color-hover',
         })},
-        #ddd
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'button',
+            componentVariant: $variant,
+            customPropertyName: 'border-color',
+          })},
+          #ddd
+        )
       );
       color: var(
         ${cssCustomPropertyName({
@@ -174,7 +188,14 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
           componentVariant: $variant,
           customPropertyName: 'color-hover',
         })},
-        #000
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'button',
+            componentVariant: $variant,
+            customPropertyName: 'color',
+          })},
+          #000
+        )
       );
     }
 

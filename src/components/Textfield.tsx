@@ -242,8 +242,7 @@ export const TextfieldCSS = css<Props>`
             componentName: 'textfield',
             componentVariant: $variant,
             customPropertyName: 'box-shadow-active',
-          })},
-          none
+          })}
         ),
         var(
           ${cssCustomPropertyName({
@@ -293,14 +292,11 @@ export const TextfieldCSS = css<Props>`
 
     &::placeholder {
       color: var(
-        var(
-          ${cssCustomPropertyName({
-            componentName: 'textfield',
-            componentVariant: $variant,
-            customPropertyName: 'placeholder-color',
-          })},
-          none
-        ),
+        ${cssCustomPropertyName({
+          componentName: 'textfield',
+          componentVariant: $variant,
+          customPropertyName: 'placeholder-color',
+        })},
         #666
       );
       font-style: normal;

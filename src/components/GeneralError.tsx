@@ -62,7 +62,14 @@ const Wrapper = styled.div<{ $variant?: string }>`
         })},
         #fff
       );
-    box-shadow: 0 9.6px 13px 0 rgb(0 0 0 / 8%);
+    box-shadow: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error',
+        componentVariant: $variant,
+        customPropertyName: 'box-shadow',
+      })},
+      0 0 20px 0 rgb(0 0 0 / 8%)
+    );
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -248,6 +255,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * - `--base-general-error-message-border-radius`
  * - `--base-general-error-message-padding`
  * - `--base-general-error-message-row-gap`
+ * - `--base-general-error-box-shadow`
  */
 const GeneralError: React.FC<Props> = ({
   actionButton,

@@ -19,6 +19,7 @@ import { cssCustomPropertyName } from '../utils'
  *
  * - `--base-card-border-radius`
  * - `--base-card-padding`
+ * - `--base-card-box-shadow`
  */
 const Card = styled.div<{ $variant?: string }>`
   ${({ $variant }) => css`
@@ -48,7 +49,14 @@ const Card = styled.div<{ $variant?: string }>`
         })},
         #fff
       );
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 8%);
+    box-shadow: var(
+      ${cssCustomPropertyName({
+        componentName: 'card',
+        componentVariant: $variant,
+        customPropertyName: 'box-shadow',
+      })},
+      0 0 20px 0 rgb(0 0 0 / 8%)
+    );
     display: flex;
     flex-direction: column;
     padding: var(

@@ -1,5 +1,6 @@
 import { InputHTMLAttributes } from 'react'
 import { styled, css } from 'styled-components'
+import { cssCustomPropertyName } from '../utils'
 
 export type TextfieldStatus = 'error' | 'ok' | undefined
 
@@ -12,24 +13,74 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
  *  Status CSS
  */
 const TextfieldStatusCSS = css<Props>`
-  ${({ $status }) =>
+  ${({ $status, $variant }) =>
     $status === 'error'
       ? css`
           background-color: var(
-            --theme-textfield-background-color-error,
-            var(--theme-textfield-background-color, #f7f7f7)
+            ${cssCustomPropertyName({
+              componentName: 'textfield',
+              componentVariant: $variant,
+              customPropertyName: 'background-color-error',
+            })},
+            var(
+              ${cssCustomPropertyName({
+                componentName: 'textfield',
+                componentVariant: $variant,
+                customPropertyName: 'background-color',
+              })},
+              #f7f7f7
+            )
           );
-          border-color: var(--theme-textfield-border-color-error, var(--theme-color-danger, #800));
-          color: var(--theme-textfield-color-error, var(--theme-color-danger, #800));
+          border-color: var(
+            ${cssCustomPropertyName({
+              componentName: 'textfield',
+              componentVariant: $variant,
+              customPropertyName: 'border-color-error',
+            })},
+            var(--theme-color-danger, #800)
+          );
+          color: var(
+            ${cssCustomPropertyName({
+              componentName: 'textfield',
+              componentVariant: $variant,
+              customPropertyName: 'color-error',
+            })},
+            var(--theme-color-danger, #800)
+          );
         `
       : $status === 'ok'
         ? css`
             background-color: var(
-              --theme-textfield-background-color-ok,
-              var(--theme-textfield-background-color, #f7f7f7)
+              ${cssCustomPropertyName({
+                componentName: 'textfield',
+                componentVariant: $variant,
+                customPropertyName: 'background-color-ok',
+              })},
+              var(
+                ${cssCustomPropertyName({
+                  componentName: 'textfield',
+                  componentVariant: $variant,
+                  customPropertyName: 'background-color',
+                })},
+                #f7f7f7
+              )
             );
-            border-color: var(--theme-textfield-border-color-ok, var(--theme-color-ok, #080));
-            color: var(--theme-textfield-color-ok, var(--theme-color-ok, #080));
+            border-color: var(
+              ${cssCustomPropertyName({
+                componentName: 'textfield',
+                componentVariant: $variant,
+                customPropertyName: 'border-color-ok',
+              })},
+              var(--theme-color-ok, #080)
+            );
+            color: var(
+              ${cssCustomPropertyName({
+                componentName: 'textfield',
+                componentVariant: $variant,
+                customPropertyName: 'color-ok',
+              })},
+              var(--theme-color-ok, #080)
+            );
           `
         : css``}
 `
@@ -39,46 +90,170 @@ const TextfieldStatusCSS = css<Props>`
  */
 export const TextfieldCSS = css<Props>`
   ${({ $variant }) => css`
-    background-color: var(--theme-textfield-background-color, #f7f7f7);
-    border-color: var(--theme-textfield-border-color, #c5c2cb);
-    border-radius: var(--base-textfield-border-radius, var(--base-border-radius, 8px));
+    background-color: var(
+      ${cssCustomPropertyName({
+        componentName: 'textfield',
+        componentVariant: $variant,
+        customPropertyName: 'background-color',
+      })},
+      #f7f7f7
+    );
+    border-color: var(
+      ${cssCustomPropertyName({
+        componentName: 'textfield',
+        componentVariant: $variant,
+        customPropertyName: 'border-color',
+      })},
+      #c5c2cb
+    );
+    border-radius: var(
+      ${cssCustomPropertyName({
+        componentName: 'textfield',
+        componentVariant: $variant,
+        customPropertyName: 'border-radius',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-border-radius, 8px)
+    );
     border-style: solid;
     border-width: 1px;
-    box-shadow: var(--theme-textfield-box-shadow, none);
-    color: var(--theme-textfield-color, #333);
+    box-shadow: var(
+      ${cssCustomPropertyName({
+        componentName: 'textfield',
+        componentVariant: $variant,
+        customPropertyName: 'box-shadow',
+      })},
+      none
+    );
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'textfield',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #333
+    );
     font-size: 1.4rem;
     font-weight: 400;
     height: 50px;
     outline: none;
     overflow: hidden;
-    padding: var(--base-textfield-padding, 0 var(--base-common-padding-xl, 16px));
+    padding: var(
+      ${cssCustomPropertyName({
+        componentName: 'textfield',
+        componentVariant: $variant,
+        customPropertyName: 'padding',
+        customPropertyPrefix: 'base',
+      })},
+      0 var(--base-common-padding-xl, 16px)
+    );
     text-overflow: ellipsis;
     transition:
       border-color
-        var(--base-textfield-transition-duration, var(--base-transition-duration-sm, 0.2s)) linear,
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        )
+        linear,
       background-color
-        var(--base-textfield-transition-duration, var(--base-transition-duration-sm, 0.2s)) linear,
-      box-shadow var(--base-textfield-transition-duration, var(--base-transition-duration-sm, 0.2s))
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        )
+        linear,
+      box-shadow
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        )
         linear;
     white-space: nowrap;
 
     ${TextfieldStatusCSS}
 
     /**
-   * Textfield states
-   */
-  &:active,
-  &:focus {
-      color: var(--theme-textfield-color-active, var(--theme-textfield-color, #333));
+    * Textfield states
+    */
+    &:active,
+    &:focus {
+      color: var(
+        ${cssCustomPropertyName({
+          componentName: 'textfield',
+          componentVariant: $variant,
+          customPropertyName: 'color-active',
+        })},
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'color',
+          })},
+          #333
+        )
+      );
       border-color: var(
-        --theme-textfield-border-color-active,
-        var(--theme-textfield-border-color, #c5c2cb)
+        ${cssCustomPropertyName({
+          componentName: 'textfield',
+          componentVariant: $variant,
+          customPropertyName: 'border-color-active',
+        })},
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'border-color',
+          })},
+          #c5c2cb
+        )
       );
       background-color: var(
-        --theme-textfield-background-color-active,
-        var(--theme-textfield-background-color, #f7f7f7)
+        ${cssCustomPropertyName({
+          componentName: 'textfield',
+          componentVariant: $variant,
+          customPropertyName: 'background-color-active',
+        })},
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'background-color',
+          })},
+          #f7f7f7
+        )
       );
-      box-shadow: var(--theme-textfield-box-shadow-active, var(--theme-textfield-box-shadow, none));
+      box-shadow: var(
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'box-shadow-active',
+          })},
+          none
+        ),
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'box-shadow',
+          })},
+          none
+        )
+      );
 
       ${TextfieldStatusCSS}
     }
@@ -87,16 +262,47 @@ export const TextfieldCSS = css<Props>`
     &[disabled]:hover {
       &,
       &::placeholder {
-        background-color: var(--theme-textfield-background-color, #f7f7f7);
-        border-color: var(--theme-textfield-border-color, #c5c2cb);
-        color: var(--theme-textfield-color, #333);
+        background-color: var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'background-color',
+          })},
+          #f7f7f7
+        );
+        border-color: var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'border-color',
+          })},
+          #c5c2cb
+        );
+        color: var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'color',
+          })},
+          #333
+        );
         cursor: not-allowed;
         opacity: 0.6;
       }
     }
 
     &::placeholder {
-      color: var(--theme-textfield-placeholder-color, #666);
+      color: var(
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'textfield',
+            componentVariant: $variant,
+            customPropertyName: 'placeholder-color',
+          })},
+          none
+        ),
+        #666
+      );
       font-style: normal;
       font-weight: 400;
       opacity: 1;
@@ -106,9 +312,30 @@ export const TextfieldCSS = css<Props>`
     }
 
     &[readonly] {
-      background-color: var(--theme-textfield-background-color, #f7f7f7);
-      border-color: var(--theme-textfield-border-color, #c5c2cb);
-      color: var(--theme-textfield-color, #333);
+      background-color: var(
+        ${cssCustomPropertyName({
+          componentName: 'textfield',
+          componentVariant: $variant,
+          customPropertyName: 'background-color',
+        })},
+        #f7f7f7
+      );
+      border-color: var(
+        ${cssCustomPropertyName({
+          componentName: 'textfield',
+          componentVariant: $variant,
+          customPropertyName: 'border-color',
+        })},
+        #c5c2cb
+      );
+      color: var(
+        ${cssCustomPropertyName({
+          componentName: 'textfield',
+          componentVariant: $variant,
+          customPropertyName: 'color',
+        })},
+        #333
+      );
       cursor: default;
       font-style: normal;
     }
@@ -133,6 +360,7 @@ export const TextfieldCSS = css<Props>`
  * @description Input component
  *
  * @param {TextfieldStatus} [$status=undefined] - The status of the textfield. Defaults to undefined.
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *

@@ -54,7 +54,35 @@ const Toast = styled.div<{ $variant?: string }>`
       })},
       var(--base-common-padding-xl, 16px)
     );
+    transition:
+      display
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'toast',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        )
+        ease-out allow-discrete,
+      opacity
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'toast',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        )
+        ease-out;
     word-break: break-word;
+
+    /* Transitions will start in these states */
+    @starting-style {
+      opacity: 0;
+    }
   `}
 `
 

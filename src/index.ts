@@ -16,7 +16,11 @@ export {
   type DropdownExposedProps,
   type Position,
 } from './components/Dropdown'
-export { TextfieldCSS } from './components/Textfield'
+export {
+  TextfieldCSS,
+  type TextfieldStatus,
+  type Props as TextfieldProps,
+} from './components/Textfield'
 export { default as Card } from './components/Card'
 export { default as CopyButton } from './components/CopyButton'
 export { default as Dialog } from './components/Dialog'

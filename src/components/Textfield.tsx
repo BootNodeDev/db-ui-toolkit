@@ -4,7 +4,7 @@ import { cssCustomPropertyName } from '../utils'
 
 export type TextfieldStatus = 'error' | 'ok' | undefined
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   $status?: TextfieldStatus | undefined
   $variant?: string
 }

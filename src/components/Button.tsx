@@ -250,6 +250,10 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
   `}
 `
 
+export interface Props {
+  $variant?: string
+}
+
 /**
  * @name Button
  *
@@ -277,7 +281,7 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
  * - `--base-button-padding`
  * - `--base-button-transition-duration`
  */
-const Button = styled.button.attrs<{ $variant?: string }>(({ type = 'button' }) => ({
+const Button = styled.button.attrs<Props>(({ type = 'button' }) => ({
   type,
 }))`
   ${ButtonCSS}

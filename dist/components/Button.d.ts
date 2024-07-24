@@ -23,6 +23,9 @@ export declare const ButtonCSS: import("styled-components").RuleSet<{
 export declare const ButtonVariantCSS: import("styled-components").RuleSet<{
     $variant?: string | undefined;
 }>;
+export interface Props {
+    $variant?: string;
+}
 /**
  * @name Button
  *
@@ -52,7 +55,5 @@ export declare const ButtonVariantCSS: import("styled-components").RuleSet<{
  */
 declare const Button: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Omit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
     ref?: ((instance: HTMLButtonElement | null) => void) | import("react").RefObject<HTMLButtonElement> | null | undefined;
-}>, {
-    $variant?: string | undefined;
-}>, never>> & string;
+}>, Props>, never>> & string;
 export default Button;

@@ -5,42 +5,31 @@ export type TextfieldStatus = 'error' | 'ok' | undefined
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   $status?: TextfieldStatus | undefined
+  $variant?: string
 }
 
 /**
- *  Text color
+ *  Status CSS
  */
-const TextfieldTextColorCSS = css<Props>`
+const TextfieldStatusCSS = css<Props>`
   ${({ $status }) =>
     $status === 'error'
       ? css`
-          color: var(--theme-textfield-color-error, var(--theme-textfield-color-error-default));
-        `
-      : $status === 'ok'
-        ? css`
-            color: var(--theme-textfield-color-ok, var(--theme-textfield-color-ok-default));
-          `
-        : css``}
-`
-
-/**
- *  Border color
- */
-const TextfieldBorderColorCSS = css<Props>`
-  ${({ $status }) =>
-    $status === 'error'
-      ? css`
-          border-color: var(
-            --theme-textfield-border-color-error,
-            var(--theme-textfield-border-color-error-default)
+          background-color: var(
+            --theme-textfield-background-color-error,
+            var(--theme-textfield-background-color, #f7f7f7)
           );
+          border-color: var(--theme-textfield-border-color-error, var(--theme-color-danger, #800));
+          color: var(--theme-textfield-color-error, var(--theme-color-danger, #800));
         `
       : $status === 'ok'
         ? css`
-            border-color: var(
-              --theme-textfield-border-color-ok,
-              var(--theme-textfield-border-color-ok-default)
+            background-color: var(
+              --theme-textfield-background-color-ok,
+              var(--theme-textfield-background-color, #f7f7f7)
             );
+            border-color: var(--theme-textfield-border-color-ok, var(--theme-color-ok, #080));
+            color: var(--theme-textfield-color-ok, var(--theme-color-ok, #080));
           `
         : css``}
 `
@@ -49,141 +38,94 @@ const TextfieldBorderColorCSS = css<Props>`
  * Textfield CSS
  */
 export const TextfieldCSS = css<Props>`
-  --theme-textfield-color-default: #333;
-  --theme-textfield-color-active-default: #333;
-  --theme-textfield-color-error-default: var(--theme-color-danger, #800);
-  --theme-textfield-color-ok-default: var(--theme-color-ok, #080);
-  --theme-textfield-background-color-default: #f7f7f7;
-  --theme-textfield-background-color-active-default: #f7f7f7;
-  --theme-textfield-border-color-default: #c5c2cb;
-  --theme-textfield-border-color-active-default: #c5c2cb;
-  --theme-textfield-border-color-error-default: var(--theme-color-danger, #800);
-  --theme-textfield-border-color-ok-default: var(--theme-color-ok, #080);
-  --theme-textfield-placeholder-color-default: #666;
+  ${({ $variant }) => css`
+    background-color: var(--theme-textfield-background-color, #f7f7f7);
+    border-color: var(--theme-textfield-border-color, #c5c2cb);
+    border-radius: var(--base-textfield-border-radius, var(--base-border-radius, 8px));
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: var(--theme-textfield-box-shadow, none);
+    color: var(--theme-textfield-color, #333);
+    font-size: 1.4rem;
+    font-weight: 400;
+    height: 50px;
+    outline: none;
+    overflow: hidden;
+    padding: var(--base-textfield-padding, 0 var(--base-common-padding-xl, 16px));
+    text-overflow: ellipsis;
+    transition:
+      border-color
+        var(--base-textfield-transition-duration, var(--base-transition-duration-sm, 0.2s)) linear,
+      background-color
+        var(--base-textfield-transition-duration, var(--base-transition-duration-sm, 0.2s)) linear,
+      box-shadow var(--base-textfield-transition-duration, var(--base-transition-duration-sm, 0.2s))
+        linear;
+    white-space: nowrap;
 
-  --base-textfield-vertical-padding-default: 0;
-  --base-textfield-horizontal-padding-default: var(--base-common-padding-xl, 16px);
-  --base-textfield-font-size-default: 1.4rem;
+    ${TextfieldStatusCSS}
 
-  background-color: var(
-    --theme-textfield-background-color,
-    var(--theme-textfield-background-color-default)
-  );
-  border-color: var(--theme-textfield-border-color, var(--theme-textfield-border-color-default));
-  border-radius: var(--base-textfield-border-radius, var(--base-border-radius, 8px));
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: var(--theme-textfield-box-shadow, none);
-  color: var(--theme-textfield-color, var(--theme-textfield-color-default));
-  font-size: var(--base-textfield-font-size, var(--base-textfield-font-size-default));
-  font-weight: 400;
-  height: var(--base-textfield-height, 50px);
-  outline: none;
-  overflow: hidden;
-  padding-bottom: var(
-    --base-textfield-vertical-padding,
-    var(--base-textfield-vertical-padding-default)
-  );
-  padding-left: var(
-    --base-textfield-horizontal-padding,
-    var(--base-textfield-horizontal-padding-default)
-  );
-  padding-right: var(
-    --base-textfield-horizontal-padding,
-    var(--base-textfield-horizontal-padding-default)
-  );
-  padding-top: var(
-    --base-textfield-vertical-padding,
-    var(--base-textfield-vertical-padding-default)
-  );
-  text-overflow: ellipsis;
-  transition:
-    border-color var(--base-textfield-transition-time, var(--base-animation-time-sm, 0.2s)) linear,
-    background-color var(--base-textfield-transition-time, var(--base-animation-time-sm, 0.2s))
-      linear,
-    box-shadow var(--base-textfield-transition-time, var(--base-animation-time-sm, 0.2s)) linear;
-  white-space: nowrap;
-
-  ${TextfieldTextColorCSS}
-  ${TextfieldBorderColorCSS}
-
-  /**
+    /**
    * Textfield states
    */
   &:active,
   &:focus {
-    color: var(--theme-textfield-color-active, var(--theme-textfield-color-active-default));
-    border-color: var(
-      --theme-textfield-border-color-active,
-      var(--theme-textfield-border-color-active-default)
-    );
-    background-color: var(
-      --theme-textfield-background-color-active,
-      var(--theme-textfield-background-color-active-default)
-    );
-    box-shadow: var(--theme-textfield-box-shadow-active, none);
+      color: var(--theme-textfield-color-active, var(--theme-textfield-color, #333));
+      border-color: var(
+        --theme-textfield-border-color-active,
+        var(--theme-textfield-border-color, #c5c2cb)
+      );
+      background-color: var(
+        --theme-textfield-background-color-active,
+        var(--theme-textfield-background-color, #f7f7f7)
+      );
+      box-shadow: var(--theme-textfield-box-shadow-active, var(--theme-textfield-box-shadow, none));
 
-    ${TextfieldTextColorCSS}
-    ${TextfieldBorderColorCSS}
-  }
-
-  &[disabled],
-  &[disabled]:hover {
-    background-color: var(
-      --theme-textfield-background-color,
-      var(--theme-textfield-background-color-default)
-    );
-    border-color: var(--theme-textfield-border-color, var(--theme-textfield-border-color-default));
-    color: var(--theme-textfield-color, var(--theme-textfield-color-default));
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  &[disabled]::placeholder,
-  &[disabled]:hover::placeholder {
-    color: var(--theme-textfield-color, var(--theme-textfield-color-default)) !important;
-  }
-
-  &::placeholder {
-    color: var(
-      --theme-textfield-placeholder-color,
-      var(--theme-textfield-placeholder-color-default)
-    );
-    font-size: var(--base-textfield-font-size, var(--base-textfield-font-size-default));
-    font-style: normal;
-    font-weight: 400;
-    opacity: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  &[readonly] {
-    background-color: var(
-      --theme-textfield-background-color,
-      var(--theme-textfield-background-color-default)
-    );
-    border-color: var(--theme-textfield-border-color, var(--theme-textfield-border-color-default));
-    color: var(
-      --theme-textfield-placeholder-color,
-      var(--theme-textfield-placeholder-color-default)
-    );
-    cursor: default;
-    font-style: normal;
-  }
-
-  &[type='number'] {
-    appearance: textfield;
-    ::-webkit-inner-spin-button,
-    ::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+      ${TextfieldStatusCSS}
     }
-  }
 
-  &::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
+    &[disabled],
+    &[disabled]:hover {
+      &,
+      &::placeholder {
+        background-color: var(--theme-textfield-background-color, #f7f7f7);
+        border-color: var(--theme-textfield-border-color, #c5c2cb);
+        color: var(--theme-textfield-color, #333);
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    }
+
+    &::placeholder {
+      color: var(--theme-textfield-placeholder-color, #666);
+      font-style: normal;
+      font-weight: 400;
+      opacity: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &[readonly] {
+      background-color: var(--theme-textfield-background-color, #f7f7f7);
+      border-color: var(--theme-textfield-border-color, #c5c2cb);
+      color: var(--theme-textfield-color, #333);
+      cursor: default;
+      font-style: normal;
+    }
+
+    &[type='number'] {
+      appearance: textfield;
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    &::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+  `}
 `
 /**
  * @name Textfield
@@ -215,7 +157,7 @@ export const TextfieldCSS = css<Props>`
  * - `--base-textfield-font-size`
  * - `--base-textfield-vertical-padding`
  * - `--base-textfield-horizontal-padding`
- * - `--base-textfield-transition-time`
+ * - `--base-textfield-transition-duration`
  */
 const Textfield = styled.input<Props>`
   ${TextfieldCSS}

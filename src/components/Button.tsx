@@ -234,7 +234,7 @@ export const ButtonVariantCSS = css<{ $variant?: string }>`
  *
  * @description Customizable button
  *
- * @param {string} [$variant] - The variant of the button
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *

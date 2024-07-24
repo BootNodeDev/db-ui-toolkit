@@ -6,6 +6,8 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @description Barebones footer component
  *
+ * @param {string} [$variant] - Optional component variant.
+ *
  * **Theme CSS variables:**
  *
  * - `--theme-footer-background-color: Footer background color`

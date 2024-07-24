@@ -38,6 +38,7 @@ const Wrapper = styled.svg<{ $variant?: string }>`
 interface Props extends SVGProps<SVGSVGElement> {
   $strokeWidth?: string
   $variant?: string
+  $size?: number
 }
 
 /**
@@ -46,6 +47,8 @@ interface Props extends SVGProps<SVGSVGElement> {
  * @description Spinner Component - A simple animated spinner.
  *
  * @param {string} [$strokeWidth] - Optional stroke width for the spinner. Default is 8.
+ * @param {number} [$size] - Optional size for the spinner. Default is 50.
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *
@@ -55,8 +58,14 @@ interface Props extends SVGProps<SVGSVGElement> {
  *
  * - `--base-spinner-animation-time`
  */
-const Spinner: React.FC<Props> = ({ $variant, $strokeWidth = 8, ...restProps }) => (
-  <Wrapper $variant={$variant} viewBox="0 0 50 50" width="50" height="50" {...restProps}>
+const Spinner: React.FC<Props> = ({ $variant, $strokeWidth = 8, $size = 50, ...restProps }) => (
+  <Wrapper
+    $variant={$variant}
+    viewBox="0 0 50 50"
+    width={`${$size}`}
+    height={`${$size}`}
+    {...restProps}
+  >
     <defs>
       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" style={{ stopColor: 'currentColor', stopOpacity: 1 }} />

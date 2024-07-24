@@ -6,6 +6,8 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @description Text component
  *
+ * @param {string} [$variant] - Optional component variant.
+ *
  * **Theme CSS variables:**
  *
  * - `--theme-color-text`

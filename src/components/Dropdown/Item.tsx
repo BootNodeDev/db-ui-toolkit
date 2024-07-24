@@ -12,6 +12,7 @@ export interface Props {
  * @description Dropdown item component
  *
  * @param {boolean} [disabled=false] - Disables the dropdown item. Default is false.
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *

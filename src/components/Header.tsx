@@ -6,6 +6,8 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @description Barebones header component
  *
+ * @param {string} [$variant] - Optional component variant.
+ *
  * **Theme CSS variables:**
  *
  * - `--theme-header-background-color: Header background color`

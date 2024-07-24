@@ -138,7 +138,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
  *
  * @param {React.HTMLAttributeAnchorTarget} target - The target attribute specifies where to open the linked document. Default is '_blank'.
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the ExternalLink icon.
- * @param {string} [$variant] - The variant of the button.
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *

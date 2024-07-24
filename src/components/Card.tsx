@@ -7,7 +7,7 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @description Customizable card
  *
- * @param {string} [$variant] - The variant of the card
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *

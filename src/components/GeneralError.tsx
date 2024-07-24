@@ -228,7 +228,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * @param {Array<ReactElement> | ReactElement} [icon] - Optional icon to display. Default is an alert icon.
  * @param {string | ReactElement} [message] - Optional message to display. Default is 'Something went wrong.'
  * @param {string} [title] - Optional title to display. Default is 'Error'.
- * @param {string} [$variant] - Optional variant to apply to the component.
+ * @param {string} [$variant] - Optional component variant.
  *
  * **Theme CSS variables:**
  *

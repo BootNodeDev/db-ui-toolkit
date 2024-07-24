@@ -6,6 +6,8 @@ import { cssCustomPropertyName } from '../utils'
  *
  * @description Toast component
  *
+ * @param {string} [$variant] - Optional component variant.
+ *
  * **Theme CSS variables:**
  *
  * - `--theme-toast-background-color: Toast background color`

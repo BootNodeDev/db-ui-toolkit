@@ -5,6 +5,8 @@ import { cssCustomPropertyName } from '../../utils'
  * @name Wrapper
  *
  * @description Dialog main wrapper component
+ *
+ * @param {string} [$variant] - Optional component variant.
  */
 const Wrapper = styled.dialog<{ $variant?: string }>`
   ${({ $variant }) => css`

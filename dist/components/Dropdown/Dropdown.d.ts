@@ -4,6 +4,7 @@ export interface DropdownExposedProps {
     close: () => void;
 }
 export interface Options extends HTMLAttributes<HTMLDivElement>, RefAttributes<DropdownExposedProps> {
+    $variant?: string;
     button: ReactElement<HTMLButtonElement>;
     closeOnClick?: boolean;
     defaultActiveItem?: number;
@@ -28,17 +29,18 @@ export interface Options extends HTMLAttributes<HTMLDivElement>, RefAttributes<D
  * @param {boolean} [disabled=false] - Whether the dropdown is disabled. Default is false.
  * @param {number} [defaultActiveItem=-1] - The index of the item that is active by default. Default is -1.
  * @param {Function} [onItemSelect] - A function that is called when an item is selected.
+ * @param {string} [$variant] - Optional component variant.
  *
- * Theme CSS Variables:
+ * **Theme CSS variables:**
  *
- * * --theme-dropdown-background-color
- * * --theme-dropdown-border-color
- * * --theme-dropdown-box-shadow
+ * - `--theme-dropdown-background-color`
+ * - `--theme-dropdown-border-color`
+ * - `--theme-dropdown-box-shadow`
  *
- * Base CSS Variables:
+ * **Base CSS variables:**
  *
- * * --base-dropdown-border-radius
- * * --base-dropdown-animation-time
+ * - `--base-dropdown-border-radius`
+ * - `--base-dropdown-transition-duration`
  */
 declare const Dropdown: FC<Options>;
 export default Dropdown;

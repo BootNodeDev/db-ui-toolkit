@@ -1,6 +1,8 @@
 import React, { ImgHTMLAttributes } from 'react';
 /**
- * Default Logo component
+ * @name Logo
+ *
+ * @description Default dAppBooster logo
  */
 declare const Logo: React.FC<ImgHTMLAttributes<HTMLImageElement>>;
 export default Logo;

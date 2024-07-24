@@ -1,11 +1,17 @@
 /// <reference types="react" />
 /**
- * Barebones header component
+ * @name Header
  *
- * Theme CSS variables:
+ * @description Barebones header component
  *
- * * --theme-header-background-color: Header background color.
- * * --theme-header-text-color: Header text color.
+ * @param {string} [$variant] - Optional component variant.
+ *
+ * **Theme CSS variables:**
+ *
+ * - `--theme-header-background-color: Header background color`
+ * - `--theme-header-text-color: Header text color`
  */
-declare const Header: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLElement>, HTMLElement>, never>> & string;
+declare const Header: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLElement>, HTMLElement>, {
+    $variant?: string | undefined;
+}>> & string;
 export default Header;

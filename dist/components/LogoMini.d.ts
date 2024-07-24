@@ -1,6 +1,8 @@
 import React, { SVGProps } from 'react';
 /**
- * Default mini logo component
+ * @name LogoMini
+ *
+ * @description dAppBooster mini logo component
  */
 declare const LogoMini: React.FC<SVGProps<SVGSVGElement>>;
 export default LogoMini;

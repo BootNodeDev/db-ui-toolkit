@@ -133,7 +133,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
      *
      * @param element ReactElement - The element to transform
      */
-    const transformElementProps = useCallback(
+    const updateItemProps = useCallback(
       (element: ReactElement, index?: number): ReactElement => {
         const { onClick, className } = element.props
         /**
@@ -186,8 +186,8 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
           $variant={$variant}
         >
           {Array.isArray(items)
-            ? items.map((item: ReactElement, index) => transformElementProps(item, index))
-            : transformElementProps(items)}
+            ? items.map((item: ReactElement, index) => updateItemProps(item, index))
+            : updateItemProps(items)}
         </BaseItems>
       </Wrapper>
     )

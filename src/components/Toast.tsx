@@ -10,8 +10,14 @@ import { cssCustomPropertyName } from '../utils'
  *
  * **Theme CSS variables:**
  *
- * - `--theme-toast-background-color: Toast background color`
- * - `--theme-toast-color: Toast text color`
+ * - `--theme-toast-background-color`
+ * - `--theme-toast-color`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-toast-border-radius`
+ * - `--base-toast-padding`
+ * - `--base-toast-transition-duration`
  */
 const Toast = styled.div<{ $variant?: string }>`
   ${({ $variant }) => css`

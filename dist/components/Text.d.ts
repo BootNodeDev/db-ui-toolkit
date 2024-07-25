@@ -1,14 +1,20 @@
 /// <reference types="react" />
 /**
- * Text component
+ * @name Text
  *
- * Theme CSS variables:
+ * @description Text component
  *
- * * --theme-color-text: Text color.
+ * @param {string} [$variant] - Optional component variant.
  *
- * Base CSS variables:
+ * **Theme CSS variables:**
  *
- * * --base-text-font-size: Text font size.
+ * - `--theme-color-text`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-text-font-size`
  */
-declare const Text: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+declare const Text: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, {
+    $variant?: string | undefined;
+}>> & string;
 export default Text;

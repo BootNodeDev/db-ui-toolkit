@@ -4,7 +4,6 @@ import React, {
   forwardRef,
   type FC,
   type HTMLAttributes,
-  type MouseEventHandler,
   type ReactElement,
   type RefAttributes,
   useCallback,
@@ -14,7 +13,7 @@ import React, {
 } from 'react'
 
 import { Direction, Position } from './index'
-import { Wrapper, ButtonWrapper } from './Wrapper'
+import { Wrapper } from './Wrapper'
 import Items, { BaseItems } from './Items'
 
 export interface DropdownExposedProps {
@@ -24,6 +23,7 @@ export interface DropdownExposedProps {
 export interface Options
   extends HTMLAttributes<HTMLDivElement>,
     RefAttributes<DropdownExposedProps> {
+  $variant?: string
   button: ReactElement<HTMLButtonElement>
   closeOnClick?: boolean
   defaultActiveItem?: number
@@ -41,7 +41,7 @@ export interface Options
  * @description A Dropdown component.
  *
  * @param {ReactElement<HTMLButtonElement>} button - The button that opens the dropdown. Must be a button for accessibility reasons.
- * @param {Array<ReactElement> | ReactElement} items - The items of the dropdown, can be an array or a single element.
+ * @param {Array<ReactElement> | ReactElement} items - The items of the dropdown, can be an array or a single element. Items can be either an Item component or any other React element.
  * @param {Direction} [direction='downwards'] - The direction of the dropdown (upwards or downwards). Default is downwards.
  * @param {Position} [position='left'] - The position of the dropdown (left, right or center). Default is left.
  * @param {boolean} [closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.
@@ -49,21 +49,23 @@ export interface Options
  * @param {boolean} [disabled=false] - Whether the dropdown is disabled. Default is false.
  * @param {number} [defaultActiveItem=-1] - The index of the item that is active by default. Default is -1.
  * @param {Function} [onItemSelect] - A function that is called when an item is selected.
+ * @param {string} [$variant] - Optional component variant.
  *
- * Theme CSS Variables:
+ * **Theme CSS variables:**
  *
- * * --theme-dropdown-background-color
- * * --theme-dropdown-border-color
- * * --theme-dropdown-box-shadow
+ * - `--theme-dropdown-background-color`
+ * - `--theme-dropdown-border-color`
+ * - `--theme-dropdown-box-shadow`
  *
- * Base CSS Variables:
+ * **Base CSS variables:**
  *
- * * --base-dropdown-border-radius
- * * --base-dropdown-animation-time
+ * - `--base-dropdown-border-radius`
+ * - `--base-dropdown-transition-duration`
  */
 const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 'ref'>>(
   (
     {
+      $variant,
       button,
       closeOnClick = true,
       defaultActiveItem = -1,
@@ -108,28 +110,45 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
     }, [handleOuterClick])
 
     /**
-     * Handles the button that opens / closes the dropdown
-     */
-    const handleButtonClick: MouseEventHandler<HTMLElement> = useCallback(
-      (event) => {
-        event.stopPropagation()
-
-        if (disabled) {
-          return
-        }
-
-        setIsOpen(!isOpen)
-      },
-      [disabled, isOpen, setIsOpen],
-    )
-
-    /**
-     * Transforms the props of the element where adequate, i.e.: add some extra
-     * functionality to the onClick event
+     * @name hydrateButton
+     *
+     * @description Transforms the props of the button where adequate, i.e.: add some extra
+     * functionality to the onClick event and add a class to the element if the dropdown is open.
      *
      * @param element ReactElement - The element to transform
      */
-    const transformElementProps = useCallback(
+    const hydrateButton = useCallback(
+      (element: ReactElement): ReactElement => {
+        const { onClick, className } = element.props
+
+        return cloneElement(element, {
+          className:
+            `${className ? className : ''} ${isOpen ? 'isOpen' : ''} dbuitkDropdownButton`.trim(),
+          onClick: (event: MouseEvent): void => {
+            event.stopPropagation()
+
+            if (disabled) {
+              return
+            }
+
+            setIsOpen(!isOpen)
+
+            onClick?.()
+          },
+        })
+      },
+      [disabled, isOpen],
+    )
+
+    /**
+     * @name hydrateItem
+     *
+     * @description Transforms the props of the element where adequate, i.e.: add some extra
+     * functionality to the onClick event and add a class to the element if it is active.
+     *
+     * @param element ReactElement - The element to transform
+     */
+    const hydrateItem = useCallback(
       (element: ReactElement, index?: number): ReactElement => {
         const { onClick, className } = element.props
         /**
@@ -160,7 +179,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
     )
 
     /**
-     * Exposes a some methods to the parent component
+     * Exposes some of the dropdown's methods
      */
     useImperativeHandle(ref, () => ({
       close: () => {
@@ -171,18 +190,17 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
 
     return (
       <Wrapper $isOpen={isOpen} disabled={disabled} ref={node} {...restProps}>
-        <ButtonWrapper className={`${isOpen ? 'isActive' : ''}`.trim()} onClick={handleButtonClick}>
-          {button}
-        </ButtonWrapper>
+        {hydrateButton(button)}
         <BaseItems
           as={!Array.isArray(items) ? undefined : Items}
           $direction={direction}
           $position={position}
           $isOpen={isOpen}
+          $variant={$variant}
         >
           {Array.isArray(items)
-            ? items.map((item: ReactElement, index) => transformElementProps(item, index))
-            : transformElementProps(items)}
+            ? items.map((item: ReactElement, index) => hydrateItem(item, index))
+            : hydrateItem(items)}
         </BaseItems>
       </Wrapper>
     )

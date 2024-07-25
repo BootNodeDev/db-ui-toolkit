@@ -1,5 +1,6 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
 import React, { ButtonHTMLAttributes, MouseEventHandler, SVGProps } from 'react'
+import { cssCustomPropertyName } from '../utils'
 
 const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
@@ -25,66 +26,147 @@ const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.button.attrs(({ type = 'button' }) => ({
+const Wrapper = styled.button.attrs<{ $variant?: string }>(({ type = 'button' }) => ({
   type,
 }))`
-  align-items: center;
-  background: transparent;
-  border: none;
-  color: var(--theme-copy-button-color, #000);
-  column-gap: var(--base-button-gap, 8px);
-  cursor: pointer;
-  display: flex;
-  font-family: var(--base-font-family, sans-serif);
-  font-size: var(--base-button-font-size, 1.5rem);
-  font-weight: 400;
-  height: fit-content;
-  justify-content: center;
-  line-height: 1;
-  outline: none;
-  padding: 0;
-  text-decoration: none;
-  transition:
-    background-color var(--base-animation-time-xs, 0.2s),
-    border-color var(--base-animation-time-xs, 0.2s),
-    color var(--base-animation-time-xs, 0.2s);
-  user-select: none;
-  white-space: nowrap;
-  width: fit-content;
+  ${({ $variant }) => css`
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'copy-button',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #000
+    );
+    column-gap: var(
+      ${cssCustomPropertyName({
+        componentName: 'copy-button',
+        customPropertyPrefix: 'base',
+        componentVariant: $variant,
+        customPropertyName: 'column-gap',
+      })},
+      var(--base-gap, 8px)
+    );
+    cursor: pointer;
+    display: flex;
+    font-family: var(
+      ${cssCustomPropertyName({
+        componentName: 'copy-button',
+        customPropertyPrefix: 'base',
+        componentVariant: $variant,
+        customPropertyName: 'font-family',
+      })},
+      var(--base-font-family, sans-serif)
+    );
+    font-size: 1.5rem;
+    font-weight: 400;
+    height: fit-content;
+    justify-content: center;
+    line-height: 1;
+    outline: none;
+    padding: 0;
+    text-decoration: none;
+    transition:
+      background-color
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'copy-button',
+            customPropertyPrefix: 'base',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        ),
+      border-color
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'copy-button',
+            customPropertyPrefix: 'base',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        ),
+      color
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'copy-button',
+            customPropertyPrefix: 'base',
+            componentVariant: $variant,
+            customPropertyName: 'transition-duration',
+          })},
+          var(--base-transition-duration-sm, 0.2s)
+        );
+    user-select: none;
+    white-space: nowrap;
+    width: fit-content;
 
-  &:hover {
-    color: var(--theme-copy-button-color-hover, #8b46a4);
-  }
+    &:hover {
+      color: var(
+        ${cssCustomPropertyName({
+          componentName: 'copy-button',
+          componentVariant: $variant,
+          customPropertyName: 'color-hover',
+        })},
+        #000
+      );
+    }
 
-  &:active {
-    opacity: 0.8;
-  }
+    &:active {
+      opacity: 0.8;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  `}
 `
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   value: string
+  $variant?: string
 }
 
 /**
- * CopyButton component, a button that copies a value to the clipboard
+ * @name CopyButton
+ *
+ * @description A button that copies a value to the clipboard
  *
  * @param {string} value - The value to copy to the clipboard
  * @param {MouseEventHandler<HTMLButtonElement>} [onClick=undefined] - The function to call when the button is clicked. Default is undefined.
  * @param {ReactNode} [children=undefined] - The content of the button. Default is the Copy icon.
+ * @param {string} [$variant] - Optional component variant.
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-copy-button-color: Button color.
- * * --theme-copy-button-color-hover: Button color on hover.
+ * - `--theme-copy-button-color`
+ * - `--theme-copy-button-color-hover`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-copy-button-column-gap`
+ * - `--base-copy-button-font-family`
+ * - `--base-copy-button-transition-duration`
  */
-const CopyButton: React.FC<Props> = ({ children = <Copy />, onClick, value, ...restProps }) => {
+const CopyButton: React.FC<Props> = ({
+  $variant,
+  children = <Copy />,
+  onClick,
+  value,
+  ...restProps
+}) => {
   const onCopy: MouseEventHandler<HTMLButtonElement> = (e) => {
     navigator.clipboard.writeText(value)
     onClick && onClick(e)
   }
 
   return (
-    <Wrapper onClick={onCopy} {...restProps}>
+    <Wrapper $variant={$variant} onClick={onCopy} {...restProps}>
       {children}
     </Wrapper>
   )

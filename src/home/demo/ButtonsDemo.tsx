@@ -3,11 +3,11 @@ import React from 'react'
 import { styled } from 'styled-components'
 
 import { ComponentGrid } from '../helpers'
-import { Button, ThemedButton, Title } from '../../index'
+import { Button, Title } from '../../index'
 
-export const PrimaryButton = styled(ThemedButton).attrs({ $cssVarRoot: '--theme-button-primary' })``
-export const SecondaryButton = styled(ThemedButton).attrs({
-  $cssVarRoot: '--theme-button-secondary',
+export const PrimaryButton = styled(Button).attrs({ $variant: 'primary' })``
+export const SecondaryButton = styled(Button).attrs({
+  $variant: 'secondary',
 })``
 
 const ButtonsDemo = () => {
@@ -16,13 +16,13 @@ const ButtonsDemo = () => {
       <Title>Buttons</Title>
       <ComponentGrid>
         <Button>Base button</Button>
-        <PrimaryButton>Themed button</PrimaryButton>
-        <SecondaryButton>Themed button</SecondaryButton>
+        <PrimaryButton>Primary button</PrimaryButton>
+        <SecondaryButton>Secondary button</SecondaryButton>
       </ComponentGrid>
       <ComponentGrid>
         <Button disabled>Base button</Button>
-        <PrimaryButton disabled>Themed button</PrimaryButton>
-        <SecondaryButton disabled>Themed button</SecondaryButton>
+        <PrimaryButton disabled>Primary button</PrimaryButton>
+        <SecondaryButton disabled>Secondary button</SecondaryButton>
       </ComponentGrid>
     </div>
   )

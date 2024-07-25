@@ -1,45 +1,124 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
+import { cssCustomPropertyName } from '../../utils'
 
-const Wrapper = styled.dialog`
-  border: none;
-  border-radius: var(--base-dialog-border-radius, var(--base-border-radius, 8px));
-  max-width: calc(100vw - 20px);
-  padding: 0;
-  transition:
-    display var(--base-dialog-animation-time, var(--base-animation-time-xl, 0.4s)) ease-out
-      allow-discrete,
-    opacity var(--base-dialog-animation-time, var(--base-animation-time-xl, 0.4s)) ease-out,
-    overlay var(--base-dialog-animation-time, var(--base-animation-time-xl, 0.4s)) ease-out
-      allow-discrete;
-
-  &::backdrop {
+/**
+ * @name Wrapper
+ *
+ * @description Dialog main wrapper component
+ *
+ * @param {string} [$variant] - Optional component variant.
+ */
+const Wrapper = styled.dialog<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    border: none;
+    border-radius: var(
+      ${cssCustomPropertyName({
+        componentName: 'dialog',
+        componentVariant: $variant,
+        customPropertyName: 'border-radius',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-border-radius, 8px)
+    );
+    max-width: calc(100vw - 20px);
+    padding: 0;
     transition:
-      background-color
-        var(--base-dialog-overlay-animation-time, var(--base-animation-time-sm, 0.2s)),
-      display var(--base-dialog-overlay-animation-time, var(--base-animation-time-sm, 0.2s))
-        allow-discrete,
-      overlay var(--base-dialog-overlay-animation-time, var(--base-animation-time-sm, 0.2s))
-        allow-discrete;
-  }
-
-  &[open] {
-    opacity: 1;
+      display
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'dialog',
+            componentVariant: $variant,
+            customPropertyName: 'animation-time',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-animation-time-xl, 0.4s)
+        )
+        ease-out allow-discrete,
+      opacity
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'dialog',
+            componentVariant: $variant,
+            customPropertyName: 'animation-time',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-animation-time-xl, 0.4s)
+        )
+        ease-out,
+      overlay
+        var(
+          ${cssCustomPropertyName({
+            componentName: 'dialog',
+            componentVariant: $variant,
+            customPropertyName: 'animation-time',
+            customPropertyPrefix: 'base',
+          })},
+          var(--base-animation-time-xl, 0.4s)
+        )
+        ease-out allow-discrete;
 
     &::backdrop {
-      background-color: var(--theme-dialog-background-color, rgb(0 0 0 / 25%));
+      transition:
+        background-color
+          var(
+            ${cssCustomPropertyName({
+              componentName: 'dialog',
+              componentVariant: $variant,
+              customPropertyName: 'animation-time',
+              customPropertyPrefix: 'base',
+            })},
+            var(--base-animation-time-sm, 0.2s)
+          ),
+        display
+          var(
+            ${cssCustomPropertyName({
+              componentName: 'dialog',
+              componentVariant: $variant,
+              customPropertyName: 'animation-time',
+              customPropertyPrefix: 'base',
+            })},
+            var(--base-animation-time-sm, 0.2s)
+          )
+          allow-discrete,
+        overlay
+          var(
+            ${cssCustomPropertyName({
+              componentName: 'dialog',
+              componentVariant: $variant,
+              customPropertyName: 'animation-time',
+              customPropertyPrefix: 'base',
+            })},
+            var(--base-animation-time-sm, 0.2s)
+          )
+          allow-discrete;
     }
-  }
 
-  /* Transitions will start in these states */
-  @starting-style {
     &[open] {
-      opacity: 0;
+      opacity: 1;
 
       &::backdrop {
-        background-color: rgb(0 0 0 / 0%);
+        background-color: var(
+          ${cssCustomPropertyName({
+            componentName: 'dialog',
+            componentVariant: $variant,
+            customPropertyName: 'overlay-color',
+          })},
+          rgb(0 0 0 / 25%)
+        );
       }
     }
-  }
+
+    /* Transitions will start in these states */
+    @starting-style {
+      &[open] {
+        opacity: 0;
+
+        &::backdrop {
+          background-color: rgb(0 0 0 / 0%);
+        }
+      }
+    }
+  `}
 `
 
 export default Wrapper

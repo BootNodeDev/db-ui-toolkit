@@ -1,27 +1,49 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
+import { cssCustomPropertyName } from '../utils'
 
 /**
- * Text component
+ * @name Text
  *
- * Theme CSS variables:
+ * @description Text component
  *
- * * --theme-color-text: Text color.
+ * @param {string} [$variant] - Optional component variant.
  *
- * Base CSS variables:
+ * **Theme CSS variables:**
  *
- * * --base-text-font-size: Text font size.
+ * - `--theme-color-text`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-text-font-size`
  */
-const Text = styled.p`
-  color: var(--theme-color-text, #000);
-  font-size: var(--base-text-font-size, 16px);
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0 0 calc(var(--base-gap, 8px) * 2);
-  max-width: 100%;
+const Text = styled.p<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'text',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #4b4d60
+    );
+    font-size: var(
+      ${cssCustomPropertyName({
+        componentName: 'text',
+        componentVariant: $variant,
+        customPropertyName: 'font-size',
+        customPropertyPrefix: 'base',
+      })},
+      1.6rem
+    );
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 var(--base-gap-xl, 16px);
+    max-width: 100%;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  `}
 `
 
 export default Text

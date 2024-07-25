@@ -1,7 +1,9 @@
 import { styled } from 'styled-components'
 
 /**
- * Main wrapper component
+ * @name Wrapper
+ *
+ * @description Main wrapper component
  */
 const Wrapper = styled.div`
   display: flex;

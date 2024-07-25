@@ -6,13 +6,13 @@ import { ComponentGrid } from '../helpers'
 import { CopyButton, ExternalLink, Title } from '../../index'
 
 const CopyButtonText = styled(CopyButton)`
-  --copy-button-color: #8b46a4;
-  --copy-button-color-hover: #2e3048;
+  --theme-copy-button-color: #8b46a4;
+  --theme-copy-button-color-hover: #2e3048;
 `
 
 const ExternalLinkText = styled(ExternalLink)`
-  --external-link-button-color: #8b46a4;
-  --external-link-button-color-hover: #2e3048;
+  --theme-external-link-button-color: #8b46a4;
+  --theme-external-link-button-color-hover: #2e3048;
 `
 
 const CopyButtonExternalLinkButtonDemo = () => {

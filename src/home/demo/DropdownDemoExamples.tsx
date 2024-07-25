@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState, useMemo } from 'react'
 import { styled } from 'styled-components'
 import { PrimaryButton, SecondaryButton } from './ButtonsDemo'
 import {
-  ActionStates,
   Button,
   Card,
   Dropdown,
@@ -19,7 +18,7 @@ const Item = styled(BaseItem)`
 const CustomDropdownItem = styled(Card)`
   --theme-card-background-color: #8b46a4;
   --theme-card-border-color: #8b46a4;
-  --theme-color-text: #fff;
+  --theme-text-color: #fff;
 
   width: 350px;
 `
@@ -47,7 +46,6 @@ const DropdownDemoExamples = () => {
       },
       {
         text: 'Today',
-        $state: 'ok' as ActionStates,
         onClick: () => {
           console.log('Today action')
         },
@@ -71,7 +69,6 @@ const DropdownDemoExamples = () => {
       text: 'Close',
     },
     {
-      $state: 'danger' as ActionStates,
       onClick: () => console.log('Delete action'),
       text: 'Delete',
     },
@@ -129,9 +126,9 @@ const DropdownDemoExamples = () => {
               <span>▾</span>
             </PrimaryButton>
           }
-          items={filterItems.map(({ text, $state, onClick }, index) => {
+          items={filterItems.map(({ text, onClick }, index) => {
             return (
-              <Item key={index} $state={$state} onClick={onClick}>
+              <Item key={index} onClick={onClick}>
                 {text}
               </Item>
             )
@@ -151,9 +148,9 @@ const DropdownDemoExamples = () => {
             </SecondaryButton>
           }
           highlightActiveItem={false}
-          items={fileItems.map(({ text, $state, onClick, disabled }, index) => {
+          items={fileItems.map(({ text, onClick, disabled }, index) => {
             return (
-              <Item key={index} onClick={onClick} $state={$state} disabled={disabled}>
+              <Item key={index} onClick={onClick} disabled={disabled}>
                 {text}
               </Item>
             )

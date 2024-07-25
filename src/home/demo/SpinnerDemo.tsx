@@ -9,7 +9,7 @@ const SpinnerDemo = () => {
       <Title>Spinner</Title>
       <ComponentGrid>
         <Spinner />
-        <Spinner width={25} height={25} />
+        <Spinner $size={25} />
       </ComponentGrid>
     </div>
   )

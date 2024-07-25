@@ -17,8 +17,9 @@ export interface DialogProps extends Omit<HTMLAttributes<HTMLDialogElement>, 'id
 }
 
 interface Props extends DialogProps {
-  onClose: () => void
+  $variant?: string
   isOpen: boolean
+  onClose: () => void
 }
 
 /**
@@ -31,14 +32,16 @@ interface Props extends DialogProps {
  * @param {boolean} [closeOnOutsideClick=true] - Whether the dialog should close when clicked outside of it. Defaults to true.
  * @param {boolean} isOpen - Whether the dialog is open.
  * @param {() => void} onClose - A callback function triggered when the dialog is closed.
+ * @param {string} [$variant] - The variant of the dialog.
  *
- * **Base CSS Variables for `Dialog` Component**
+ * **Base CSS variables**
  *
  * - `--base-dialog-border-radius` (set it the same as the children's in open(children) or the radius of the children will be ignored)
  * - `--base-dialog-overlay-animation-time`
  * - `--base-dialog-animation-time`
  */
 const Dialog: FC<Props> = ({
+  $variant,
   children,
   onClose,
   closeOnEscape = true,
@@ -95,6 +98,7 @@ const Dialog: FC<Props> = ({
 
   return (
     <Wrapper
+      $variant={$variant}
       onCancel={handleCancel}
       onClick={closeOnOutsideClick ? handleOutsideClick : undefined}
       onKeyDown={handleKeyDown}

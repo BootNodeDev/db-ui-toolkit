@@ -1,6 +1,7 @@
 import React, { ReactElement, SVGProps, HTMLAttributes } from 'react'
 import { styled, css } from 'styled-components'
 import { breakpointMediaQuery } from '../utils/breakpoints'
+import { cssCustomPropertyName } from '../utils'
 
 const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
@@ -32,83 +33,193 @@ const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.div`
-  --base-generic-error-width-default: 400px;
+const Wrapper = styled.div<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    align-items: center;
+    background-color: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error',
+        componentVariant: $variant,
+        customPropertyName: 'background-color',
+      })},
+      #fff
+    );
+    border-radius: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error',
+        componentVariant: $variant,
+        customPropertyName: 'border-radius',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-border-radius, 8px)
+    );
+    border: 1px solid
+      var(
+        ${cssCustomPropertyName({
+          componentName: 'general-error',
+          componentVariant: $variant,
+          customPropertyName: 'border-color',
+        })},
+        #fff
+      );
+    box-shadow: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error',
+        componentVariant: $variant,
+        customPropertyName: 'box-shadow',
+      })},
+      0 0 20px 0 rgb(0 0 0 / 8%)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    min-width: 400px;
+    padding: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error',
+        componentVariant: $variant,
+        customPropertyName: 'padding',
+        customPropertyPrefix: 'base',
+      })},
+      calc(var(--base-common-padding-xl, 16px) * 2) var(--base-common-padding-xl, 16px)
+    );
+    row-gap: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error',
+        componentVariant: $variant,
+        customPropertyName: 'row-gap',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-gap-xl, 16px)
+    );
+    white-space: normal;
 
-  align-items: center;
-  background-color: var(--theme-generic-error-background-color, #fff);
-  border-radius: var(--base-border-radius, 8px);
-  border: 1px solid var(--theme-generic-error-border-color, #fff);
-  box-shadow: var(--theme-generic-error-box-shadow, 0 9.6px 13px 0 rgb(0 0 0 / 8%));
-  display: flex;
-  flex-direction: column;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 100%;
-  min-width: var(--base-generic-error-width, var(--base-generic-error-width-default));
-  padding: calc(var(--base-common-padding, 8px) * 4) var(--base-common-padding-xl, 16px);
-  row-gap: calc(var(--base-gap, 8px) * 2);
-  white-space: normal;
-
-  ${breakpointMediaQuery(
-    'tabletPortraitStart',
-    css`
-      max-width: var(--base-generic-error-width, var(--base-generic-error-width-default));
-    `,
-  )}
+    ${breakpointMediaQuery(
+      'tabletPortraitStart',
+      css`
+        max-width: 400px;
+      `,
+    )}
+  `}
 `
 
-const Icon = styled.div`
-  color: var(--theme-generic-error-color-icon, #800);
-  display: flex;
-  justify-content: center;
+const Icon = styled.div<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error-icon',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #800
+    );
+    display: flex;
+    justify-content: center;
+  `}
 `
 
-const Title = styled.h1`
-  color: var(--theme-generic-error-color-title, #2e3048);
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0;
-  padding-bottom: var(--base-common-padding, 8px);
-  text-align: center;
-  word-break: break-word;
+const Title = styled.h1<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error-title',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #2e3048
+    );
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    text-align: center;
+    word-break: break-word;
+  `}
 `
 
-const Message = styled.div`
-  background-color: var(--theme-generic-error-color-message-background, #f8f8f8);
-  border-radius: var(--base-border-radius, 8px);
-  color: var(--theme-generic-error-color-text, #4b4d60);
-  display: flex;
-  flex-direction: column;
-  font-size: var(--base-text-font-size, 1.6rem);
-  font-weight: 400;
-  line-height: 1.4;
-  max-height: 250px;
-  overflow: auto;
-  padding: calc(var(--base-common-padding, 8px) * 2);
-  position: relative;
-  row-gap: calc(var(--base-gap, 8px) * 3);
-  width: 100%;
-  word-break: break-word;
+const Message = styled.div<{ $variant?: string }>`
+  ${({ $variant }) => css`
+    background-color: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error-message',
+        componentVariant: $variant,
+        customPropertyName: 'background-color',
+      })},
+      #f8f8f8
+    );
+    border-radius: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error-message',
+        componentVariant: $variant,
+        customPropertyName: 'border-radius',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-border-radius, 8px)
+    );
+    color: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error-message',
+        componentVariant: $variant,
+        customPropertyName: 'color',
+      })},
+      #4b4d60
+    );
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    max-height: 250px;
+    overflow: auto;
+    padding: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error-message',
+        componentVariant: $variant,
+        customPropertyName: 'padding',
+        customPropertyPrefix: 'base',
+      })},
+      var(--base-common-padding-xl, 16px)
+    );
+    position: relative;
+    row-gap: var(
+      ${cssCustomPropertyName({
+        componentName: 'general-error-message',
+        componentVariant: $variant,
+        customPropertyName: 'row-gap',
+        customPropertyPrefix: 'base',
+      })},
+      calc(var(--base-gap, 8px) * 3)
+    );
+    width: 100%;
+    word-break: break-word;
 
-  p,
-  pre {
-    margin: 0;
-    font-size: inherit;
-  }
-
-  a {
-    color: var(--theme-generic-error-color-text);
-    text-decoration: underline;
-
-    &:hover {
-      text-decoration: none;
+    p,
+    pre {
+      margin: 0;
+      font-size: inherit;
     }
-  }
+
+    a {
+      color: var(
+        ${cssCustomPropertyName({
+          componentName: 'general-error-message',
+          componentVariant: $variant,
+          customPropertyName: 'color',
+        })},
+        #4b4d60
+      );
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  `}
 `
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  $variant?: string
   actionButton?: ReactElement<HTMLButtonElement>
   icon?: ReactElement
   message?: string | ReactElement
@@ -116,34 +227,48 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * General error component.
+ * @name GeneralError
+ *
+ * @description General error component.
  *
  * @param {ReactElement<HTMLButtonElement>} [actionButton] - Optional action button. Can be used to reload the page, redirect the user somewhere, etc.
  * @param {Array<ReactElement> | ReactElement} [icon] - Optional icon to display. Default is an alert icon.
  * @param {string | ReactElement} [message] - Optional message to display. Default is 'Something went wrong.'
  * @param {string} [title] - Optional title to display. Default is 'Error'.
+ * @param {string} [$variant] - Optional component variant.
  *
- * Theme CSS variables:
+ * **Theme CSS variables:**
  *
- * * --theme-generic-error-background-color: Background color of the container.
- * * --theme-generic-error-border-color: Border color of the container.
- * * --theme-generic-error-box-shadow: Box shadow of the container.
- * * --theme-generic-error-color-icon: Color of the icon (only works for fill="currentColor").
- * * --theme-generic-error-color-title: Color of the title.
- * * --theme-generic-error-color-text: Color of the text message.
- * * --theme-generic-error-color-message-background: Background color of the text message.
+ * - `--theme-general-error-background-color`
+ * - `--theme-general-error-border-color`
+ * - `--theme-general-error-box-shadow`
+ * - `--theme-general-error-color-icon`
+ * - `--theme-general-error-color-title`
+ * - `--theme-general-error-color-text`
+ * - `--theme-general-error-color-message-background`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-general-error-border-radius`
+ * - `--base-general-error-padding`
+ * - `--base-general-error-row-gap`
+ * - `--base-general-error-message-border-radius`
+ * - `--base-general-error-message-padding`
+ * - `--base-general-error-message-row-gap`
+ * - `--base-general-error-box-shadow`
  */
 const GeneralError: React.FC<Props> = ({
   actionButton,
   icon = <AlertIcon />,
   message = 'Something went wrong.',
   title = 'Error',
+  $variant,
   ...restProps
 }) => {
   return (
-    <Wrapper {...restProps}>
-      <Icon>{icon}</Icon>
-      <Title>{title}</Title>
+    <Wrapper $variant={$variant} {...restProps}>
+      <Icon $variant={$variant}>{icon}</Icon>
+      <Title $variant={$variant}>{title}</Title>
       <Message>{message}</Message>
       {actionButton}
     </Wrapper>

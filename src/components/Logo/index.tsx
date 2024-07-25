@@ -18,7 +18,9 @@ const Wrapper = styled.img.attrs(({ alt = 'Logo' }) => ({
 `
 
 /**
- * Default Logo component
+ * @name Logo
+ *
+ * @description Default dAppBooster logo
  */
 const Logo: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ ...restProps }) => (
   <Wrapper {...restProps} />

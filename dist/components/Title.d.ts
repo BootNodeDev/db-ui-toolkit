@@ -1,14 +1,20 @@
 /// <reference types="react" />
 /**
- * Title component
+ * @name Title
  *
- * Theme CSS variables:
+ * @description Title component
  *
- * * --theme-color-title: Title text color.
+ * @param {string} [$variant] - Optional component variant.
  *
- * Base CSS variables:
+ * **Theme CSS variables:**
  *
- * * --base-title-font-size: Title font size.
+ * - `--theme-color-title`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-title-font-size`
  */
-declare const Title: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>, never>> & string;
+declare const Title: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>, {
+    $variant?: string | undefined;
+}>> & string;
 export default Title;

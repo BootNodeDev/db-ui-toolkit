@@ -14,19 +14,46 @@ export declare const ActiveButtonCSS: import("styled-components").RuleSet<object
 /**
  * Common button styles
  */
-export declare const ButtonCSS: import("styled-components").RuleSet<object>;
+export declare const ButtonCSS: import("styled-components").RuleSet<{
+    $variant?: string | undefined;
+}>;
 /**
- * Common button
- *
- * Base CSS variables:
- *
- * * --base-button-border-radius: Button border radius.
- * * --base-button-font-size: Button font size.
- * * --base-button-gap: Button column gap.
- * * --base-button-height: Button height.
- * * --base-button-padding: Button padding.
+ * Themed button colors
  */
-declare const Button: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Omit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
+export declare const ButtonVariantCSS: import("styled-components").RuleSet<{
+    $variant?: string | undefined;
+}>;
+export interface Props {
+    $variant?: string;
+}
+/**
+ * @name Button
+ *
+ * @description Customizable button
+ *
+ * @param {string} [$variant] - Optional component variant.
+ *
+ * **Theme CSS variables:**
+ *
+ * - `--theme-button-background-color`
+ * - `--theme-button-background-color-hover`
+ * - `--theme-button-border-color`
+ * - `--theme-button-border-color-hover`
+ * - `--theme-button-color`
+ * - `--theme-button-color-hover`
+ * - `--theme-button-background-color-disabled`
+ * - `--theme-button-border-color-disabled`
+ * - `--theme-button-color-disabled`
+ *
+ * **Base CSS variables:**
+ *
+ * - `--base-button-border-radius`
+ * - `--base-button-font-family`
+ * - `--base-button-column-gap`
+ * - `--base-button-padding`
+ * - `--base-button-transition-duration`
+ */
+declare const Button: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, Omit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
     ref?: ((instance: HTMLButtonElement | null) => void) | import("react").RefObject<HTMLButtonElement> | null | undefined;
-}>, never>, never>> & string;
+}>, Props>, never>> & string;
 export default Button;

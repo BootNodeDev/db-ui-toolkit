@@ -18,7 +18,7 @@ const Item = styled(BaseItem)`
 const CustomDropdownItem = styled(Card)`
   --theme-card-background-color: #8b46a4;
   --theme-card-border-color: #8b46a4;
-  --theme-color-text: #fff;
+  --theme-text-color: #fff;
 
   width: 350px;
 `

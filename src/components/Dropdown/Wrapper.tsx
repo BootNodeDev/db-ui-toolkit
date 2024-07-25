@@ -12,6 +12,7 @@ export const Wrapper = styled.div.attrs<{
   className: `${$isOpen ? 'isOpen' : ''} dbuitkDropdown`,
   disabled,
 }))`
+  display: flex;
   outline: none;
   position: relative;
   z-index: 0;

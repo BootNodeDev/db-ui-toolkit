@@ -122,7 +122,8 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
         const { onClick, className } = element.props
 
         return cloneElement(element, {
-          className: `${className ? className : ''} ${isOpen ? 'isOpen' : ''}`.trim(),
+          className:
+            `${className ? className : ''} ${isOpen ? 'isOpen' : ''} dbuitkDropdownButton`.trim(),
           onClick: (event: MouseEvent): void => {
             event.stopPropagation()
 

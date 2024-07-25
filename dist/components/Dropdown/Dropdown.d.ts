@@ -21,7 +21,7 @@ export interface Options extends HTMLAttributes<HTMLDivElement>, RefAttributes<D
  * @description A Dropdown component.
  *
  * @param {ReactElement<HTMLButtonElement>} button - The button that opens the dropdown. Must be a button for accessibility reasons.
- * @param {Array<ReactElement> | ReactElement} items - The items of the dropdown, can be an array or a single element.
+ * @param {Array<ReactElement> | ReactElement} items - The items of the dropdown, can be an array or a single element. Items can be either an Item component or any other React element.
  * @param {Direction} [direction='downwards'] - The direction of the dropdown (upwards or downwards). Default is downwards.
  * @param {Position} [position='left'] - The position of the dropdown (left, right or center). Default is left.
  * @param {boolean} [closeOnClick=true] - Close the dropdown when the item is clicked. Default is true.

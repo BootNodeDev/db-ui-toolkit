@@ -35,6 +35,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * - `--base-general-error-message-border-radius`
  * - `--base-general-error-message-padding`
  * - `--base-general-error-message-row-gap`
+ * - `--base-general-error-box-shadow`
  */
 declare const GeneralError: React.FC<Props>;
 export default GeneralError;

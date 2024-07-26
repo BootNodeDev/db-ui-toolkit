@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { type FC, type MouseEventHandler, useEffect, useRef } from 'react'
 import { styled, css } from 'styled-components'
 
 import BaseGeneralError, { Props as GeneralErrorProps } from './GeneralError'
@@ -6,10 +6,10 @@ import { cssCustomPropertyName } from '../utils'
 
 const CloseIcon = ({ ...restProps }) => (
   <svg
-    width="21"
+    fill="none"
     height="21"
     viewBox="0 0 21 21"
-    fill="none"
+    width="21"
     xmlns="http://www.w3.org/2000/svg"
     {...restProps}
   >
@@ -76,7 +76,7 @@ interface Props extends GeneralErrorProps {
  * @param {() => void}  [$onClose] - An optional function to be called when the dialog is closed.
  * @param {boolean}     [$closeOnOutsideClick] - If true, the dialog will close when clicking outside of it. Default is true.
  */
-const GeneralErrorDialog: React.FC<Props> = ({
+const GeneralErrorDialog: FC<Props> = ({
   $closeOnOutsideClick = true,
   $onClose,
   $variant,
@@ -101,7 +101,7 @@ const GeneralErrorDialog: React.FC<Props> = ({
     $onClose?.()
   }
 
-  const handleClickOutside: React.MouseEventHandler<HTMLDialogElement> = (event) => {
+  const handleClickOutside: MouseEventHandler<HTMLDialogElement> = (event) => {
     if (dialogRef.current && event.target === dialogRef.current && $closeOnOutsideClick) {
       handleClose()
     }

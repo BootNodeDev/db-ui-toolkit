@@ -1,4 +1,4 @@
-import React, {
+import {
   type KeyboardEventHandler,
   type ReactEventHandler,
   type FC,
@@ -43,10 +43,10 @@ interface Props extends DialogProps {
 const Dialog: FC<Props> = ({
   $variant,
   children,
-  onClose,
   closeOnEscape = true,
   closeOnOutsideClick = true,
   isOpen,
+  onClose,
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null)
 

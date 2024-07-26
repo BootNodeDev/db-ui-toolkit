@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import { type FC, type ButtonHTMLAttributes } from 'react';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 /**
@@ -8,5 +8,5 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  *
  * @param {MouseEventHandler<HTMLButtonElement>} onClick - Function that switches the theme.
  */
-declare const SwitchThemeButton: React.FC<Props>;
+declare const SwitchThemeButton: FC<Props>;
 export default SwitchThemeButton;

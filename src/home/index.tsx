@@ -1,9 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-restricted-imports
 import React, { useState } from 'react'
-import { createRoot } from 'react-dom/client'
 import { styled } from 'styled-components'
 
-import { GlobalStyles } from './GlobalStyles'
+import { createRoot } from 'react-dom/client'
 
+import { GlobalStyles } from './GlobalStyles'
 import ButtonsDemo from './demo/ButtonsDemo'
 import CardDemo from './demo/CardDemo'
 import CopyButtonExternalLinkButtonDemo from './demo/CopyButtonExternalLinkButtonDemo'
@@ -14,7 +15,6 @@ import SpinnerDemo from './demo/SpinnerDemo'
 import TextDemo from './demo/TextDemo'
 import TextfieldDemo from './demo/TextfieldDemo'
 import ToastDemo from './demo/ToastDemo'
-
 import {
   ContainerPadding,
   Footer as BaseFooter,

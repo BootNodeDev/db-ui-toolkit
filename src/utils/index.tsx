@@ -23,10 +23,10 @@ export interface VarName {
  *
  */
 export const cssCustomPropertyName = ({
-  customPropertyPrefix = 'theme',
   componentName,
   componentVariant,
   customPropertyName,
+  customPropertyPrefix = 'theme',
 }: VarName) => {
   return `--${customPropertyPrefix}-${componentName}-${componentVariant === undefined ? '' : componentVariant + '-'}${customPropertyName}`
 }

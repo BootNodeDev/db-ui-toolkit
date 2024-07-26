@@ -1,4 +1,4 @@
-import React from 'react';
+import { type FC } from 'react';
 import { Props as GeneralErrorProps } from './GeneralError';
 interface Props extends GeneralErrorProps {
     $closeOnOutsideClick?: boolean;
@@ -12,5 +12,5 @@ interface Props extends GeneralErrorProps {
  * @param {() => void}  [$onClose] - An optional function to be called when the dialog is closed.
  * @param {boolean}     [$closeOnOutsideClick] - If true, the dialog will close when clicking outside of it. Default is true.
  */
-declare const GeneralErrorDialog: React.FC<Props>;
+declare const GeneralErrorDialog: FC<Props>;
 export default GeneralErrorDialog;

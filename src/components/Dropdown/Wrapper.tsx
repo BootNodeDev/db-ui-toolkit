@@ -8,7 +8,7 @@ import { styled } from 'styled-components'
 export const Wrapper = styled.div.attrs<{
   $isOpen: boolean
   disabled?: boolean
-}>(({ disabled = false, $isOpen = false }) => ({
+}>(({ $isOpen = false, disabled = false }) => ({
   className: `${$isOpen ? 'isOpen' : ''} dbuitkDropdown`,
   disabled,
 }))`

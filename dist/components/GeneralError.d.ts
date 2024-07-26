@@ -1,4 +1,4 @@
-import React, { ReactElement, HTMLAttributes } from 'react';
+import { type FC, type ReactElement, type HTMLAttributes } from 'react';
 export interface Props extends HTMLAttributes<HTMLDivElement> {
     $variant?: string;
     actionButton?: ReactElement<HTMLButtonElement>;
@@ -37,5 +37,5 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * - `--base-general-error-message-row-gap`
  * - `--base-general-error-box-shadow`
  */
-declare const GeneralError: React.FC<Props>;
+declare const GeneralError: FC<Props>;
 export default GeneralError;

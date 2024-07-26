@@ -22,6 +22,8 @@
     "demo": "webpack --config webpack.demo.config.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix .",
+    "stylelint": "stylelint .",
+    "stylelint:fix": "stylelint --fix .",
     "prettier": "prettier --write 'src/**/*.{ts,tsx,css}'"
   },
   "dependencies": {
@@ -44,7 +46,10 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-sort-destructure-keys": "^2.0.0",
+    "postcss-styled-syntax": "^0.6.4",
     "prettier": "^3.2.5",
+    "stylelint": "^16.7.0",
+    "stylelint-config-standard": "^36.0.1",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
     "url-loader": "^4.1.1",

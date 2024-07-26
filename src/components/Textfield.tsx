@@ -339,15 +339,16 @@ export const TextfieldCSS = css<Props>`
 
     &[type='number'] {
       appearance: textfield;
+
       ::-webkit-inner-spin-button,
       ::-webkit-outer-spin-button {
-        -webkit-appearance: none;
+        appearance: none;
         margin: 0;
       }
     }
 
     &::-webkit-search-decoration {
-      -webkit-appearance: none;
+      appearance: none;
     }
   `}
 `

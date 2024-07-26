@@ -157,6 +157,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
         const isItemActive = (typeof index === 'number' && index === activeItem) || false
 
         return cloneElement(element, {
+          key: `dropdown_item_${index}`,
           className:
             `${className ? className : ''} ${isItemActive && highlightActiveItem ? 'dropdownItemActive' : ''}`.trim(),
           onClick: (event: MouseEvent): void => {

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,5 +13,5 @@
     "target": "ES6"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "demo", "src/home"]
+  "exclude": ["node_modules", "dist", "demo", "src/home/**/*"]
 }

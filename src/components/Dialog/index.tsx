@@ -1,4 +1,4 @@
-import React, {
+import {
   type KeyboardEventHandler,
   type ReactEventHandler,
   type FC,

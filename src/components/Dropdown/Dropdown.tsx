@@ -1,4 +1,4 @@
-import React, {
+import {
   cloneElement,
   createRef,
   forwardRef,
@@ -12,9 +12,9 @@ import React, {
   useState,
 } from 'react'
 
-import { Direction, Position } from './index'
-import { Wrapper } from './Wrapper'
 import Items, { BaseItems } from './Items'
+import { Wrapper } from './Wrapper'
+import { Direction, Position } from './index'
 
 export interface DropdownExposedProps {
   close: () => void
@@ -192,11 +192,11 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
       <Wrapper $isOpen={isOpen} disabled={disabled} ref={node} {...restProps}>
         {hydrateButton(button)}
         <BaseItems
-          as={!Array.isArray(items) ? undefined : Items}
           $direction={direction}
-          $position={position}
           $isOpen={isOpen}
+          $position={position}
           $variant={$variant}
+          as={!Array.isArray(items) ? undefined : Items}
         >
           {Array.isArray(items)
             ? items.map((item: ReactElement, index) => hydrateItem(item, index))

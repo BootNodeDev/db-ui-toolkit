@@ -1,4 +1,4 @@
-import React, { type FC, useCallback, useState } from 'react'
+import { type FC, useCallback, useState } from 'react'
 
 import Dialog, { DialogProps } from '../components/Dialog'
 

@@ -1,4 +1,4 @@
-import React, { type FC, useRef, useCallback } from 'react'
+import { type FC, useRef, useCallback } from 'react'
 
 import Dropdown, { type DropdownExposedProps, type Options } from '../components/Dropdown/Dropdown'
 

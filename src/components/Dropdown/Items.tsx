@@ -1,4 +1,5 @@
 import { styled, css } from 'styled-components'
+
 import { Direction, Position } from './index'
 import { cssCustomPropertyName } from '../../utils'
 

@@ -22,4 +22,4 @@ export interface VarName {
  * // Output: --base-button-primary-border-radius
  *
  */
-export declare const cssCustomPropertyName: ({ customPropertyPrefix, componentName, componentVariant, customPropertyName, }: VarName) => string;
+export declare const cssCustomPropertyName: ({ componentName, componentVariant, customPropertyName, customPropertyPrefix, }: VarName) => string;

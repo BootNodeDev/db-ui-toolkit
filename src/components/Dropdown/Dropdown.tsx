@@ -6,6 +6,7 @@ import {
   type HTMLAttributes,
   type ReactElement,
   type RefAttributes,
+  Fragment,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -157,7 +158,6 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
         const isItemActive = (typeof index === 'number' && index === activeItem) || false
 
         return cloneElement(element, {
-          key: `dropdown_item_${index}`,
           className:
             `${className ? className : ''} ${isItemActive && highlightActiveItem ? 'dropdownItemActive' : ''}`.trim(),
           onClick: (event: MouseEvent): void => {
@@ -199,9 +199,15 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
           $variant={$variant}
           as={!Array.isArray(items) ? undefined : Items}
         >
-          {Array.isArray(items)
-            ? items.map((item: ReactElement, index) => hydrateItem(item, index))
-            : hydrateItem(items)}
+          <Fragment>
+            {Array.isArray(items) ? (
+              items.map((item: ReactElement, index) => (
+                <Fragment key={`item_${index}`}>{hydrateItem(item, index)}</Fragment>
+              ))
+            ) : (
+              <Fragment key={`item_single`}>{hydrateItem(items)}</Fragment>
+            )}
+          </Fragment>
         </BaseItems>
       </Wrapper>
     )

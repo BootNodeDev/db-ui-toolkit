@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import { type FC, type SVGProps } from 'react';
 interface Props extends SVGProps<SVGSVGElement> {
     $strokeWidth?: string;
     $variant?: string;
@@ -21,5 +21,5 @@ interface Props extends SVGProps<SVGSVGElement> {
  *
  * - `--base-spinner-animation-time`
  */
-declare const Spinner: React.FC<Props>;
+declare const Spinner: FC<Props>;
 export default Spinner;

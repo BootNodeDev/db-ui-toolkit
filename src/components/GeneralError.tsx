@@ -258,11 +258,11 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * - `--base-general-error-box-shadow`
  */
 const GeneralError: React.FC<Props> = ({
+  $variant,
   actionButton,
   icon = <AlertIcon />,
   message = 'Something went wrong.',
   title = 'Error',
-  $variant,
   ...restProps
 }) => {
   return (

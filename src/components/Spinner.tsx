@@ -58,7 +58,7 @@ interface Props extends SVGProps<SVGSVGElement> {
  *
  * - `--base-spinner-animation-time`
  */
-const Spinner: React.FC<Props> = ({ $variant, $strokeWidth = 8, $size = 50, ...restProps }) => (
+const Spinner: React.FC<Props> = ({ $size = 50, $strokeWidth = 8, $variant, ...restProps }) => (
   <Wrapper
     $variant={$variant}
     viewBox="0 0 50 50"

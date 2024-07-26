@@ -34,7 +34,7 @@ export interface Props {
  *
  */
 const Item = styled.div.attrs<Props>(
-  ({ tabIndex = 0, className = 'dbuitkDropdownItem', disabled = false }) => ({
+  ({ className = 'dbuitkDropdownItem', disabled = false, tabIndex = 0 }) => ({
     className,
     disabled,
     tabIndex,

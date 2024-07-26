@@ -10,7 +10,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint', 'react', 'import', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'import', 'prettier', 'sort-destructure-keys'],
   ignorePatterns: [
     'dist',
     'demo',
@@ -36,5 +36,6 @@ module.exports = {
     'prettier/prettier': ['error'],
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'sort-destructure-keys/sort-destructure-keys': 'error',
   },
 }

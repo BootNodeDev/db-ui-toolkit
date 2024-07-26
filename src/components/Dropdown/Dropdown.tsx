@@ -119,7 +119,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
      */
     const hydrateButton = useCallback(
       (element: ReactElement): ReactElement => {
-        const { onClick, className } = element.props
+        const { className, onClick } = element.props
 
         return cloneElement(element, {
           className:
@@ -150,7 +150,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
      */
     const hydrateItem = useCallback(
       (element: ReactElement, index?: number): ReactElement => {
-        const { onClick, className } = element.props
+        const { className, onClick } = element.props
         /**
          * Checks if the dropdown item is active
          */

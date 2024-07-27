@@ -1,4 +1,4 @@
-import { styled, css } from 'styled-components'
+import React, { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '../utils'
 

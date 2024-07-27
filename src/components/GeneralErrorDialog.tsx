@@ -1,4 +1,4 @@
-import { type FC, type MouseEventHandler, useEffect, useRef } from 'react'
+import React, { type FC, type MouseEventHandler, useEffect, useRef } from 'react'
 import { styled, css } from 'styled-components'
 
 import BaseGeneralError, { Props as GeneralErrorProps } from './GeneralError'

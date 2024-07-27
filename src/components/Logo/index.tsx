@@ -1,4 +1,4 @@
-import { type FC, type ImgHTMLAttributes } from 'react'
+import React, { type FC, type ImgHTMLAttributes } from 'react'
 import { styled } from 'styled-components'
 
 import LogoDark from './assets/logo-dark.svg'

@@ -1,4 +1,4 @@
-import React, { ReactElement, HTMLAttributes } from 'react';
+import React, { type ReactElement, type HTMLAttributes } from 'react';
 export interface Props extends HTMLAttributes<HTMLDivElement> {
     $variant?: string;
     actionButton?: ReactElement<HTMLButtonElement>;

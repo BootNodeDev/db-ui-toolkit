@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { type ButtonHTMLAttributes } from 'react'
 import { styled, css, keyframes } from 'styled-components'
 
 import Dark from './assets/Dark'

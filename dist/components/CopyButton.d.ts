@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { type ButtonHTMLAttributes } from 'react';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     value: string;
     $variant?: string;

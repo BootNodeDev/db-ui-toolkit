@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import React, { type SVGProps } from 'react';
 interface Props extends SVGProps<SVGSVGElement> {
     $strokeWidth?: string;
     $variant?: string;

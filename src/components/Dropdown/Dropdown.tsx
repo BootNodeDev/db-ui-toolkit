@@ -6,15 +6,16 @@ import React, {
   type HTMLAttributes,
   type ReactElement,
   type RefAttributes,
+  Fragment,
   useCallback,
   useEffect,
   useImperativeHandle,
   useState,
 } from 'react'
 
-import { Direction, Position } from './index'
-import { Wrapper } from './Wrapper'
 import Items, { BaseItems } from './Items'
+import { Wrapper } from './Wrapper'
+import { Direction, Position } from './index'
 
 export interface DropdownExposedProps {
   close: () => void
@@ -119,7 +120,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
      */
     const hydrateButton = useCallback(
       (element: ReactElement): ReactElement => {
-        const { onClick, className } = element.props
+        const { className, onClick } = element.props
 
         return cloneElement(element, {
           className:
@@ -150,7 +151,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
      */
     const hydrateItem = useCallback(
       (element: ReactElement, index?: number): ReactElement => {
-        const { onClick, className } = element.props
+        const { className, onClick } = element.props
         /**
          * Checks if the dropdown item is active
          */
@@ -192,15 +193,21 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
       <Wrapper $isOpen={isOpen} disabled={disabled} ref={node} {...restProps}>
         {hydrateButton(button)}
         <BaseItems
-          as={!Array.isArray(items) ? undefined : Items}
           $direction={direction}
-          $position={position}
           $isOpen={isOpen}
+          $position={position}
           $variant={$variant}
+          as={!Array.isArray(items) ? undefined : Items}
         >
-          {Array.isArray(items)
-            ? items.map((item: ReactElement, index) => hydrateItem(item, index))
-            : hydrateItem(items)}
+          <Fragment>
+            {Array.isArray(items) ? (
+              items.map((item: ReactElement, index) => (
+                <Fragment key={`item_${index}`}>{hydrateItem(item, index)}</Fragment>
+              ))
+            ) : (
+              <Fragment key={`item_single`}>{hydrateItem(items)}</Fragment>
+            )}
+          </Fragment>
         </BaseItems>
       </Wrapper>
     )

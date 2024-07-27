@@ -1,4 +1,4 @@
-import { RuleSet } from 'styled-components';
+import { type RuleSet } from 'styled-components';
 /**
  * CSS media queries can't get their values from CSS variables, so we need to
  * define them here as JS constants.

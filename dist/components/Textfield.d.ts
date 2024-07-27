@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { type InputHTMLAttributes } from 'react';
 export type TextfieldStatus = 'error' | 'ok' | undefined;
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
     $status?: TextfieldStatus | undefined;

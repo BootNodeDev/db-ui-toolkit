@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes } from 'react';
+import React, { type AnchorHTMLAttributes } from 'react';
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     $variant?: string;
 }

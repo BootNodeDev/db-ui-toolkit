@@ -1,4 +1,5 @@
 import { styled, css } from 'styled-components'
+
 import { cssCustomPropertyName } from '../../utils'
 
 export interface Props {
@@ -34,7 +35,7 @@ export interface Props {
  *
  */
 const Item = styled.div.attrs<Props>(
-  ({ tabIndex = 0, className = 'dbuitkDropdownItem', disabled = false }) => ({
+  ({ className = 'dbuitkDropdownItem', disabled = false, tabIndex = 0 }) => ({
     className,
     disabled,
     tabIndex,
@@ -158,7 +159,7 @@ const Item = styled.div.attrs<Props>(
           componentVariant: $variant,
           customPropertyName: 'background-color-hover',
         })},
-        rgba(0, 0, 0, 0.05)
+        rgb(0 0 0 / 5%)
       );
       border-color: var(
         ${cssCustomPropertyName({
@@ -186,7 +187,7 @@ const Item = styled.div.attrs<Props>(
           componentVariant: $variant,
           customPropertyName: 'background-color-active',
         })},
-        rgba(0, 0, 0, 0.1)
+        rgb(0 0 0 / 10%)
       );
       border-color: var(
         ${cssCustomPropertyName({

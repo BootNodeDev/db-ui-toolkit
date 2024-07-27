@@ -26,19 +26,17 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:import/recommended',
+    'plugin:react-hooks/recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
   plugins: ['@typescript-eslint', 'import', 'prettier', 'react', 'sort-destructure-keys'],
-
   rules: {
     'prettier/prettier': ['error'],
-    // 'react/prop-types': 'off',
     'import/order': [
       'error',
       {
@@ -61,36 +59,16 @@ module.exports = {
     ],
     'import/named': 'error',
     'import/no-unresolved': 'error',
-    'no-restricted-imports': [
-      'error',
-      {
-        paths: [
-          {
-            name: 'react',
-            importNames: ['default'],
-            message: 'Import React specifically, not as the default export.',
-          },
-        ],
-      },
-    ],
-    'no-restricted-syntax': [
-      'error',
-      {
-        selector: 'MemberExpression[object.name="React"][property.name!="default"]',
-        message: 'Use named imports from "react" instead of React.<property>',
-      },
-    ],
-    'no-restricted-globals': [
-      'error',
-      {
-        name: 'React',
-        message:
-          'Do not use React as a global variable. Import necessary hooks and components individually.',
-      },
-    ],
-    '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        varsIgnorePattern: '^React$',
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+      },
+    ],
     'react-hooks/exhaustive-deps': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react/jsx-filename-extension': [
@@ -100,8 +78,6 @@ module.exports = {
       },
     ],
     'react/jsx-sort-props': 'error',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
     'sort-destructure-keys/sort-destructure-keys': 'error',
   },
 }

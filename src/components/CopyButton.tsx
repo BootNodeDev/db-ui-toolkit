@@ -1,9 +1,9 @@
-import { type FC, type ButtonHTMLAttributes, type MouseEventHandler, type SVGProps } from 'react'
+import React, { type ButtonHTMLAttributes, type MouseEventHandler, type SVGProps } from 'react'
 import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '../utils'
 
-const Copy: FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
+const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
     fill="none"
     height="15"
@@ -154,7 +154,13 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  * - `--base-copy-button-font-family`
  * - `--base-copy-button-transition-duration`
  */
-const CopyButton: FC<Props> = ({ $variant, children = <Copy />, onClick, value, ...restProps }) => {
+const CopyButton: React.FC<Props> = ({
+  $variant,
+  children = <Copy />,
+  onClick,
+  value,
+  ...restProps
+}) => {
   const onCopy: MouseEventHandler<HTMLButtonElement> = (e) => {
     navigator.clipboard.writeText(value)
     onClick && onClick(e)

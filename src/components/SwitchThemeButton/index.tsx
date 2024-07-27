@@ -1,4 +1,4 @@
-import { type FC, type ButtonHTMLAttributes } from 'react'
+import React, { type ButtonHTMLAttributes } from 'react'
 import { styled, css, keyframes } from 'styled-components'
 
 import Dark from './assets/Dark'
@@ -130,7 +130,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
  *
  * @param {MouseEventHandler<HTMLButtonElement>} onClick - Function that switches the theme.
  */
-const SwitchThemeButton: FC<Props> = ({ onClick, ...restProps }) => {
+const SwitchThemeButton: React.FC<Props> = ({ onClick, ...restProps }) => {
   return (
     <Wrapper onClick={onClick} {...restProps}>
       <IconWrapperDark>

@@ -1,9 +1,9 @@
-import { type AnchorHTMLAttributes, type SVGProps, type FC } from 'react'
+import React, { type AnchorHTMLAttributes, type SVGProps } from 'react'
 import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '../utils'
 
-const Link: FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
+const Link: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
     fill="none"
     height="15"
@@ -152,7 +152,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * - `--base-font-family`
  * - `--base-transition-duration-sm`
  */
-const ExternalLink: FC<Props> = ({
+const ExternalLink: React.FC<Props> = ({
   $variant,
   children = <Link />,
   target = '_blank',

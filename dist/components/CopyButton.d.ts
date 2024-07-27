@@ -1,4 +1,4 @@
-import { type FC, type ButtonHTMLAttributes } from 'react';
+import React, { type ButtonHTMLAttributes } from 'react';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     value: string;
     $variant?: string;
@@ -24,5 +24,5 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
  * - `--base-copy-button-font-family`
  * - `--base-copy-button-transition-duration`
  */
-declare const CopyButton: FC<Props>;
+declare const CopyButton: React.FC<Props>;
 export default CopyButton;

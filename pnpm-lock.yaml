@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      path:
-        specifier: ^0.12.7
-        version: 0.12.7
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -60,6 +57,9 @@ importers:
       eslint-plugin-sort-destructure-keys:
         specifier: ^2.0.0
         version: 2.0.0(eslint@8.57.0)
+      path:
+        specifier: ^0.12.7
+        version: 0.12.7
       postcss-styled-syntax:
         specifier: ^0.6.4
         version: 0.6.4(postcss@8.4.40)

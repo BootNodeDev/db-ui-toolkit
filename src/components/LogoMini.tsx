@@ -1,4 +1,4 @@
-import { type FC, type SVGProps } from 'react'
+import React, { type SVGProps } from 'react'
 import { styled } from 'styled-components'
 
 const Wrapper = styled.svg`
@@ -19,7 +19,7 @@ const Wrapper = styled.svg`
  *
  * @description dAppBooster mini logo component
  */
-const LogoMini: FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
+const LogoMini: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <Wrapper
     fill="none"
     height="17"

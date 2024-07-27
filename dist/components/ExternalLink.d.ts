@@ -1,4 +1,4 @@
-import { type AnchorHTMLAttributes, type FC } from 'react';
+import React, { type AnchorHTMLAttributes } from 'react';
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     $variant?: string;
 }
@@ -22,5 +22,5 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * - `--base-font-family`
  * - `--base-transition-duration-sm`
  */
-declare const ExternalLink: FC<Props>;
+declare const ExternalLink: React.FC<Props>;
 export default ExternalLink;

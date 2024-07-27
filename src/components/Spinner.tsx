@@ -1,4 +1,4 @@
-import { type FC, type SVGProps } from 'react'
+import React, { type SVGProps } from 'react'
 import { styled, keyframes, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '../utils'
@@ -59,7 +59,7 @@ interface Props extends SVGProps<SVGSVGElement> {
  *
  * - `--base-spinner-animation-time`
  */
-const Spinner: FC<Props> = ({ $size = 50, $strokeWidth = 8, $variant, ...restProps }) => (
+const Spinner: React.FC<Props> = ({ $size = 50, $strokeWidth = 8, $variant, ...restProps }) => (
   <Wrapper
     $variant={$variant}
     height={`${$size}`}

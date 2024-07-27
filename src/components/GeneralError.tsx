@@ -1,10 +1,10 @@
-import { type FC, type ReactElement, type SVGProps, type HTMLAttributes } from 'react'
+import React, { type ReactElement, type SVGProps, type HTMLAttributes } from 'react'
 import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '../utils'
 import { breakpointMediaQuery } from '../utils/breakpoints'
 
-const AlertIcon: FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
+const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
     fill="none"
     height="80"
@@ -258,7 +258,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * - `--base-general-error-message-row-gap`
  * - `--base-general-error-box-shadow`
  */
-const GeneralError: FC<Props> = ({
+const GeneralError: React.FC<Props> = ({
   $variant,
   actionButton,
   icon = <AlertIcon />,

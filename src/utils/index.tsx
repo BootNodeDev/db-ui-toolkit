@@ -4,6 +4,7 @@ export interface VarName {
   customPropertyName: string
   customPropertyPrefix?: 'theme' | 'base'
 }
+
 /**
  * @name cssCustomPropertyName
  *

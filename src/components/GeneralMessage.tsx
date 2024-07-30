@@ -39,7 +39,7 @@ const Wrapper = styled.div<{ $variant?: string }>`
     align-items: center;
     background-color: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error',
+        componentName: 'general-message',
         componentVariant: $variant,
         customPropertyName: 'background-color',
       })},
@@ -47,7 +47,7 @@ const Wrapper = styled.div<{ $variant?: string }>`
     );
     border-radius: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error',
+        componentName: 'general-message',
         componentVariant: $variant,
         customPropertyName: 'border-radius',
         customPropertyPrefix: 'base',
@@ -57,7 +57,7 @@ const Wrapper = styled.div<{ $variant?: string }>`
     border: 1px solid
       var(
         ${cssCustomPropertyName({
-          componentName: 'general-error',
+          componentName: 'general-message',
           componentVariant: $variant,
           customPropertyName: 'border-color',
         })},
@@ -65,7 +65,7 @@ const Wrapper = styled.div<{ $variant?: string }>`
       );
     box-shadow: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error',
+        componentName: 'general-message',
         componentVariant: $variant,
         customPropertyName: 'box-shadow',
       })},
@@ -78,7 +78,7 @@ const Wrapper = styled.div<{ $variant?: string }>`
     min-width: 400px;
     padding: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error',
+        componentName: 'general-message',
         componentVariant: $variant,
         customPropertyName: 'padding',
         customPropertyPrefix: 'base',
@@ -87,7 +87,7 @@ const Wrapper = styled.div<{ $variant?: string }>`
     );
     row-gap: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error',
+        componentName: 'general-message',
         componentVariant: $variant,
         customPropertyName: 'row-gap',
         customPropertyPrefix: 'base',
@@ -109,7 +109,7 @@ const Icon = styled.div<{ $variant?: string }>`
   ${({ $variant }) => css`
     color: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error-icon',
+        componentName: 'general-message-icon',
         componentVariant: $variant,
         customPropertyName: 'color',
       })},
@@ -124,7 +124,7 @@ const Title = styled.h1<{ $variant?: string }>`
   ${({ $variant }) => css`
     color: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error-title',
+        componentName: 'general-message-title',
         componentVariant: $variant,
         customPropertyName: 'color',
       })},
@@ -143,7 +143,7 @@ const Message = styled.div<{ $variant?: string }>`
   ${({ $variant }) => css`
     background-color: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error-message',
+        componentName: 'general-message-message',
         componentVariant: $variant,
         customPropertyName: 'background-color',
       })},
@@ -151,7 +151,7 @@ const Message = styled.div<{ $variant?: string }>`
     );
     border-radius: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error-message',
+        componentName: 'general-message-message',
         componentVariant: $variant,
         customPropertyName: 'border-radius',
         customPropertyPrefix: 'base',
@@ -160,7 +160,7 @@ const Message = styled.div<{ $variant?: string }>`
     );
     color: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error-message',
+        componentName: 'general-message-message',
         componentVariant: $variant,
         customPropertyName: 'color',
       })},
@@ -175,7 +175,7 @@ const Message = styled.div<{ $variant?: string }>`
     overflow: auto;
     padding: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error-message',
+        componentName: 'general-message-message',
         componentVariant: $variant,
         customPropertyName: 'padding',
         customPropertyPrefix: 'base',
@@ -185,7 +185,7 @@ const Message = styled.div<{ $variant?: string }>`
     position: relative;
     row-gap: var(
       ${cssCustomPropertyName({
-        componentName: 'general-error-message',
+        componentName: 'general-message-message',
         componentVariant: $variant,
         customPropertyName: 'row-gap',
         customPropertyPrefix: 'base',
@@ -204,7 +204,7 @@ const Message = styled.div<{ $variant?: string }>`
     a {
       color: var(
         ${cssCustomPropertyName({
-          componentName: 'general-error-message',
+          componentName: 'general-message-message',
           componentVariant: $variant,
           customPropertyName: 'color',
         })},
@@ -240,23 +240,23 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  *
  * **Theme CSS variables:**
  *
- * - `--theme-general-error-background-color`
- * - `--theme-general-error-border-color`
- * - `--theme-general-error-box-shadow`
- * - `--theme-general-error-color-icon`
- * - `--theme-general-error-color-title`
- * - `--theme-general-error-color-text`
- * - `--theme-general-error-color-message-background`
+ * - `--theme-general-message-background-color`
+ * - `--theme-general-message-border-color`
+ * - `--theme-general-message-box-shadow`
+ * - `--theme-general-message-color-icon`
+ * - `--theme-general-message-color-title`
+ * - `--theme-general-message-color-text`
+ * - `--theme-general-message-color-message-background`
  *
  * **Base CSS variables:**
  *
- * - `--base-general-error-border-radius`
- * - `--base-general-error-padding`
- * - `--base-general-error-row-gap`
- * - `--base-general-error-message-border-radius`
- * - `--base-general-error-message-padding`
- * - `--base-general-error-message-row-gap`
- * - `--base-general-error-box-shadow`
+ * - `--base-general-message-border-radius`
+ * - `--base-general-message-padding`
+ * - `--base-general-message-row-gap`
+ * - `--base-general-message-message-border-radius`
+ * - `--base-general-message-message-padding`
+ * - `--base-general-message-message-row-gap`
+ * - `--base-general-message-box-shadow`
  */
 const GeneralMessage: React.FC<Props> = ({
   $variant,

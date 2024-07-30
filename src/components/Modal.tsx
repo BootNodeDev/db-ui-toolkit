@@ -1,4 +1,5 @@
-import React, { styled, css } from 'styled-components'
+import React from 'react'
+import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '../utils'
 
@@ -18,12 +19,14 @@ const CloseIcon = ({ ...restProps }) => (
   </svg>
 )
 
-const CloseButton = styled.button.attrs(({ className }) => ({
-  'aria-label': 'Close',
-  children: <CloseIcon />,
-  className: `closeButton ${className}`,
-  type: 'button',
-}))`
+const CloseButton = styled.button.attrs(({ className }) => {
+  return {
+    'aria-label': 'Close',
+    children: <CloseIcon />,
+    className: `closeButton ${className}`,
+    type: 'button',
+  }
+})`
   background: none;
   border: none;
   cursor: pointer;
@@ -70,14 +73,16 @@ interface Props {
  * - `--base-modal-padding`
  * - `--base-modal-border-radius`
  */
-const Modal = styled.div.attrs<Props>(({ children, onClose }) => ({
-  children: (
-    <>
-      {children}
-      {onClose ? <CloseButton onClick={() => onClose()} /> : null}
-    </>
-  ),
-}))`
+const Modal = styled.div.attrs<Props>(({ children, onClose }) => {
+  return {
+    children: (
+      <>
+        {children}
+        {onClose ? <CloseButton onClick={() => onClose()} /> : null}
+      </>
+    ),
+  }
+})`
   ${({ $variant }) => css`
     background-color: var(
       ${cssCustomPropertyName({

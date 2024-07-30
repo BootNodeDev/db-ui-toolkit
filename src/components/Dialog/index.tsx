@@ -47,6 +47,7 @@ const Dialog: FC<Props> = ({
   closeOnOutsideClick = true,
   isOpen,
   onClose,
+  ...restProps
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
@@ -103,6 +104,7 @@ const Dialog: FC<Props> = ({
       onClick={closeOnOutsideClick ? handleOutsideClick : undefined}
       onKeyDown={handleKeyDown}
       ref={dialogRef}
+      {...restProps}
     >
       {isOpen ? children : null}
     </Wrapper>

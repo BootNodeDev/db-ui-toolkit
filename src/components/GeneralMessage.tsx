@@ -228,7 +228,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * @name GeneralError
+ * @name GeneralMessage
  *
  * @description General error component.
  *
@@ -258,7 +258,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * - `--base-general-error-message-row-gap`
  * - `--base-general-error-box-shadow`
  */
-const GeneralError: React.FC<Props> = ({
+const GeneralMessage: React.FC<Props> = ({
   $variant,
   actionButton,
   icon = <AlertIcon />,
@@ -276,4 +276,4 @@ const GeneralError: React.FC<Props> = ({
   )
 }
 
-export default GeneralError
+export default GeneralMessage

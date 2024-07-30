@@ -1,7 +1,7 @@
 import React, { type FC, type MouseEventHandler, useEffect, useRef } from 'react'
 import { styled, css } from 'styled-components'
 
-import BaseGeneralError, { Props as GeneralErrorProps } from './GeneralError'
+import BaseGeneralMessage, { Props as GeneralMessageProps } from './GeneralMessage'
 import { cssCustomPropertyName } from '../utils'
 
 const CloseIcon = ({ ...restProps }) => (
@@ -36,7 +36,7 @@ const Dialog = styled.dialog<{ $variant?: string }>`
   `}
 `
 
-const GeneralError = styled(BaseGeneralError)`
+const GeneralMessage = styled(BaseGeneralMessage)`
   position: relative;
 `
 
@@ -63,20 +63,20 @@ const CloseButton = styled.button.attrs<{ $variant?: string }>({
   `}
 `
 
-interface Props extends GeneralErrorProps {
+interface Props extends GeneralMessageProps {
   $closeOnOutsideClick?: boolean
   $onClose?: () => void
 }
 
 /**
- * @name GeneralErrorDialog
+ * @name GeneralMessageDialog
  *
- * @description General error component shown in an HTML dialog element. It shares the same props as the GeneralError component plus the following:
+ * @description General error component shown in an HTML dialog element. It shares the same props as the GeneralMessage component plus the following:
  *
  * @param {() => void}  [$onClose] - An optional function to be called when the dialog is closed.
  * @param {boolean}     [$closeOnOutsideClick] - If true, the dialog will close when clicking outside of it. Default is true.
  */
-const GeneralErrorDialog: FC<Props> = ({
+const GeneralMessageDialog: FC<Props> = ({
   $closeOnOutsideClick = true,
   $onClose,
   $variant,
@@ -117,10 +117,10 @@ const GeneralErrorDialog: FC<Props> = ({
 
   return (
     <Dialog $variant={$variant} onClick={handleClickOutside} ref={dialogRef}>
-      <GeneralError $variant={$variant} {...restProps} />
+      <GeneralMessage $variant={$variant} {...restProps} />
       <CloseButton $variant={$variant} onClick={handleClose} />
     </Dialog>
   )
 }
 
-export default GeneralErrorDialog
+export default GeneralMessageDialog

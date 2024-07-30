@@ -3,7 +3,7 @@ import React from 'react'
 import { PrimaryButton } from './ButtonsDemo'
 import { ComponentGrid } from '../helpers'
 
-import { GeneralError, Title, useDialog, Modal, Text } from '../../index'
+import { GeneralMessage, Title, useDialog, Modal, Text } from '../../index'
 
 const DialogDemo = () => {
   const { Dialog, open, close } = useDialog()
@@ -12,7 +12,7 @@ const DialogDemo = () => {
     open('modal')
   }
 
-  const openGeneralErrorDialog = () => {
+  const openGeneralMessageDialog = () => {
     open('general-error')
   }
 
@@ -45,7 +45,7 @@ const DialogDemo = () => {
         </Text>
         <ComponentGrid>
           <PrimaryButton onClick={openModal}>Open modal</PrimaryButton>
-          <PrimaryButton onClick={openGeneralErrorDialog}>General Error</PrimaryButton>
+          <PrimaryButton onClick={openGeneralMessageDialog}>General Error</PrimaryButton>
         </ComponentGrid>
       </div>
       <Dialog id="modal">
@@ -67,7 +67,7 @@ const DialogDemo = () => {
         </Modal>
       </Dialog>
       <Dialog id="general-error">
-        <GeneralError
+        <GeneralMessage
           message={
             <>
               <p>

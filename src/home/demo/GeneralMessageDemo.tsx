@@ -3,14 +3,14 @@ import React from 'react'
 import { PrimaryButton } from './ButtonsDemo'
 import { ComponentGrid } from '../helpers'
 
-import { GeneralError, Title } from '../../index'
+import { GeneralMessage, Title } from '../../index'
 
-const GeneralErrorDemo = () => {
+const GeneralMessageDemo = () => {
   return (
     <div>
-      <Title>General Error</Title>
+      <Title>General Message</Title>
       <ComponentGrid>
-        <GeneralError
+        <GeneralMessage
           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec lorem
                 consectetur adipiscing elit. Nullam nec purus nec lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="Consectetur adipiscing elit"
@@ -18,7 +18,7 @@ const GeneralErrorDemo = () => {
             <PrimaryButton onClick={() => window.location.reload()}>Reload</PrimaryButton>
           }
         />
-        <GeneralError
+        <GeneralMessage
           message={
             <>
               <p>
@@ -43,4 +43,4 @@ const GeneralErrorDemo = () => {
   )
 }
 
-export default GeneralErrorDemo
+export default GeneralMessageDemo

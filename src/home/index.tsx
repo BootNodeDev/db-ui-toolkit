@@ -10,7 +10,7 @@ import CardDemo from './demo/CardDemo'
 import CopyButtonExternalLinkButtonDemo from './demo/CopyButtonExternalLinkButtonDemo'
 import DialogDemo from './demo/DialogDemo'
 import DropdownDemo from './demo/DropdownDemo'
-import GeneralErrorDemo from './demo/GeneralErrorDemo'
+import GeneralMessageDemo from './demo/GeneralMessageDemo'
 import SpinnerDemo from './demo/SpinnerDemo'
 import TextDemo from './demo/TextDemo'
 import TextfieldDemo from './demo/TextfieldDemo'
@@ -108,7 +108,7 @@ const App = () => {
             <CopyButtonExternalLinkButtonDemo />
             <DialogDemo />
             <DropdownDemo />
-            <GeneralErrorDemo />
+            <GeneralMessageDemo />
             <SpinnerDemo />
             <TextfieldDemo />
             <ToastDemo />

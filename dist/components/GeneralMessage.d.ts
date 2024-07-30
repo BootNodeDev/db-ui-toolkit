@@ -19,23 +19,23 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  *
  * **Theme CSS variables:**
  *
- * - `--theme-general-error-background-color`
- * - `--theme-general-error-border-color`
- * - `--theme-general-error-box-shadow`
- * - `--theme-general-error-color-icon`
- * - `--theme-general-error-color-title`
- * - `--theme-general-error-color-text`
- * - `--theme-general-error-color-message-background`
+ * - `--theme-general-message-background-color`
+ * - `--theme-general-message-border-color`
+ * - `--theme-general-message-box-shadow`
+ * - `--theme-general-message-color-icon`
+ * - `--theme-general-message-color-title`
+ * - `--theme-general-message-color-text`
+ * - `--theme-general-message-color-message-background`
  *
  * **Base CSS variables:**
  *
- * - `--base-general-error-border-radius`
- * - `--base-general-error-padding`
- * - `--base-general-error-row-gap`
- * - `--base-general-error-message-border-radius`
- * - `--base-general-error-message-padding`
- * - `--base-general-error-message-row-gap`
- * - `--base-general-error-box-shadow`
+ * - `--base-general-message-border-radius`
+ * - `--base-general-message-padding`
+ * - `--base-general-message-row-gap`
+ * - `--base-general-message-message-border-radius`
+ * - `--base-general-message-message-padding`
+ * - `--base-general-message-message-row-gap`
+ * - `--base-general-message-box-shadow`
  */
 declare const GeneralMessage: React.FC<Props>;
 export default GeneralMessage;

@@ -46,6 +46,7 @@ const Dialog: FC<Props> = ({
   closeOnEscape = true,
   closeOnOutsideClick = true,
   isOpen,
+  onCancel,
   onClose,
   ...restProps
 }) => {
@@ -81,6 +82,7 @@ const Dialog: FC<Props> = ({
       event.preventDefault()
 
       if (closeOnEscape) {
+        onCancel && onCancel(event)
         onClose(event)
       }
     }
@@ -93,6 +95,7 @@ const Dialog: FC<Props> = ({
     event.preventDefault()
 
     if (closeOnEscape) {
+      onCancel && onCancel(event)
       onClose(event)
     }
   }

@@ -4,17 +4,6 @@ import { styled } from 'styled-components'
 
 import { createRoot } from 'react-dom/client'
 
-import { GlobalStyles } from './GlobalStyles'
-import ButtonsDemo from './demo/ButtonsDemo'
-import CardDemo from './demo/CardDemo'
-import CopyButtonExternalLinkButtonDemo from './demo/CopyButtonExternalLinkButtonDemo'
-import DialogDemo from './demo/DialogDemo'
-import DropdownDemo from './demo/DropdownDemo'
-import GeneralMessageDemo from './demo/GeneralMessageDemo'
-import SpinnerDemo from './demo/SpinnerDemo'
-import TextDemo from './demo/TextDemo'
-import TextfieldDemo from './demo/TextfieldDemo'
-import ToastDemo from './demo/ToastDemo'
 import {
   ContainerPadding,
   Footer as BaseFooter,
@@ -26,6 +15,18 @@ import {
   SwitchThemeButton,
   Wrapper as BaseWrapper,
 } from '../index'
+import { GlobalStyles } from './GlobalStyles'
+import ButtonsDemo from './demo/ButtonsDemo'
+import CardDemo from './demo/CardDemo'
+import CopyButtonExternalLinkButtonDemo from './demo/CopyButtonExternalLinkButtonDemo'
+import DialogDemo from './demo/DialogDemo'
+import DropdownDemo from './demo/DropdownDemo'
+import GeneralMessageDemo from './demo/GeneralMessageDemo'
+import SkeletonLoadingDemo from './demo/SkeletonLoadingDemo'
+import SpinnerDemo from './demo/SpinnerDemo'
+import TextDemo from './demo/TextDemo'
+import TextfieldDemo from './demo/TextfieldDemo'
+import ToastDemo from './demo/ToastDemo'
 
 const Wrapper = styled(BaseWrapper)`
   /**
@@ -104,13 +105,14 @@ const App = () => {
           <InnerMain>
             <TextDemo />
             <ButtonsDemo />
-            <CardDemo />
-            <CopyButtonExternalLinkButtonDemo />
-            <DialogDemo />
+            <TextfieldDemo />
             <DropdownDemo />
+            <DialogDemo />
+            <CardDemo />
             <GeneralMessageDemo />
             <SpinnerDemo />
-            <TextfieldDemo />
+            <SkeletonLoadingDemo />
+            <CopyButtonExternalLinkButtonDemo />
             <ToastDemo />
           </InnerMain>
         </Main>

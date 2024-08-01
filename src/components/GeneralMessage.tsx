@@ -75,7 +75,6 @@ const Wrapper = styled.div<{ $variant?: string }>`
     flex-direction: column;
     justify-content: center;
     max-width: 100%;
-    min-width: 400px;
     padding: var(
       ${cssCustomPropertyName({
         componentName: 'general-message',
@@ -95,13 +94,14 @@ const Wrapper = styled.div<{ $variant?: string }>`
       var(--base-gap-xl, 16px)
     );
     white-space: normal;
+    width: 400px;
 
-    ${breakpointMediaQuery(
+    /* ${breakpointMediaQuery(
       'tabletPortraitStart',
       css`
         max-width: 400px;
       `,
-    )}
+    )} */
   `}
 `
 

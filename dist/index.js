@@ -586,7 +586,6 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,o,r){var n=o?o.cal
     flex-direction: column;
     justify-content: center;
     max-width: 100%;
-    min-width: 400px;
     padding: var(
       ${_e({componentName:"general-message",componentVariant:t,customPropertyName:"padding",customPropertyPrefix:"base"})},
       calc(var(--base-common-padding-xl, 16px) * 2) var(--base-common-padding-xl, 16px)
@@ -596,10 +595,11 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,o,r){var n=o?o.cal
       var(--base-gap-xl, 16px)
     );
     white-space: normal;
+    width: 400px;
 
-    ${So("tabletPortraitStart",Be`
+    /* ${So("tabletPortraitStart",Be`
         max-width: 400px;
-      `)}
+      `)} */
   `}
 `,bo=Xe.div`
   ${({$variant:t})=>Be`
@@ -1032,6 +1032,7 @@ import*as t from"react";var e={945:t=>{t.exports=function(t,e,o,r){var n=o?o.cal
     font-size: 1.4rem;
     font-weight: 400;
     height: 50px;
+    min-width: 0;
     outline: none;
     overflow: hidden;
     padding: var(

@@ -137,6 +137,7 @@ export const TextfieldCSS = css<Props>`
     font-size: 1.4rem;
     font-weight: 400;
     height: 50px;
+    min-width: 0;
     outline: none;
     overflow: hidden;
     padding: var(

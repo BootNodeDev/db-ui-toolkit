@@ -2,7 +2,6 @@ import React, { type ReactElement, type SVGProps, type HTMLAttributes } from 're
 import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '../utils'
-import { breakpointMediaQuery } from '../utils/breakpoints'
 
 const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg
@@ -95,13 +94,6 @@ const Wrapper = styled.div<{ $variant?: string }>`
     );
     white-space: normal;
     width: 400px;
-
-    /* ${breakpointMediaQuery(
-      'tabletPortraitStart',
-      css`
-        max-width: 400px;
-      `,
-    )} */
   `}
 `
 

@@ -39,8 +39,16 @@ const useDialog = (): Props => {
    * Avoids re-rendering the Dialog component every time a prop changes
    */
   const DialogComponent: FC<DialogProps> = useCallback(
-    ({ children, id, ...props }) => (
-      <Dialog id={id} isOpen={!!dialogStates[id]} onClose={() => close(id)} {...props}>
+    ({ children, id, onClose, ...props }) => (
+      <Dialog
+        id={id}
+        isOpen={!!dialogStates[id]}
+        onClose={(e) => {
+          onClose?.(e)
+          close(id)
+        }}
+        {...props}
+      >
         {children}
       </Dialog>
     ),

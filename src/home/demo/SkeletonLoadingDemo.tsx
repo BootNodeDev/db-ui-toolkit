@@ -15,6 +15,7 @@ const GeneralMessageSkeletonLoading = () => {
         padding: '32px 16px',
         rowGap: '16px',
         width: '400px',
+        maxWidth: '100%',
       }}
     >
       <SkeletonLoading

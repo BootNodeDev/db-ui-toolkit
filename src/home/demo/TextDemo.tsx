@@ -6,9 +6,7 @@ const TextDemo = () => {
   return (
     <div>
       <Title>dAppBooster UI Toolkit</Title>
-      <Text>
-        A simple and concise UI toolkit with dAppBooster&apos;s most commonly used UI components.
-      </Text>
+      <Text>dAppBooster&apos;s minimal UI toolkit.</Text>
     </div>
   )
 }

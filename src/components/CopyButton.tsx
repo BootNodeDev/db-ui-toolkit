@@ -1,9 +1,9 @@
-import React, { type ButtonHTMLAttributes, type MouseEventHandler, type SVGProps } from 'react'
+import { type MouseEventHandler, type ComponentProps, type ComponentPropsWithoutRef } from 'react'
 import { styled, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
-const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
+const Copy: React.FC<ComponentProps<'svg'>> = ({ ...restProps }) => (
   <svg
     fill="none"
     height="15"
@@ -27,9 +27,11 @@ const Copy: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   </svg>
 )
 
-const Wrapper = styled.button.attrs<{ $variant?: string }>(({ type = 'button' }) => ({
-  type,
-}))`
+const Wrapper = styled.button.attrs<{ $variant?: string }>(({ type = 'button' }) => {
+  return {
+    type,
+  }
+})`
   ${({ $variant }) => css`
     align-items: center;
     background: transparent;
@@ -128,7 +130,7 @@ const Wrapper = styled.button.attrs<{ $variant?: string }>(({ type = 'button' })
   `}
 `
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends ComponentPropsWithoutRef<'button'> {
   value: string
   $variant?: string
 }
@@ -160,10 +162,10 @@ const CopyButton: React.FC<Props> = ({
   onClick,
   value,
   ...restProps
-}) => {
+}: Props) => {
   const onCopy: MouseEventHandler<HTMLButtonElement> = (e) => {
     navigator.clipboard.writeText(value)
-    onClick && onClick(e)
+    onClick?.(e)
   }
 
   return (

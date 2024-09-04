@@ -1,16 +1,19 @@
-import React, { type FC, type ImgHTMLAttributes } from 'react'
+import { type FC, type ComponentPropsWithoutRef } from 'react'
 import { styled } from 'styled-components'
 
-import LogoDark from './assets/logo-dark.svg'
-import LogoLight from './assets/logo-light.svg'
+import LogoDark from '@/src/components/Logo/assets/logo-dark.svg'
+import LogoLight from '@/src/components/Logo/assets/logo-light.svg'
 
 const Wrapper = styled.img.attrs(({ alt = 'Logo' }) => ({
   alt,
 }))`
-  --base-logo: url(${LogoLight});
+  /**
+   * Encoded for easier exporting
+   */
+  --base-logo: url('data:image/svg+xml;base64,${LogoLight}');
 
   [data-theme='dark'] & {
-    --base-logo: url(${LogoDark});
+    --base-logo: url('data:image/svg+xml;base64,${LogoDark}');
   }
 
   content: var(--base-logo);
@@ -23,8 +26,6 @@ const Wrapper = styled.img.attrs(({ alt = 'Logo' }) => ({
  *
  * @description Default dAppBooster logo
  */
-const Logo: FC<ImgHTMLAttributes<HTMLImageElement>> = ({ ...restProps }) => (
-  <Wrapper {...restProps} />
-)
+const Logo: FC<ComponentPropsWithoutRef<'img'>> = ({ ...restProps }) => <Wrapper {...restProps} />
 
 export default Logo

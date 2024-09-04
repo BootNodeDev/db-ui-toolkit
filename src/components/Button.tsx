@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
 /**
  * Common button styles. You can use a combination of these to make any

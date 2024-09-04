@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components'
 
-import { Direction, Position } from './index'
-import { cssCustomPropertyName } from '../../utils'
+import { Direction, Position } from '@/src/components/Dropdown/index'
+import { cssCustomPropertyName } from '@/src/utils'
 
 interface ItemsProps {
   $direction?: Direction

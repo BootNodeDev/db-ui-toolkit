@@ -1,7 +1,7 @@
-import React, { type SVGProps } from 'react'
+import { type ComponentProps } from 'react'
 import { styled, keyframes, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
 const spin = keyframes`
   0% {
@@ -36,8 +36,8 @@ const Wrapper = styled.svg<{ $variant?: string }>`
   `}
 `
 
-interface Props extends SVGProps<SVGSVGElement> {
-  $strokeWidth?: string
+interface Props extends ComponentProps<'svg'> {
+  $strokeWidth?: number
   $variant?: string
   $size?: number
 }
@@ -59,7 +59,12 @@ interface Props extends SVGProps<SVGSVGElement> {
  *
  * - `--base-spinner-animation-time`
  */
-const Spinner: React.FC<Props> = ({ $size = 50, $strokeWidth = 8, $variant, ...restProps }) => (
+const Spinner: React.FC<Props> = ({
+  $size = 50,
+  $strokeWidth = 8,
+  $variant,
+  ...restProps
+}: Props) => (
   <Wrapper
     $variant={$variant}
     height={`${$size}`}

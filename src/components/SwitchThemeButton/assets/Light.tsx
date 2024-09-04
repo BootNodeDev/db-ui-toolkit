@@ -1,4 +1,4 @@
-import React, { type FC, type SVGProps } from 'react'
+import { type FC, type SVGProps } from 'react'
 import { styled } from 'styled-components'
 
 const Wrapper = styled.svg`

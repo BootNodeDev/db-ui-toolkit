@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "ESNext",
-    "moduleResolution": "node",
-    "outDir": "dist",
+    "moduleResolution": "bundler",
+    "outDir": "./dist",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES6"
+    "target": "ESNext",
+    "paths": {
+      "@/src/*": ["./src/*"]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "demo", "src/home"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

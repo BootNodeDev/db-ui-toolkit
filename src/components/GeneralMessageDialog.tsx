@@ -1,8 +1,8 @@
-import React, { type FC, type MouseEventHandler, useEffect, useRef } from 'react'
+import { type FC, type MouseEventHandler, useEffect, useRef } from 'react'
 import { styled, css } from 'styled-components'
 
-import BaseGeneralMessage, { Props as GeneralMessageProps } from './GeneralMessage'
-import { cssCustomPropertyName } from '../utils'
+import BaseGeneralMessage, { Props as GeneralMessageProps } from '@/src/components/GeneralMessage'
+import { cssCustomPropertyName } from '@/src/utils'
 
 const CloseIcon = ({ ...restProps }) => (
   <svg

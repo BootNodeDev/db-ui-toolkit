@@ -24,7 +24,8 @@
     "lint:fix": "eslint --fix .",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
     "stylelint": "stylelint .",
-    "stylelint:fix": "stylelint --fix ."
+    "stylelint:fix": "stylelint --fix .",
+    "prepare": "husky"
   },
   "dependencies": {
     "copy-webpack-plugin": "^12.0.2",
@@ -50,6 +51,8 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-sort-destructure-keys": "^2.0.0",
     "globals": "^15.9.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
     "postcss-styled-syntax": "^0.6.4",
     "prettier": "^3.3.3",
     "stylelint": "^16.9.0",

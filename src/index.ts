@@ -42,12 +42,12 @@ export { default as Toast } from '@/src/components/Toast'
 export { default as Wrapper } from '@/src/components/Wrapper'
 
 /**
- * Hooks
+ * Exported hooks
  */
 export { default as useDropdown } from '@/src/hooks/useDropdown'
 
 /**
- * Utils
+ * Exported utils
  */
 export { breakpointMediaQuery, breakpoints, type Breakpoint } from '@/src/utils/breakpoints'
 export { default as ContainerPadding } from '@/src/utils/ContainerPadding'

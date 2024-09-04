@@ -2,6 +2,7 @@
 
 ![Static Badge](https://img.shields.io/badge/db-UIToolkit-green?style=flat&color=%238b46a4)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/BootNodeDev/db-ui-toolkit?style=flat&color=%238b46a4) ![GitHub top language](https://img.shields.io/github/languages/top/bootnodedev/db-ui-toolkit) ![GitHub branch status](https://img.shields.io/github/checks-status/bootnodedev/db-ui-toolkit/main) ![GitHub License](https://img.shields.io/github/license/bootnodedev/db-ui-toolkit)
+
 [dAppBooster](https://github.com/BootNodeDev/dAppBooster) common UI components
 
 ## Installation
@@ -60,13 +61,14 @@ You can try the following workflow:
 - One console running `dAppBoosterLandingPage` (`pnpm dev` will open it on http://localhost:5173/)
 - A second one for watching `dAppBooster UI Toolkit`'s changes, also using `pnpm dev`
 
-## Deployment
+## Development / Deployment
 
-- I suggest working in a branch different to `main` for this, i.e.: `feat/new-feature`
+- We suggest working in a branch different to `main` for this, i.e.: `feat/new-feature`
 - Make any changes you want.
-- Test your changes. Be thorough. Make sure that everything works by itself in the preview AND in `dAppBooster`.
-- Update the version in `package.json`.
+- Test your changes. Be thorough. Make sure that everything works in `dAppBooster`.
+- Commit, push, create a PR, merge into `main`
+- Checkout `main` and pull the changes.
+- Update the [version](https://semver.org/) in `package.json`.
 - Run `pnpm build`.
-- Commit and push your changes, and merge into `main`
 - Once everything is stable and ready for release [tag a new version](https://semver.org/) so you don't break everything for everyone.
 - Finally, run `npm publish` to deploy your changes to NPM.

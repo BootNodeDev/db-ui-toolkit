@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
 /**
  * @name Toast

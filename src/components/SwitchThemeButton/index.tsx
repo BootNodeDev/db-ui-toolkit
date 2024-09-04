@@ -1,8 +1,8 @@
 import React, { type ButtonHTMLAttributes } from 'react'
 import { styled, css, keyframes } from 'styled-components'
 
-import Dark from './assets/Dark'
-import Light from './assets/Light'
+import Dark from '@/src/components/SwitchThemeButton/assets/Dark'
+import Light from '@/src/components/SwitchThemeButton/assets/Light'
 
 const IconWrapper = styled.div`
   background-color: transparent;
@@ -121,8 +121,6 @@ const DarkIcon = styled(Dark)`
   }
 `
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
-
 /**
  * @name SwitchThemeButton for dAppBooster
  *
@@ -130,7 +128,10 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
  *
  * @param {MouseEventHandler<HTMLButtonElement>} onClick - Function that switches the theme.
  */
-const SwitchThemeButton: React.FC<Props> = ({ onClick, ...restProps }) => {
+const SwitchThemeButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+  onClick,
+  ...restProps
+}) => {
   return (
     <Wrapper onClick={onClick} {...restProps}>
       <IconWrapperDark>

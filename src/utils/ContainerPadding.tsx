@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-import { breakpointMediaQuery } from './breakpoints'
+import { breakpointMediaQuery } from '@/src/utils/breakpoints'
 
 /**
  * Responsive container padding for all breakpoints

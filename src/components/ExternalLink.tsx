@@ -1,7 +1,7 @@
 import React, { type AnchorHTMLAttributes, type SVGProps } from 'react'
 import { styled, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
 const Link: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg

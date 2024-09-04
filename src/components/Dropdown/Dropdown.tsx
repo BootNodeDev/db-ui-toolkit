@@ -13,9 +13,9 @@ import React, {
   useState,
 } from 'react'
 
-import Items, { BaseItems } from './Items'
-import { Wrapper } from './Wrapper'
-import { Direction, Position } from './index'
+import Items, { BaseItems } from '@/src/components/Dropdown/Items'
+import { Wrapper } from '@/src/components/Dropdown/Wrapper'
+import { Direction, Position } from '@/src/components/Dropdown/index'
 
 export interface DropdownExposedProps {
   close: () => void
@@ -68,6 +68,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
     {
       $variant,
       button,
+      className,
       closeOnClick = true,
       defaultActiveItem = -1,
       direction = 'downwards',
@@ -76,8 +77,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
       items,
       onItemSelect,
       position = 'left',
-      ...restProps
-    },
+    }: Options,
     ref,
   ) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -190,7 +190,7 @@ const Dropdown: FC<Options> = forwardRef<DropdownExposedProps, Omit<Options, 're
     }))
 
     return (
-      <Wrapper $isOpen={isOpen} disabled={disabled} ref={node} {...restProps}>
+      <Wrapper $isOpen={isOpen} className={className} disabled={disabled} ref={node}>
         {hydrateButton(button)}
         <BaseItems
           $direction={direction}

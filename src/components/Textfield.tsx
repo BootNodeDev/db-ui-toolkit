@@ -1,7 +1,7 @@
 import { type InputHTMLAttributes } from 'react'
 import { styled, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
 export type TextfieldStatus = 'error' | 'ok' | undefined
 

@@ -1,7 +1,7 @@
 import React, { type SVGProps } from 'react'
 import { styled, keyframes, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
 const spin = keyframes`
   0% {

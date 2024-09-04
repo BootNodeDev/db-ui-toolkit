@@ -1,7 +1,7 @@
 import React, { type ReactElement, type SVGProps, type HTMLAttributes } from 'react'
 import { styled, css } from 'styled-components'
 
-import { cssCustomPropertyName } from '../utils'
+import { cssCustomPropertyName } from '@/src/utils'
 
 const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
   <svg

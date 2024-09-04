@@ -1,5 +1,7 @@
 # dAppBooster UI Toolkit
 
+![Static Badge](https://img.shields.io/badge/db-UIToolkit-green?style=flat&color=%238b46a4)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/BootNodeDev/db-ui-toolkit?style=flat&color=%238b46a4) ![GitHub top language](https://img.shields.io/github/languages/top/bootnodedev/db-ui-toolkit) ![GitHub branch status](https://img.shields.io/github/checks-status/bootnodedev/db-ui-toolkit/main) ![GitHub License](https://img.shields.io/github/license/bootnodedev/db-ui-toolkit)
 [dAppBooster](https://github.com/BootNodeDev/dAppBooster) common UI components
 
 ## Installation

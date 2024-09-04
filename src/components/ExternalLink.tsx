@@ -1,9 +1,9 @@
-import React, { type AnchorHTMLAttributes, type SVGProps } from 'react'
+import { type ComponentProps } from 'react'
 import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '@/src/utils'
 
-const Link: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
+const Link: React.FC<ComponentProps<'svg'>> = ({ ...restProps }) => (
   <svg
     fill="none"
     height="15"
@@ -128,7 +128,7 @@ const Wrapper = styled.a<{ $variant?: string }>`
   `}
 `
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface Props extends ComponentProps<'a'> {
   $variant?: string
 }
 
@@ -157,7 +157,7 @@ const ExternalLink: React.FC<Props> = ({
   children = <Link />,
   target = '_blank',
   ...restProps
-}) => {
+}: Props) => {
   return (
     <Wrapper $variant={$variant} target={target} {...restProps}>
       {children}

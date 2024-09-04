@@ -1,11 +1,11 @@
-import { type InputHTMLAttributes } from 'react'
+import { type ComponentProps } from 'react'
 import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '@/src/utils'
 
 export type TextfieldStatus = 'error' | 'ok' | undefined
 
-export interface Props extends InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends ComponentProps<'input'> {
   $status?: TextfieldStatus | undefined
   $variant?: string
 }

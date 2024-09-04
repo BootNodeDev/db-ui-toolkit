@@ -5,7 +5,11 @@ export default defineConfig({
   dts: true,
   entry: ['src/index.ts'],
   format: ['esm'],
-  minify: true,
+  keepNames: false,
+  loader: {
+    '.svg': 'base64',
+  },
+  minify: 'terser',
   outDir: 'dist',
   splitting: false,
   target: 'esnext',

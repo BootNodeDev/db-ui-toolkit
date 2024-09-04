@@ -1,9 +1,9 @@
-import React, { type ReactElement, type SVGProps, type HTMLAttributes } from 'react'
+import { type ReactElement, type ComponentProps, type ComponentPropsWithoutRef } from 'react'
 import { styled, css } from 'styled-components'
 
 import { cssCustomPropertyName } from '@/src/utils'
 
-const AlertIcon: React.FC<SVGProps<SVGSVGElement>> = ({ ...restProps }) => (
+const AlertIcon: React.FC<ComponentProps<'svg'>> = ({ ...restProps }) => (
   <svg
     fill="none"
     height="80"
@@ -211,7 +211,7 @@ const Message = styled.div<{ $variant?: string }>`
   `}
 `
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props extends ComponentPropsWithoutRef<'div'> {
   $variant?: string
   actionButton?: ReactElement<HTMLButtonElement>
   icon?: ReactElement
@@ -257,7 +257,7 @@ const GeneralMessage: React.FC<Props> = ({
   message = 'Something went wrong.',
   title = 'Error',
   ...restProps
-}) => {
+}: Props) => {
   return (
     <Wrapper $variant={$variant} {...restProps}>
       <Icon $variant={$variant}>{icon}</Icon>

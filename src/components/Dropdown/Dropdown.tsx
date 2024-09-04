@@ -1,12 +1,12 @@
-import React, {
+import {
+  Fragment,
   cloneElement,
   createRef,
   forwardRef,
+  type ComponentPropsWithoutRef,
   type FC,
-  type HTMLAttributes,
   type ReactElement,
   type RefAttributes,
-  Fragment,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -22,7 +22,7 @@ export interface DropdownExposedProps {
 }
 
 export interface Options
-  extends HTMLAttributes<HTMLDivElement>,
+  extends ComponentPropsWithoutRef<'div'>,
     RefAttributes<DropdownExposedProps> {
   $variant?: string
   button: ReactElement<HTMLButtonElement>

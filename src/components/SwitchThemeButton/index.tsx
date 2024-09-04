@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes } from 'react'
+import { type ComponentPropsWithoutRef } from 'react'
 import { styled, css, keyframes } from 'styled-components'
 
 import Dark from '@/src/components/SwitchThemeButton/assets/Dark'
@@ -128,10 +128,10 @@ const DarkIcon = styled(Dark)`
  *
  * @param {MouseEventHandler<HTMLButtonElement>} onClick - Function that switches the theme.
  */
-const SwitchThemeButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+const SwitchThemeButton: React.FC<ComponentPropsWithoutRef<'button'>> = ({
   onClick,
   ...restProps
-}) => {
+}: ComponentPropsWithoutRef<'button'>) => {
   return (
     <Wrapper onClick={onClick} {...restProps}>
       <IconWrapperDark>

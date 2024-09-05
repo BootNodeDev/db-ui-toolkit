@@ -1,8 +1,9 @@
 {
-  "name": "db-ui-toolkit",
-  "version": "0.3.10",
+  "name": "@bootnodedev/db-ui-toolkit",
+  "version": "1.0.0-beta.2",
   "description": "dAppBooster common UI components",
   "author": "BootNode",
+  "private": false,
   "license": "MIT",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -28,7 +29,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "copy-webpack-plugin": "^12.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "styled-components": "^6.1.13"
@@ -65,6 +65,11 @@
     "ui",
     "toolkit",
     "BootNode",
-    "dAppBooster"
+    "dAppBooster",
+    "ethereum",
+    "blockchain",
+    "web3",
+    "typescript",
+    "react"
   ]
 }
